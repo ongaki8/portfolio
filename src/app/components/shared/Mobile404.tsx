@@ -136,7 +136,7 @@ useEffect(() => {
                   <div>
                     <h3 className="text-sm font-bold text-red-700 text-center">{dev404Data.errorMessage}</h3>
                     <p className="text-xs text-gray-500 dark:text-gray-300 text-center mt-1">
-                      Tap show terminal to debug
+                      Tap to show terminal
                     </p>
                   </div>
                 </div>
