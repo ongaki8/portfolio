@@ -204,7 +204,7 @@ export default function ProjectsFolder() {
             </div>
 
             {/* Updates Log Section */}
-            <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700 p-3">
+            <div className="bg-gray-200/50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700 p-3">
               <div className="flex items-center gap-2 mb-2">
                 <Terminal className="text-blue-500" size={14} />
                 <h3 className="font-mono font-medium text-xs text-gray-700 dark:text-gray-300">UPDATES_LOG</h3>
@@ -237,7 +237,7 @@ export default function ProjectsFolder() {
             </div>
 
             {/* TODO Checklist Section */}
-            <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700 p-3">
+            <div className="bg-gray-200/50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700 p-3">
               <div className="flex items-center gap-2 mb-2">
                 <LayoutList className="text-green-500" size={14} />
                 <h3 className="font-mono font-medium text-xs text-gray-700 dark:text-gray-300">TASKS_QUEUE</h3>
@@ -288,11 +288,11 @@ export default function ProjectsFolder() {
                   onClick={() => toggleNoteExpand(index)}
                 >
                   <div className="flex items-center gap-1.5 mb-2">
-                      <Lightbulb className="text-purple-500" size={14} />
+                      <Lightbulb className="text-purple-600 dark:text-purple-500" size={14} />
                       <h4 className="text-xs font-mono font-medium text-gray-500 dark:text-gray-300">INNOVATION_STACK</h4>
                     </div>
 
-                  <div className="flex-1 border-b border-gray-300 dark:border-gray-600 mb-2"></div>
+                  <div className="flex-1 border-b border-gray-200 dark:border-gray-600 mb-2"></div>
                   <div className="flex justify-between items-start">
                     <div>
                       <h3 className="text-sm font-mono font-medium text-gray-800 dark:text-white flex items-center flex-wrap gap-1">
@@ -334,21 +334,21 @@ export default function ProjectsFolder() {
                       className="mt-2 overflow-hidden"
                     >
                           <div className="pt-1 space-y-2">
-                            <div className="bg-transparent border border-gray-500 rounded-lg">
+                            <div className="bg-gray-100/50 dark:bg-transparent border border-gray-300/50 dark:border-gray-500 rounded-lg">
                               <div className="p-3">
 
                             <div>
-                              <h4 className="text-[10px] font-mono font-medium text-gray-500 dark:text-blue-500 mb-0.5">DESCRIPTION</h4>
+                              <h4 className="text-[10px] font-mono font-medium text-purple-600 dark:text-purple-500 mb-0.5">DESCRIPTION</h4>
                               <p className="text-xs text-gray-600 dark:text-gray-300 mb-2">{note.content}</p>
                             </div>
                             
                             <div>
-                              <h4 className="text-[10px] font-mono font-medium text-gray-500 dark:text-blue-500 mb-0.5">TECH_STACK</h4>
+                              <h4 className="text-[10px] font-mono font-medium text-purple-600 dark:text-purple-500 mb-0.5">TECH_STACK</h4>
                               <div className="flex flex-wrap gap-1">
                                 {note.techStack.map((tech, techIndex) => (
                                   <span 
                                     key={techIndex}
-                                    className="px-1.5 py-0.5 bg-purple-100 dark:bg-gray-900/30 text-purple-800 dark:text-gray-200 text-[10px] font-mono rounded"
+                                    className="px-1.5 py-0.5 bg-gray-400/30 dark:bg-gray-900/30 text-gray-700 dark:text-gray-200 text-[10px] font-mono rounded"
                                   >
                                     {tech}
                                   </span>
@@ -392,10 +392,6 @@ export default function ProjectsFolder() {
           <div className="space-y-4">
             <div className="flex flex-col gap-5">
               <div>
-                <h2 className="text-lg font-mono text-gray-800 dark:text-gray-200 mb-3 flex items-center gap-1.5">
-                  <Box className="text-blue-500" size={16} />
-                  3D_PORTFOLIO
-                </h2>
                 
                 <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700 mb-4">
                   <div className="flex items-center gap-2 mb-3">
@@ -403,7 +399,7 @@ export default function ProjectsFolder() {
                       <GalleryVerticalEnd className="text-blue-500 dark:text-blue-400" size={20} />
                     </div>
                     <div>
-                      <h3 className="text-base font-mono font-medium text-gray-800 dark:text-white">IMMERSIVE_UI</h3>
+                      <h3 className="text-base font-mono font-medium text-gray-800 dark:text-white">3D_PORTFOLIO</h3>
                       <p className="text-[10px] font-mono text-blue-500 dark:text-blue-500">Status: <span className="text-blue-500">In Progress</span></p>
                     </div>
                   </div>
@@ -421,7 +417,7 @@ export default function ProjectsFolder() {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.1 }}
                       >
-                        <h4 className="font-mono text-[10px] font-medium text-gray-500 dark:text-blue-500">
+                        <h4 className="font-mono text-[10px] font-medium text-blue-500 dark:text-blue-500">
                           TECH_STACK
                         </h4>
                       </motion.div>
@@ -534,14 +530,14 @@ export default function ProjectsFolder() {
               </div>
               
               <div>
-                <div className="bg-gray-800 rounded-lg overflow-hidden border border-gray-700 mb-5">
+                <div className="bg-gray-200/20 dark:bg-gray-800 rounded-lg overflow-hidden border border-gray-300 dark:border-gray-700 mb-5">
                   <div className="p-1.5 bg-gray-700 flex gap-1">
                     <div className="w-1.5 h-1.5 rounded-full bg-red-500"></div>
                     <div className="w-1.5 h-1.5 rounded-full bg-yellow-500"></div>
                     <div className="w-1.5 h-1.5 rounded-full bg-green-500"></div>
                   </div>
                   <div className="p-3">
-                    <div className="font-mono text-[10px] text-gray-400 mb-3">// CONCEPT_MODEL</div>
+                    <div className="font-mono text-[10px] text-gray-500 dark:text-gray-500 mb-3">// CONCEPT_MODEL</div>
                     <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
                       <Image
                         src="/folder/concept.jpg"
@@ -553,14 +549,14 @@ export default function ProjectsFolder() {
                   </div>
                 </div>
                 
-                <div className="bg-gray-800 rounded-lg overflow-hidden border border-gray-700">
+                <div className="bg-gray-200/20 dark:bg-gray-800 rounded-lg overflow-hidden border border-gray-300 dark:border-gray-700">
                   <div className="p-1.5 bg-gray-700 flex gap-1">
                     <div className="w-1.5 h-1.5 rounded-full bg-red-500"></div>
                     <div className="w-1.5 h-1.5 rounded-full bg-yellow-500"></div>
                     <div className="w-1.5 h-1.5 rounded-full bg-green-500"></div>
                   </div>
                   <div className="p-3">
-                    <div className="font-mono text-[10px] text-gray-400 mb-3">// LOCALHOST:3000</div>
+                    <div className="font-mono text-[10px] text-gray-500 dark:text-gray-500 mb-3">// LOCALHOST:3000</div>
                     <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
                       <Image
                         src="/folder/real-model.jpg"
@@ -683,7 +679,7 @@ export default function ProjectsFolder() {
                 <div className="grid grid-cols-1 gap-3 w-full mb-4">
                   {/* TECH STACK SECTION */}
                   <div className="relative p-4 rounded-lg bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
-                    <h4 className="font-mono font-medium text-xs text-gray-500 dark:text-[#c4a39f] mb-4 text-center">TECH_STACK</h4>
+                    <h4 className="font-mono font-medium text-xs text-[#c4a39f] dark:text-[#c4a39f] mb-4 text-center">TECH_STACK</h4>
 
                     {/* Interactive tech stack bubbles */}
                     <div className="flex flex-wrap justify-center gap-2">
@@ -716,7 +712,7 @@ export default function ProjectsFolder() {
                           >
                             {tech.icon}
                           </motion.div>
-                          <span className="text-[10px] font-medium dark:text-gray-200 text-center">{tech.name}</span>
+                          <span className="text-[8px] font-regular dark:text-gray-200 text-center">{tech.name}</span>
                         </motion.div>
                       ))}
                     </div>
@@ -724,7 +720,7 @@ export default function ProjectsFolder() {
 
                   {/* KEY FEATURES */}
                   <div className="relative p-4 rounded-lg bg-transparent backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
-                    <h4 className="font-mono font-medium text-xs text-gray-500 dark:text-[#c4a39f] mb-3 text-center">
+                    <h4 className="font-mono font-medium text-xs text-[#c4a39f] dark:text-[#c4a39f] mb-3 text-center">
                       KEY_FEATURES
                     </h4>
 
@@ -760,7 +756,7 @@ export default function ProjectsFolder() {
                           >
                             •
                           </motion.div>
-                          <span className="text-xs font-medium dark:text-gray-200">{feature}</span>
+                          <span className="text-xs font-medium  text-gray-600 dark:text-gray-200">{feature}</span>
                         </motion.li>
                       ))}
                     </ul>
@@ -770,7 +766,7 @@ export default function ProjectsFolder() {
             </div>
 
             <div className="rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 shadow-md">
-                <div className="relative w-full h-10 overflow-hidden"> {/* Set a fixed height, e.g., h-40 */}
+                <div className="relative w-full h-10 overflow-hidden"> 
                     <Image
                     src="/folder/trendsetterbabe.png"
                     alt="Trendsetter Babe Shopify Store"
@@ -841,43 +837,52 @@ export default function ProjectsFolder() {
                 <div className="p-3 bg-[#f8fafc] dark:bg-gray-800 border border-[#e2e8f0] dark:border-gray-700 rounded-lg">
                   <h4 className="font-mono text-[10px] text-gray-500 dark:text-gray-400 mb-2">ALERT_FLOW</h4>
                   <div className="relative">
-                    {/* Vertical timeline line */}
+
+                    {/* Vertical Line */}
                     <div className="absolute left-3 h-full w-px bg-gradient-to-b from-[#117bae]/30 via-[#117bae]/50 to-[#117bae]/30 dark:from-[#117bae]/20 dark:via-[#117bae]/40 dark:to-[#117bae]/20"></div>
                     
                     {/* Timeline steps with animation */}
                     <div className="space-y-4 pl-6">
-                      <div className="relative group">
-                        <div className="absolute -left-5 top-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#117bae] text-white shadow-md group-hover:scale-110 transition-transform duration-200">
-                          <span className="text-[10px] font-bold">1</span>
-                        </div>
-                        <div className="text-xs font-mono font-medium text-gray-800 dark:text-white group-hover:text-[#117bae] transition-colors">Alert Triggered</div>
-                        <p className="text-[10px] text-gray-500 dark:text-gray-400">User presses emergency button</p>
-                      </div>
-                      
-                      <div className="relative group">
-                        <div className="absolute -left-5 top-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#117bae] text-white shadow-md group-hover:scale-110 transition-transform duration-200">
-                          <span className="text-[10px] font-bold">2</span>
-                        </div>
-                        <div className="text-xs font-mono font-medium text-gray-800 dark:text-white group-hover:text-[#117bae] transition-colors">Role Targeting</div>
-                        <p className="text-[10px] text-gray-500 dark:text-gray-400">System identifies appropriate responders</p>
-                      </div>
-                      
-                      <div className="relative group">
-                        <div className="absolute -left-5 top-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#117bae] text-white shadow-md group-hover:scale-110 transition-transform duration-200">
-                          <span className="text-[10px] font-bold">3</span>
-                        </div>
-                        <div className="text-xs font-mono font-medium text-gray-800 dark:text-white group-hover:text-[#117bae] transition-colors">Push Notification</div>
-                        <p className="text-[10px] text-gray-500 dark:text-gray-400">Instant delivery to all assigned devices</p>
-                      </div>
-                      
-                      <div className="relative group">
-                        <div className="absolute -left-5 top-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#117bae] text-white shadow-md group-hover:scale-110 transition-transform duration-200">
-                          <span className="text-[10px] font-bold">4</span>
-                        </div>
-                        <div className="text-xs font-mono font-medium text-gray-800 dark:text-white group-hover:text-[#117bae] transition-colors">Response Tracking</div>
-                        <p className="text-[10px] text-gray-500 dark:text-gray-400">System monitors acknowledgments in real-time</p>
-                      </div>
-                    </div>
+  <div className="relative group">
+    <div className="absolute -left-5 top-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#117bae] text-white shadow-md group-hover:scale-110 transition-transform duration-200">
+      <span className="text-[10px] font-bold">1</span>
+    </div>
+    <div className="ml-3">
+      <div className="text-xs font-mono font-medium text-gray-800 dark:text-white group-hover:text-[#117bae] transition-colors">Alert Triggered</div>
+      <p className="text-[10px] text-gray-500 dark:text-gray-400">User presses emergency button</p>
+    </div>
+  </div>
+  
+  <div className="relative group">
+    <div className="absolute -left-5 top-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#117bae] text-white shadow-md group-hover:scale-110 transition-transform duration-200">
+      <span className="text-[10px] font-bold">2</span>
+    </div>
+    <div className="ml-3">
+      <div className="text-xs font-mono font-medium text-gray-800 dark:text-white group-hover:text-[#117bae] transition-colors">Role Targeting</div>
+      <p className="text-[10px] text-gray-500 dark:text-gray-400">System identifies appropriate responders</p>
+    </div>
+  </div>
+  
+  <div className="relative group">
+    <div className="absolute -left-5 top-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#117bae] text-white shadow-md group-hover:scale-110 transition-transform duration-200">
+      <span className="text-[10px] font-bold">3</span>
+    </div>
+    <div className="ml-3">
+      <div className="text-xs font-mono font-medium text-gray-800 dark:text-white group-hover:text-[#117bae] transition-colors">Push Notification</div>
+      <p className="text-[10px] text-gray-500 dark:text-gray-400">Instant delivery to all assigned devices</p>
+    </div>
+  </div>
+  
+  <div className="relative group">
+    <div className="absolute -left-5 top-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#117bae] text-white shadow-md group-hover:scale-110 transition-transform duration-200">
+      <span className="text-[10px] font-bold">4</span>
+    </div>
+    <div className="ml-3">
+      <div className="text-xs font-mono font-medium text-gray-800 dark:text-white group-hover:text-[#117bae] transition-colors">Response Tracking</div>
+      <p className="text-[10px] text-gray-500 dark:text-gray-400">System monitors acknowledgments in real-time</p>
+    </div>
+  </div>
+</div>
                   </div>
                 </div>
 

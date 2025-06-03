@@ -65,8 +65,8 @@ useEffect(() => {
   }
 }, [displayedText]);
 
-  return (
-    <div className="h-full bg-gradient-to-br from-gray-900 to-gray-800 p-4 overflow-auto">
+    return (
+    <div className="h-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 p-4 overflow-auto">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -77,18 +77,20 @@ useEffect(() => {
           <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600 mb-2">
             BUILD_IN_PROGRESS
           </h1>
-          <p className="text-gray-400 font-mono text-sm">
+          <p className="text-gray-500 dark:text-gray-400 font-mono text-sm">
             {`// This page is still in the build queue. Check back later.`}
           </p>
         </motion.div>
 
-        <div className="h-screen text-[#e2e8f0] font-mono flex items-start p-4 mt-10">
-          <div className="w-full rounded-xl overflow-hidden bg-[#1a202c] border border-[#2d3748]">
+        <hr className="border-t border-gray-300 dark:border-gray-700 my-0" />
+
+        <div className="text-gray-800 dark:text-[#e2e8f0] font-mono flex items-start p-4 mt-6 mb-4">
+          <div className="w-full rounded-xl overflow-hidden bg-gray-100 dark:bg-[#1a202c] border border-gray-300 dark:border-[#2d3748]">
             {/* Mobile Window Header */}
             <div className="bg-[#2d3748] px-4 py-3 flex items-center justify-center relative">
               <div className="absolute left-4 flex items-center space-x-2">
-                <div className="text-xs text-[#a0aec0]">←</div>
-                <div className="text-xs text-[#a0aec0]">→</div>
+                <div className="text-xs text-gray-400 dark:text-[#a0aec0]">←</div>
+                <div className="text-xs text-gray-400 dark:text-[#a0aec0]">→</div>
               </div>
               <div className="text-xs text-[#a0aec0]">mobile-debug</div>
               <div className="absolute right-4">
@@ -97,7 +99,7 @@ useEffect(() => {
             </div>
 
             {/* Mobile Status Bar */}
-            <div className="bg-[#1a202c] px-3 py-1 flex justify-between items-center border-b border-[#2d3748]">
+            <div className="bg-[#1a202c] px-3 py-1 flex justify-between items-center border-b border-gray-300 dark:border-[#2d3748]">
               <div className="text-[10px] text-[#a0aec0]">CONSOLE</div>
               <div className="flex space-x-1">
                 <div className="text-[10px] text-[#a0aec0]">TypeScript</div>
@@ -108,11 +110,12 @@ useEffect(() => {
             <div className="p-4">
               {/* Code Editor */}
               <div className="p-4">
-                <div className="bg-[#0d1117] rounded-lg p-3 mb-4 border border-[#30363d] h-64 overflow-hidden">
-                  <div className="text-xs text-[#8b949e] mb-2">pageData.tsx</div>
+                <div className="bg-gray-200 dark:bg-[#0d1117] rounded-lg p-3 mb-4 border border-gray-300 dark:border-[#30363d] h-64 overflow-hidden">
+                  <div className="text-xs text-gray-400 dark:text-[#8b949e] mb-2">pageData.tsx</div>
                   <pre 
-                  ref={codeRef}
-                    className="text-xs whitespace-pre-wrap overflow-auto h-[calc(100%-20px)]">
+                    ref={codeRef}
+                    className="text-xs whitespace-pre-wrap overflow-auto h-[calc(100%-20px)]"
+                  >
                     <code>
                       {displayedText}
                       <motion.span
@@ -128,11 +131,11 @@ useEffect(() => {
               </div>
 
               {/* Error Message */}
-              <div className="ml-4 mr-4 p-4 rounded-lg bg-transparent border border-red-800 mb-8">
+              <div className="ml-4 mr-4 p-4 rounded-lg bg-transparent border border-red-700 mb-8">
                 <div className="items-center">
                   <div>
-                    <h3 className="text-sm font-bold text-red-800 text-center">{dev404Data.errorMessage}</h3>
-                    <p className="text-xs text-gray-300 text-center mt-1">
+                    <h3 className="text-sm font-bold text-red-700 text-center">{dev404Data.errorMessage}</h3>
+                    <p className="text-xs text-gray-500 dark:text-gray-300 text-center mt-1">
                       Tap show terminal to debug
                     </p>
                   </div>
@@ -142,7 +145,7 @@ useEffect(() => {
               {/* Terminal Toggle */}
               <button 
                 onClick={() => setShowTerminal(!showTerminal)}
-                className="w-full py-2 px-3 bg-[#2d3748] rounded-lg text-xs mb-2 border border-[#4a5568] text-left"
+                className="w-full py-2 px-3 bg-[#2d3748] dark:bg-[#2d3748] rounded-lg text-xs mb-2 border border-gray-300 dark:border-[#4a5568] text-[#a0aec0] text-left"
               >
                 $ {showTerminal ? 'hide terminal' : 'show terminal'}
               </button>
@@ -153,17 +156,17 @@ useEffect(() => {
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: 'auto', opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
-                  className="bg-[#0a0a0a] rounded-lg overflow-hidden border border-[#333]"
+                  className="bg-gray-200 dark:bg-[#0a0a0a] rounded-lg overflow-hidden border border-gray-300 dark:border-[#333]"
                 >
-                  <div className="p-3 text-[#00ff00] text-xs h-32 overflow-y-auto">
+                  <div className="p-3 text-green-600 dark:text-[#00ff00] text-xs h-32 overflow-y-auto">
                     {dev404Data.commands.map((cmd, i) => (
                       <div key={i} className="mb-1">
-                        <div className="text-yellow-400">$ {cmd.cmd}</div>
-                        <div className="text-[#aaa]">{cmd.output}</div>
+                        <div className="text-yellow-600 dark:text-yellow-400">$ {cmd.cmd}</div>
+                        <div className="text-gray-500 dark:text-[#aaa]">{cmd.output}</div>
                       </div>
                     ))}
                     <div className="flex items-center mt-1">
-                      <span className="text-yellow-400">$</span>
+                      <span className="text-yellow-600 dark:text-yellow-400">$</span>
                       <div className="ml-1 flex">
                         {[...Array(3)].map((_, i) => (
                           <motion.span
@@ -186,12 +189,12 @@ useEffect(() => {
             </div>
 
             {/* Progress Bar - Now as a loading indicator */}
-            <div className="bg-[#2d3748] px-3 py-2 text-xs">
-              <div className="flex justify-between mb-1 text-[#a0aec0]">
+            <div className="bg-[#2d3748] dark:bg-[#2d3748] px-3 py-2 text-xs">
+              <div className="flex justify-between mb-1 text-gray-400 dark:text-[#a0aec0]">
                 <span>Building...</span>
                 {/* <span>{Math.floor(Math.random() * 37) + 15}%</span> */}
               </div>
-              <div className="w-full bg-[#4a5568] rounded-full h-1 overflow-hidden mb-2">
+              <div className="w-full bg-gray-300 dark:bg-[#4a5568] rounded-full h-1 overflow-hidden mb-2">
                 <motion.div
                   className="h-full bg-gradient-to-r from-green-400 to-green-700"
                   initial={{ width: '15%' }}

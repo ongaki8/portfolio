@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Lock, User, Power, RotateCw, Loader2 } from 'lucide-react';
 import Image from 'next/image';
+import { useTheme } from '../ThemeProvider';
 
 interface DesktopLoginProps {
   onUnlock: () => void;
@@ -16,6 +17,7 @@ export default function DesktopLogin({ onUnlock, onRestart, onShutdown }: Deskto
   const [isFocused, setIsFocused] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [waveActive, setWaveActive] = useState(false);
+  const { theme } = useTheme();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,41 +46,50 @@ export default function DesktopLogin({ onUnlock, onRestart, onShutdown }: Deskto
 
   return (
     <div className="absolute inset-0 overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/login.jpg"
-          alt="Desktop Background"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
+      {/* Background Image with theme support */}
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center"
+        style={{
+          backgroundImage: `
+            url('/login.jpg'),
+            url('/login-light.jpg')
+          `,
+          backgroundBlendMode: 'normal',
+        }}
+      >
+        <div className="absolute inset-0 bg-black/20 dark:bg-black/30 backdrop-blur-xs dark:backdrop-blur-sm" />
+        <style jsx>{`
+          @media (prefers-color-scheme: light) {
+            div[style*="/login.jpg"] {
+              background-image: url('/login-light.jpg') !important;
+            }
+          }
+        `}</style>
       </div>
 
       {/* Loading Overlay */}
       <AnimatePresence>
-  {isLoading && (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="absolute inset-0 z-50 bg-black/80 flex items-center justify-center"
-    >
-      <div className="flex flex-col items-center">
-        <Loader2 className="h-12 w-12 text-white animate-spin" />
-        <motion.p 
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="mt-4 text-white/80"
-        >
-          Logging in...
-        </motion.p>
-      </div>
-    </motion.div>
-  )}
-</AnimatePresence>
+        {isLoading && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 z-50 bg-black/80 flex items-center justify-center"
+          >
+            <div className="flex flex-col items-center">
+              <Loader2 className="h-12 w-12 text-white animate-spin" />
+              <motion.p 
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                className="mt-4 text-white/80"
+              >
+                Logging in...
+              </motion.p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Login Container */}
       <motion.div
@@ -89,12 +100,12 @@ export default function DesktopLogin({ onUnlock, onRestart, onShutdown }: Deskto
         className="relative z-10 h-full w-full flex items-center justify-center"
       >
         <motion.div
-          className="w-96 px-10 py-8 bg-gray-800/30 backdrop-blur-xl rounded-xl border border-white/20 shadow-2xl"
+          className="w-96 px-10 py-8 bg-gray-900/80 dark:bg-gray-800/30 backdrop-blur-xl rounded-xl border border-white/20 shadow-2xl"
           whileHover={{ scale: 1.01 }}
         >
           {/* User Avatar */}
           <div className="flex justify-center mb-8">
-            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-black-900 to-black-700 flex items-center justify-center shadow-lg border-2 border-white/20 relative">
+            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#131313] to-[#333333] dark:from-black-900 to-black-700 flex items-center justify-center shadow-lg border-2 border-white/20 relative">
               {/* White circle in the center, offset to bottom right */}
               <div className="absolute inset-0 flex items-end justify-end pr-4 pb-3">
                 <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-md">
@@ -137,7 +148,7 @@ export default function DesktopLogin({ onUnlock, onRestart, onShutdown }: Deskto
               type="submit"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full py-3 px-4 rounded-lg bg-gray-500 hover:bg-gray-700/70 text-gray-100 hover:text-gray-100 text-md font-medium  transition-colors shadow-md relative overflow-hidden cursor-pointer"
+              className="w-full py-3 px-4 rounded-lg bg-gray-500 hover:bg-gray-900/50 dark:hover:bg-gray-700/70 text-gray-100 hover:text-gray-100 text-md font-medium transition-colors shadow-md relative overflow-hidden cursor-pointer"
               onClick={triggerWave}
             >
               <AnimatePresence>
@@ -159,14 +170,14 @@ export default function DesktopLogin({ onUnlock, onRestart, onShutdown }: Deskto
         {/* Footer Hint */}
         <div className="absolute bottom-8 left-0 right-0 text-center">
           <motion.p 
-            className="text-white/60 text-md"
+            className="text-gray/90 dark:text-white/60 text-md"
             animate={{
               scale: waveActive ? [1, 1.05, 1] : 1,
               opacity: waveActive ? [0.6, 1, 0.6] : 0.6
             }}
             transition={{ duration: 0.5 }}
           >
-            Click "Login" or press Enter to continue
+            Click "Login" or press Enter to login
           </motion.p>
         </div>
 
@@ -174,14 +185,14 @@ export default function DesktopLogin({ onUnlock, onRestart, onShutdown }: Deskto
         <div className="absolute bottom-8 right-8 flex space-x-4">
           <button 
             onClick={onRestart}
-            className="text-white/60 hover:text-white transition-colors flex items-center gap-1 cursor-pointer"
+            className="text-black/50 dark:text-white/60 hover:gray/60 dark:hover:text-white transition-colors flex items-center gap-1 cursor-pointer"
           >
             <RotateCw size={16} />
             <span className="text-md">Restart</span>
           </button>
           <button 
             onClick={onShutdown}
-            className="text-white/60 hover:text-white transition-colors flex items-center gap-1 cursor-pointer"
+            className="text-black/50 dark:text-white/60 hover:gray/60 dark:hover:text-white transition-colors flex items-center gap-1 cursor-pointer"
           >
             <Power size={16} />
             <span className="text-md">Shut Down</span>

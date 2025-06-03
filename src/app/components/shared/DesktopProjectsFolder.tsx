@@ -179,7 +179,7 @@ export default function ProjectsFolder() {
             </div>
 
             {/* Updates Log Section */}
-            <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
+            <div className="bg-gray-200/50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
               <div className="flex items-center gap-2 mb-3">
                 <Terminal className="text-blue-500" size={16} />
                 <h3 className="font-mono font-medium text-sm text-gray-700 dark:text-gray-300">UPDATES_LOG</h3>
@@ -212,7 +212,7 @@ export default function ProjectsFolder() {
             </div>
 
             {/* TODO Checklist Section */}
-            <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
+            <div className="bg-gray-200/50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
               <div className="flex items-center gap-2 mb-3">
                 <LayoutList className="text-green-500" size={16} />
                 <h3 className="font-mono font-medium text-sm text-gray-700 dark:text-gray-300">TASKS_QUEUE</h3>
@@ -303,21 +303,21 @@ export default function ProjectsFolder() {
                       className="mt-3 overflow-hidden"
                     >
                           <div className="pt-1 space-y-3">
-                            <div className="bg-transparent border border-gray-500 rounded-lg">
+                            <div className="bg-gray-100/50 dark:bg-transparent border border-gray-300/50 dark:border-gray-500 rounded-lg">
                               <div className="p-4">
 
                             <div>
-                              <h4 className="text-xs font-mono font-medium text-gray-500 dark:text-blue-500 mb-1">DESCRIPTION</h4>
+                              <h4 className="text-xs font-mono font-medium text-purple-600 dark:text-purple-500 mb-1">DESCRIPTION</h4>
                               <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">{note.content}</p>
                             </div>
                             
                             <div>
-                              <h4 className="text-xs font-mono font-medium text-gray-500 dark:text-blue-500 mb-1">TECH_STACK</h4>
+                              <h4 className="text-xs font-mono font-medium text-purple-600 dark:text-purple-500 mb-1">TECH_STACK</h4>
                               <div className="flex flex-wrap gap-2">
                                 {note.techStack.map((tech, techIndex) => (
                                   <span 
                                     key={techIndex}
-                                    className="px-2 py-1 bg-purple-100 dark:bg-gray-900/30 text-purple-800 dark:text-gray-200 text-xs font-mono rounded"
+                                    className="px-2 py-1 bg-gray-400/30 dark:bg-gray-900/30 text-gray-700 dark:text-gray-200 text-xs font-mono rounded"
                                   >
                                     {tech}
                                   </span>
@@ -361,7 +361,7 @@ export default function ProjectsFolder() {
           <div className="space-y-6">
             <div className="flex flex-col md:flex-row gap-7">
               <div className="flex-1">
-                <h2 className="text-xl font-mono text-gray-800 dark:text-gray-200 mb-4 flex items-center gap-2">
+                <h2 className="text-xl font-mono font-medium text-gray-800 dark:text-gray-200 mb-4 flex items-center gap-2">
                   <Box className="text-blue-500" size={18} />
                   3D_PORTFOLIO
                 </h2>
@@ -372,7 +372,7 @@ export default function ProjectsFolder() {
                       <GalleryVerticalEnd className="text-blue-500 dark:text-blue-400" size={24} />
                     </div>
                     <div>
-                      <h3 className="text-lg font-mono font-medium text-gray-800 dark:text-white">IMMERSIVE_UI</h3>
+                      <h3 className="text-lg font-mono font-light text-gray-800 dark:text-white">IMMERSIVE_UI</h3>
                       <p className="text-xs font-mono text-blue-500 dark:text-blue-500">Status: <span className="text-blue-500">In Progress</span></p>
                     </div>
                   </div>
@@ -392,7 +392,7 @@ export default function ProjectsFolder() {
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.1 }}
                           >
-                            <h4 className="font-mono text-xs font-medium text-gray-500 dark:text-blue-500">
+                            <h4 className="font-mono text-xs font-medium text-blue-500 dark:text-blue-500">
                               <TypeAnimation
                                 sequence={['T', 500, 'TECH_STACK', 1500]}
                                 wrapper="span"
@@ -521,14 +521,14 @@ export default function ProjectsFolder() {
               </div>
               
               <div className="flex-1">
-                <div className="bg-gray-800 rounded-lg overflow-hidden border border-gray-700 mb-7">
+                <div className="bg-gray-100/70 dark:bg-gray-800 rounded-lg overflow-hidden border border-gray-300 dark:border-gray-700 mb-7">
                   <div className="p-2 bg-gray-700 flex gap-1">
                     <div className="w-2 h-2 rounded-full bg-red-500"></div>
                     <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
                     <div className="w-2 h-2 rounded-full bg-green-500"></div>
                   </div>
                   <div className="p-4">
-                    <div className="font-mono text-xs text-gray-400 mb-4">// CONCEPT_MODEL</div>
+                    <div className="font-mono text-xs text-gray-500 dark:text-gray-500 mb-4">// CONCEPT_MODEL</div>
 
                         <div className="h-54">
                             <div className="relative h-[100%] rounded-lg overflow-hidden">
@@ -543,14 +543,14 @@ export default function ProjectsFolder() {
                   </div>
                 </div>
                 
-                <div className="bg-gray-800 rounded-lg overflow-hidden border border-gray-700">
+                <div className="bg-gray-100/70 dark:bg-gray-800 rounded-lg overflow-hidden border border-gray-300 dark:border-gray-700">
                   <div className="p-2 bg-gray-700 flex gap-1">
                     <div className="w-2 h-2 rounded-full bg-red-500"></div>
                     <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
                     <div className="w-2 h-2 rounded-full bg-green-500"></div>
                   </div>
                   <div className="p-4">
-                    <div className="font-mono text-xs text-gray-400 mb-2">// LOCALHOST:3000</div>
+                    <div className="font-mono text-xs text-gray-500 dark:text-gray-500 mb-2">// LOCALHOST:3000</div>
 
                         <div className="h-54">
                             <div className="relative h-[100%] rounded-lg overflow-hidden">
@@ -719,7 +719,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
 
         {/* TECH_STACK */}
         <div className="relative z-10 text-center">
-          <h4 className="font-mono font-medium text-l text-gray-500 dark:text-[#c4a39f] mb-6">TECH_STACK</h4>
+          <h4 className="font-mono font-medium text-l text-[#c4a39f] mb-6">TECH_STACK</h4>
 
           {/* Interactive tech stack bubbles */}
           <div className="flex flex-wrap justify-center gap-4">
@@ -800,7 +800,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <h4 className="font-mono font-medium text-l text-gray-500 dark:text-[#c4a39f]">
+          <h4 className="font-mono font-medium text-l text-[#c4a39f]">
             <TypeAnimation
               sequence={['KEY_FEATURES', 1000, 'KEY_FEATURES_', 500]}
               wrapper="span"
@@ -903,7 +903,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
               alt="Trendsetter Babe Shopify Store" 
               className="w-full h-auto"
             />
-            <div className="bg-gray-50 dark:bg-gray-900 p-2 text-center">
+            <div className="bg-gray-700 dark:bg-gray-900 p-2 text-center">
               <a 
                 href="https://www.trendsetterbabe.com" 
                 target="_blank" 
@@ -1032,7 +1032,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
             </div>
           </div>
 
-          {/* Right Column - Phone Mockup */}
+          {/* Phone Mockup */}
           <div className="md:w-1/2 flex justify-center">
             <div className="relative mx-auto border-gray-800 dark:border-gray-600 bg-gray-800 border-[14px] rounded-[2.5rem] h-[620px] w-[300px] shadow-xl">
               {/* Phone side buttons */}
@@ -1095,7 +1095,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-10"
         >
         <h1 className="text-4xl sm:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600 mb-4">
             {`import { Projects } from ‘scratch’`}
@@ -1115,48 +1115,49 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
 
         </motion.div>
 
+        <hr className="border-t border-gray-300 dark:border-gray-700 my-8" />
+
         {/* Tabs */}
         <div className="flex border-b border-gray-200 dark:border-gray-700 mb-6">
-          <button
-            onClick={() => setActiveTab('notes')}
-            className={`px-4 py-2 text-sm font-medium flex items-center gap-1 ${activeTab === 'notes' ? 'text-purple-600 dark:text-purple-500 border-b-2 border-purple-500' : 'text-gray-500 dark:text-gray-400 hover:text-purple-500 dark:hover:text-purple-500'}`}
-          >
-            <CodeXml size={16} />
-            Console
-          </button>
-          <button
-            onClick={() => setActiveTab('portfolio')}
-            className={`px-4 py-2 text-sm font-medium flex items-center gap-1 ${activeTab === 'portfolio' ? 'text-blue-600 dark:text-blue-500 border-b-2 border-blue-500' : 'text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-500'}`}
-          >
-            <Globe size={16} />
-            Portfolio
-          </button>
-          <button
-            onClick={() => setActiveTab('web')}
-            className={`px-4 py-2 text-sm font-medium flex items-center gap-1 ${activeTab === 'web' ? 'text-[#b3938f] dark:text-[#b3938f] border-b-2 border-[#b3938f]' : 'text-gray-500 dark:text-gray-400 hover:text-[#b3938f] dark:hover:[#b3938f]'}`}
-          >
-            <ShoppingCart size={16} />
-            Shopify
-          </button>
-          <button
-            onClick={() => setActiveTab('mobile')}
-            className={`px-4 py-2 text-sm font-medium flex items-center gap-1 ${activeTab === 'mobile' ? 'text-[#117bae] dark:text-[#117bae] border-b-2 border-[#117bae]' : 'text-gray-500 dark:text-gray-400 hover:text-[#117bae] dark:hover:[#117bae]'}`}
-          >
-            <Smartphone size={16} />
-            Mobile App
-          </button>
-          
-        </div>
-
-        {/* Content */}
-        <motion.div
-          key={activeTab}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
+        <button
+          onClick={() => setActiveTab('notes')}
+          className={`px-4 py-2 text-sm font-medium flex items-center gap-1 cursor-pointer ${activeTab === 'notes' ? 'text-purple-600 dark:text-purple-500 border-b-2 border-purple-500' : 'text-gray-500 dark:text-gray-400 hover:text-purple-500 dark:hover:text-purple-500'}`}
         >
-          {renderTabContent()}
-        </motion.div>
+          <CodeXml size={16} />
+          Console
+        </button>
+        <button
+          onClick={() => setActiveTab('portfolio')}
+          className={`px-4 py-2 text-sm font-medium flex items-center gap-1 cursor-pointer ${activeTab === 'portfolio' ? 'text-blue-600 dark:text-blue-500 border-b-2 border-blue-500' : 'text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-500'}`}
+        >
+          <Globe size={16} />
+          Portfolio
+        </button>
+        <button
+          onClick={() => setActiveTab('web')}
+          className={`px-4 py-2 text-sm font-medium flex items-center gap-1 cursor-pointer ${activeTab === 'web' ? 'text-[#b3938f] dark:text-[#b3938f] border-b-2 border-[#b3938f]' : 'text-gray-500 dark:text-gray-400 hover:text-[#b3938f] dark:hover:[#b3938f]'}`}
+        >
+          <ShoppingCart size={16} />
+          Shopify
+        </button>
+        <button
+          onClick={() => setActiveTab('mobile')}
+          className={`px-4 py-2 text-sm font-medium flex items-center gap-1 cursor-pointer ${activeTab === 'mobile' ? 'text-[#117bae] dark:text-[#117bae] border-b-2 border-[#117bae]' : 'text-gray-500 dark:text-gray-400 hover:text-[#117bae] dark:hover:[#117bae]'}`}
+        >
+          <Smartphone size={16} />
+          Mobile App
+        </button>
+      </div>
+
+      {/* Content */}
+      <motion.div
+        key={activeTab}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+      >
+        {renderTabContent()}
+      </motion.div>
       </div>
     </div>
   );

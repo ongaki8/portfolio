@@ -107,15 +107,17 @@ export default function MobileEducation() {
         </p>
       </motion.div>
 
+      <hr className="border-t border-gray-300 dark:border-gray-700 my-6" />
+
       {/* Education Timeline Section */}
       <section className="mb-8">
-        <h2 className="text-lg font-mono text-gray-800 dark:text-gray-200 mb-4 flex items-center gap-2">
+        <h2 className="text-lg font-mono font-medium text-gray-800 dark:text-gray-200 mb-4 flex items-center gap-2">
           <GraduationCap className="text-blue-500" size={18} />
           EDUCATION
         </h2>
         
         <div className="relative">
-          <div className="absolute left-4 top-0 h-full w-0.5 bg-blue-900"></div>
+          <div className="absolute left-4 top-0 h-full w-0.5 bg-blue-200 dark:bg-blue-900"></div>
           
           {educationData.map((item, index) => (
             <motion.div
@@ -125,7 +127,7 @@ export default function MobileEducation() {
               transition={{ delay: 0.3 + index * 0.1 }}
               className="relative pl-8 pb-6 last:pb-0 group"
             >
-              <div className="absolute left-4 top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-blue-500 border-4 border-blue-900 z-10 animate-pulse"></div>
+              <div className="absolute left-4 top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-blue-500 border-4 border-blue-200 dark:border-blue-900 z-10 animate-pulse"></div>
               
               <div 
                 className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700 hover:border-blue-500 transition-all duration-300 cursor-pointer"
@@ -135,7 +137,7 @@ export default function MobileEducation() {
                   <div>
                     <h3 className="text-base font-medium text-gray-800 dark:text-white">{item.institution}</h3>
                     <p className="font-mono text-blue-600 dark:text-blue-500 text-sm mb-1">{item.degree}</p>
-                    <span className="text-xs font-mono text-gray-400 bg-gray-900 px-2 py-0.5 rounded inline-block mb-2">
+                    <span className="text-xs font-mono text-gray-500 bg-gray-100 dark:bg-gray-900 px-2 py-0.5 rounded inline-block mb-2">
                       {item.period}
                     </span>
                   </div>
@@ -195,9 +197,11 @@ export default function MobileEducation() {
         </div>
       </section>
 
+      <hr className="border-t border-gray-300 dark:border-gray-700 my-6" />
+
       {/* Publications Section */}
       <section className="mb-8">
-        <h2 className="text-lg font-mono text-gray-800 dark:text-gray-200 mb-4 flex items-center gap-2">
+        <h2 className="text-lg font-mono font-medium text-gray-800 dark:text-gray-200 mb-4 flex items-center gap-2">
           <FileText className="text-green-500" size={18} />
           PUBLICATIONS
         </h2>
@@ -213,7 +217,7 @@ export default function MobileEducation() {
             <div className="flex justify-between items-start">
               <div>
                 <h3 className="text-base font-medium text-gray-800 dark:text-white">{pub.title}</h3>
-                <p className="text-xs font-mono text-gray-400 bg-gray-900 px-2 py-1 rounded inline-block mb-1">
+                <p className="text-xs font-mono text-gray-400 bg-gray-100 dark:bg-gray-900 px-2 py-1 rounded inline-block mb-1">
                   <span className="font-medium text-green-500">{pub.journal} · {pub.year}</span>
                 </p>
                 <p className="text-xs text-gray-500 dark:text-gray-400 italic">{pub.authors}</p>
@@ -232,9 +236,11 @@ export default function MobileEducation() {
         ))}
       </section>
 
+      <hr className="border-t border-gray-300 dark:border-gray-700 my-6" />
+
       {/* Certificates Section */}
       <section className="mb-8">
-        <h2 className="text-lg font-mono text-gray-800 dark:text-gray-200 mb-4 flex items-center gap-2">
+        <h2 className="text-lg font-mono font-medium text-gray-800 dark:text-gray-200 mb-4 flex items-center gap-2">
           <FileText className="text-purple-500" size={18} />
           CERTIFICATES
         </h2>
@@ -256,7 +262,7 @@ export default function MobileEducation() {
                     <p className="text-xs text-gray-600 dark:text-gray-300 mb-1">
                       <span className="font-mono font-light">{cert.issuer} · {cert.year}</span>
                     </p>
-                    <p className="font-mono text-xs text-purple-500 dark:text-purple-500 bg-gray-900 px-2 py-1 rounded inline-block mb-1">{cert.description}</p>
+                    <p className="font-mono text-xs text-purple-500 bg-gray-100 dark:bg-gray-900 px-2 py-1 rounded inline-block mb-1">{cert.description}</p>
                   </div>
                   <div className="flex items-center gap-1">
                     <button 
@@ -311,10 +317,12 @@ export default function MobileEducation() {
         </div>
       </section>
 
+    <hr className="border-t border-gray-300 dark:border-gray-700 my-6" />
+
       {/* Awards Section - Carousel */}
       <section className="mb-8">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-mono text-gray-800 dark:text-gray-200 flex items-center gap-2">
+          <h2 className="text-lg font-mono font-medium text-gray-800 dark:text-gray-200 flex items-center gap-2">
             <Award className="text-yellow-500" size={18} />
             HONORS_AND_RECOGNITION
           </h2>
@@ -390,9 +398,9 @@ export default function MobileEducation() {
               animate="center"
               exit="exit"
               transition={{
-                x: { type: "spring", stiffness: 300, damping: 30 },
-                opacity: { duration: 0.2 }
-              }}
+                  x: { type: "tween", duration: 0.2, ease: "easeInOut" },
+                  opacity: { duration: 0.3, ease: "easeInOut" }
+                }}
               className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700 hover:border-yellow-500 transition-all duration-300 absolute inset-0"
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
@@ -414,7 +422,7 @@ export default function MobileEducation() {
                     </p>
                   </div>
 
-                  {/* {awards[currentAward].attachment && (
+                  {awards[currentAward].attachment && (
                     
                     <div className="mt-auto pt-3 border-t border-gray-200 dark:border-gray-700">
                       <button 
@@ -426,7 +434,7 @@ export default function MobileEducation() {
                       </button>
                     </div>
                     
-                  )} */}
+                  )}
 
                 </div>
               </div>

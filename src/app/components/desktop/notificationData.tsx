@@ -161,7 +161,7 @@ export default function NotificationCenter({
               key="notification-panel"
             >
               {/* Glass container */}
-              <div className="h-full bg-gray-800/70 backdrop-blur-2xl border-l border-gray-700/50 shadow-2xl flex flex-col">
+              <div className="h-full bg-gray-800 dark:bg-gray-800/70 backdrop-blur-2xl border-l border-gray-700/50 shadow-2xl flex flex-col">
                 
                 {/* Header with glass effect */}
                 <div className="p-4 border-b border-gray-700/50 flex justify-between items-center bg-gray-800/30">

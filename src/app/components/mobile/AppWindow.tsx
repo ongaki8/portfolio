@@ -11,6 +11,7 @@ import MobilePortfolio from '../shared/MobilePortfolio';
 import MobileTrash from '../shared/MobileTrash';
 import MobileProjectsFolder from '../shared/MobileProjectsFolder';
 import Mobile404 from '../shared/Mobile404';
+import { useEffect } from 'react';
 
 export default function AppWindow({
   appId,
@@ -19,6 +20,21 @@ export default function AppWindow({
   appId: string;
   onClose: () => void;
 }) {
+  // Prevent zooming on mobile devices
+  useEffect(() => {
+    const handleTouchMove = (e: TouchEvent) => {
+      // Prevent zooming when touching the header
+      if ((e.target as HTMLElement).closest('.non-zoomable')) {
+        e.preventDefault();
+      }
+    };
+
+    document.addEventListener('touchmove', handleTouchMove, { passive: false });
+    return () => {
+      document.removeEventListener('touchmove', handleTouchMove);
+    };
+  }, []);
+
   // iOS-style fade animation variants
   const variants = {
     enter: { 
@@ -52,13 +68,11 @@ export default function AppWindow({
       case 'credits': return <MobileCredits />;
       case 'portfolio': return <MobilePortfolio />;
       case 'trash': return <MobileTrash />;
-      case 'projects-folder':
-              return <MobileProjectsFolder />;
-            case 'portfolio-project':
-            case 'web-project':
-            case 'mobile-project':
-            case 'api-project':
-              return null;
+      case 'projects-folder': return <MobileProjectsFolder />;
+      case 'portfolio-project':
+      case 'web-project':
+      case 'mobile-project':
+      case 'api-project': return null;
       default: return <Mobile404 />;
     }
   };
@@ -86,23 +100,25 @@ export default function AppWindow({
         exit="exit"
         variants={variants}
       >
-        {/* iOS-style header with back button */}
-        <div className="flex items-center justify-between px-4 py-3 bg-gray-800/80 backdrop-blur-sm border-b border-gray-700">
-          <button 
-            onClick={onClose}
-            className="flex items-center text-blue-500"
-          >
-            <ChevronLeft size={20} className="mr-1" />
-            <span className="font-regular">Back</span>
-          </button>
-          
-          <h1 className="font-regular text-lg text-gray-200 absolute left-1/2 transform -translate-x-1/2">
-            {getAppTitle(appId)}
-          </h1>
+        {/* iOS-style header */}
+        <div className="fixed top-0 left-0 right-0 z-50 non-zoomable">
+          <div className="flex items-center justify-between px-4 py-3 bg-white dark:bg-gray-800/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700">
+            <button 
+              onClick={onClose}
+              className="flex items-center text-blue-600 dark:text-blue-500 z-50"
+            >
+              <ChevronLeft size={20} className="mr-1" />
+              <span className="font-regular">Back</span>
+            </button>
+            
+            <h1 className="font-regular text-lg text-gray-800 dark:text-gray-200 absolute left-1/2 transform -translate-x-1/2">
+              {getAppTitle(appId)}
+            </h1>
+          </div>
         </div>
 
         {/* App content area */}
-        <div className="h-[calc(100%-56px)] overflow-y-auto bg-gray-900">
+        <div className="pt-14 h-full overflow-y-auto bg-gray-100 dark:bg-gray-900">
           {renderAppContent(appId)}
         </div>
       </motion.div>

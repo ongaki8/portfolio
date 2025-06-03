@@ -24,12 +24,25 @@ export default function LockScreen({ onUnlock }: { onUnlock: () => void }) {
 
   return (
     <div 
-      // className="h-full w-full bg-black text-white flex flex-col items-center justify-between pb-16"
-      className="h-full w-full bg-cover bg-center bg-gray-900 text-white flex flex-col items-center justify-between pb-16"
-      style={{ backgroundImage: "url('/wallpaper.jpg')" }}
-      onClick={onUnlock}
-    >
-      {/* Top section with three distinct rows */}
+        className="h-full w-full bg-cover bg-center bg-gray-900 text-white flex flex-col items-center justify-between pb-16"
+          style={{
+            backgroundImage: `
+              url('/wallpaper.jpg'),
+              url('/wallpaper-light.jpg')
+            `,
+            backgroundBlendMode: 'normal',
+          }}
+          onClick={onUnlock}
+        >
+          <style jsx>{`
+            @media (prefers-color-scheme: light) {
+              div[style*="/wallpaper.jpg"] {
+                background-image: url('/wallpaper-light.jpg') !important;
+              }
+            }
+          `}</style>
+
+      {/* Date / Time / Weather */}
       <div className="w-full pt-[env(safe-area-inset-top,50px)] px-6">
         <motion.div
           initial={{ opacity: 0 }}
@@ -42,19 +55,19 @@ export default function LockScreen({ onUnlock }: { onUnlock: () => void }) {
           <div className="h-20"></div>
 
           {/* Row 1: Date */}
-          <div className="text-l font-light tracking-wide">
+          <div className="text-l font-light text-gray-800 dark:text-gray-200 tracking-wide">
             {currentDate}
           </div>
 
           {/* Row 2: Time */}
-          <div className="text-5xl font-regular tracking-tight">
+          <div className="text-5xl font-regular text-gray-800 dark:text-gray-200 tracking-tight">
             {currentTime}
           </div>
 
           {/* Row 3: Weather */}
           {weather && (
             <div 
-              className="flex items-center space-x-3 bg-transparent px-6 py-0 backdrop-blur-sm"
+              className="flex items-center space-x-3 bg-transparent text-gray-800 dark:text-gray-200 px-6 py-0 backdrop-blur-sm"
               onClick={(e) => {
                 e.stopPropagation();
                 toggleCity();
@@ -98,7 +111,7 @@ export default function LockScreen({ onUnlock }: { onUnlock: () => void }) {
           
         </motion.div>
 
-        <div className="text-[14px] text-white/80 mt-2">Touch to Unlock</div>
+        <div className="text-[14px] text-gray-800 dark:text-gray-200 mt-2">Touch to Unlock</div>
       </div>
     </div>
   );

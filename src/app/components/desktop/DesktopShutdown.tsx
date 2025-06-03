@@ -1,5 +1,5 @@
-// src/app/components/desktop/DesktopShutdown.tsx
 'use client';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Power, RotateCw } from 'lucide-react';
 import Image from 'next/image';
@@ -11,6 +11,17 @@ interface DesktopShutdownProps {
 }
 
 export default function DesktopShutdown({ onStart, onRestart, onShutdown }: DesktopShutdownProps) {
+  // Listen for Enter key to start the system
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        onRestart();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onStart]);
+
   return (
     <div className="absolute inset-0 overflow-hidden">
       {/* Background Image (darker version) */}
@@ -47,10 +58,9 @@ export default function DesktopShutdown({ onStart, onRestart, onShutdown }: Desk
           >
             <Power className="text-white" size={48} />
           </motion.button>
-          <h1 className="text-3xl font-medium text-white mb-2">System terminated. Goodbye, world.</h1>
-          <p className="text-white/60 text-md">Click to start the system</p>
+          <h1 className="text-3xl font-medium text-white mb-3">System terminated. Goodbye, world.</h1>
+          <p className="text-white/60 text-sm">Click on the power button or press Enter to start the system</p>
         </div>
-
       </motion.div>
     </div>
   );

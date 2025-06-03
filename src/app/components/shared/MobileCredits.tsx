@@ -18,6 +18,18 @@ export default function MobileCredits() {
   const inputRef = useRef<HTMLInputElement>(null);
   const terminalRef = useRef<HTMLDivElement>(null);
 
+  // Add viewport control to prevent zooming
+  useEffect(() => {
+    const meta = document.createElement('meta');
+    meta.name = 'viewport';
+    meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+    document.head.appendChild(meta);
+
+    return () => {
+      document.head.removeChild(meta);
+    };
+  }, []);
+
   const initializeTerminal = () => {
     setOutput([]);
     setIsTyping(true);
@@ -152,110 +164,106 @@ export default function MobileCredits() {
   };
 
   return (
-    <div className="h-full bg-gray-900 p-4 overflow-hidden">
-      <div className="max-w-4xl mx-auto h-full flex flex-col">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          ref={terminalRef}
-          className="flex-1 bg-gray-900/95 p-4 overflow-y-auto font-mono text-xs text-gray-300 rounded-lg border border-gray-700 shadow-lg"
-          style={{ fontFamily: 'monospace' }}
-          onClick={() => inputRef.current?.focus()}
-        >
-          <div className="space-y-1 whitespace-pre">
-            {output.map((line, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.1 }}
-                className={
-                  line.startsWith('user@ongaki8') ? 'text-blue-400' : 
-                  line.includes('+') || line.includes('|') ? 'text-gray-300' : ''
-                }
-              >
-                {line}
-              </motion.div>
-            ))}
-          </div>
-
-          {!isTyping && (
-            <div className="flex items-center mt-2">
-              <span className="text-blue-400 text-xs">user@ongaki8 ~ % </span>
-              <div className="relative flex-1">
-                <input
-                  ref={inputRef}
-                  type="text"
-                  value={command}
-                  onChange={(e) => setCommand(e.target.value)}
-                  onKeyDown={handleCommand}
-                  className="w-full bg-transparent outline-none text-gray-300 caret-blue-400 ml-1 font-mono text-xs"
-                  autoFocus
-                  disabled={isTyping}
-                  style={{ opacity: isTyping ? 0.5 : 1 }}
-                />
-                {showCursor && (
-                  <motion.div
-                    animate={{ opacity: [0, 1, 0] }}
-                    transition={{ repeat: Infinity, duration: 1 }}
-                    className="absolute left-0 top-0 w-1.5 h-4 bg-blue-400 ml-1"
-                    style={{ left: `${command.length * 0.5}rem` }}
-                  />
-                )}
-              </div>
-            </div>
-          )}
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          className="mt-4 grid grid-cols-2 gap-2"
-        >
-          {quickActions.map((action, index) => (
-            <button 
-              key={index}
-              onClick={() => handleButtonClick(action.command)}
-              disabled={isTyping}
-              className={`group bg-gray-800 hover:bg-gray-700 rounded-lg p-2 flex flex-col items-center gap-1 transition-all disabled:opacity-50 border border-gray-700 hover:border-${action.color}-400`}
+  <div className="h-full bg-gray-100 dark:bg-gray-900 p-4 overflow-hidden">
+    <div className="max-w-4xl mx-auto h-full flex flex-col">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.3 }}
+        ref={terminalRef}
+        className="flex-1 bg-gray-100/95 dark:bg-gray-900/95 p-4 overflow-y-auto font-mono text-xs text-gray-800 dark:text-gray-300 rounded-lg border border-gray-300 dark:border-gray-700 shadow-lg"
+        style={{ fontFamily: 'monospace' }}
+        onClick={() => inputRef.current?.focus()}
+      >
+        <div className="space-y-1 whitespace-pre">
+          {output.map((line, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.1 }}
+              className={
+                line.startsWith('user@ongaki8') ? 'text-blue-600 dark:text-blue-400' : 
+                line.includes('+') || line.includes('|') ? 'text-gray-800 dark:text-gray-300' : ''
+              }
             >
-              <div className={`p-2 bg-gray-700 group-hover:bg-${action.color}-400/20 rounded-full transition-colors`}>
-                {React.cloneElement(getIconComponent(action.icon), {
-                  className: `text-${action.color}-400 group-hover:text-${action.color}-300`
-                })}
-              </div>
-              <span className="text-xs font-medium">{action.label}</span>
-            </button>
+              {line}
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-          className="mt-4 text-xs text-gray-500 font-mono flex flex-col items-center gap-1 px-2 py-1 mb-6"
-        >
-          <div className="flex items-center gap-1">
-            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-            <span>CONNECTED</span>
+        {!isTyping && (
+          <div className="flex items-center mt-2">
+            <span className="text-blue-600 dark:text-blue-400 text-xs">user@ongaki8 ~ % </span>
+            <div className="relative flex-1">
+              <input
+                ref={inputRef}
+                type="text"
+                value={command}
+                onChange={(e) => setCommand(e.target.value)}
+                onKeyDown={handleCommand}
+                className="w-full bg-transparent outline-none text-gray-800 dark:text-gray-300 caret-blue-600 dark:caret-blue-400 ml-1 font-mono text-xs"
+                autoFocus
+                disabled={isTyping}
+                style={{ 
+                  opacity: isTyping ? 0.5 : 1,
+                  fontSize: '16px' // Prevents iOS Zoom
+                }}
+                inputMode="text"
+              />
+              {showCursor && (
+                <motion.div
+                  animate={{ opacity: [0, 1, 0] }}
+                  transition={{ repeat: Infinity, duration: 1 }}
+                  className="absolute left-0 top-0 w-1.5 h-4 bg-blue-600 dark:bg-blue-400 ml-1"
+                  style={{ left: `${command.length * 0.5}rem` }}
+                />
+              )}
+            </div>
           </div>
+        )}
+      </motion.div>
 
-          <div className="flex items-center gap-1">
-            <SquareTerminal className="text-blue-400" size={12} />
-            <span>Console_ONG v29.03.1996</span>
-          </div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.8 }}
+        className="mt-4 grid grid-cols-2 gap-2"
+      >
+        {quickActions.map((action, index) => (
+          <button 
+            key={index}
+            onClick={() => handleButtonClick(action.command)}
+            disabled={isTyping}
+            className={`group bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 rounded-lg p-2 flex flex-col items-center gap-1 transition-all disabled:opacity-50 border border-gray-300 dark:border-gray-700 hover:border-${action.color}-400`}
+          >
+            <div className={`p-2 bg-gray-400/20 dark:bg-gray-700 group-hover:bg-${action.color}-400/20 rounded-full transition-colors`}>
+              {React.cloneElement(getIconComponent(action.icon), {
+                className: `text-${action.color}-600 dark:text-${action.color}-400 group-hover:text-${action.color}-400 dark:group-hover:text-${action.color}-300`
+              })}
+            </div>
+            <span className="text-xs text-gray-800 dark:text-gray-300 font-medium">{action.label}</span>
+          </button>
+        ))}
+      </motion.div>
 
-          {/* <div className="flex items-center gap-1">
-            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-            <span>CONNECTED</span>
-            <Terminal className="text-yellow-400 ml-2" size={12} />
-            <span>Type "help"</span>
-          </div> */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1 }}
+        className="mt-4 text-xs text-gray-400 dark:text-gray-500 font-mono flex flex-col items-center gap-1 px-2 py-1 mb-6"
+      >
+        <div className="flex items-center gap-1">
+          <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+          <span>CONNECTED</span>
+        </div>
 
-        </motion.div>
-      </div>
+        <div className="flex items-center gap-1">
+          <SquareTerminal className="text-blue-600 dark:text-blue-400" size={12} />
+          <span>Console_ONG v29.03.1996</span>
+        </div>
+      </motion.div>
     </div>
-  );
+  </div>
+);
 }

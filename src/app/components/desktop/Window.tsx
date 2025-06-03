@@ -82,19 +82,19 @@ export default function Window({
 
   const handleToggleMaximize = () => {
     if (isMaximized) {
-      // Restore original size and position
+      
       setSize(originalSize);
       setPosition(originalPosition);
-      onMaximize(); // Call the prop function instead
+      onMaximize(); 
     } else {
-      // Save current size and position
+      
       setOriginalSize(size);
       setOriginalPosition(position);
 
-      // Maximize with top menu bar height (h-8 = 2rem = 32px)
+      // Maximize 
       setPosition({ x: 0, y: 0 });
       setSize({ width: window.innerWidth, height: window.innerHeight - 32 });
-      onMaximize(); // Call the prop function instead
+      onMaximize(); 
     }
   };
 
@@ -102,7 +102,7 @@ export default function Window({
     setIsClosing(true);
     setTimeout(() => {
       onClose();
-    }, 300); // Match this with the animation duration
+    }, 300); 
   };
 
   return (
@@ -110,7 +110,7 @@ export default function Window({
       {!isClosing ? (
         <motion.div
           ref={windowRef}
-          className={`bg-gray-100 dark:bg-gray-900 rounded-lg shadow-xl overflow-hidden border border-gray-300 dark:border-gray-700 flex flex-col ${
+          className={`bg-gray-900 dark:bg-gray-900 rounded-lg shadow-xl overflow-hidden border border-gray-700 dark:border-gray-700 flex flex-col ${
             isMaximized ? 'fixed' : 'absolute'
           }`}
           style={{
@@ -141,7 +141,7 @@ export default function Window({
             transition: { duration: 0.2 }
           }}
         >
-          {/* Header with proper glassmorphism effect */}
+          {/* Glassmorphism Header */}
           <div
             className="px-4 py-2 flex items-center justify-between cursor"
             style={{
@@ -186,7 +186,7 @@ export default function Window({
               </button>
             </div>
 
-            <div className="text-sm font-medium text-gray-800 dark:text-gray-200 truncate flex-1 text-center px-4">
+            <div className="text-sm font-medium text-gray-200 dark:text-gray-200 truncate flex-1 text-center px-4">
               {title}
             </div>
 
@@ -195,7 +195,7 @@ export default function Window({
 
           {/* Content */}
           <motion.div 
-            className="flex-1 overflow-auto p-4 bg-white dark:bg-gray-950"
+            className="flex-1 overflow-auto p-4 bg-gray-500 dark:bg-gray-950"
             initial={{ opacity: 1 }}
             exit={{ 
               opacity: 0,
@@ -214,7 +214,7 @@ export default function Window({
             >
               <svg
                 viewBox="0 0 24 24"
-                className="w-full h-full text-gray-400 dark:text-gray-500"
+                className="w-full h-full text-gray-500 dark:text-gray-500"
                 fill="currentColor"
               >
                 <path d="M8 16H16V8H8V16Z" />

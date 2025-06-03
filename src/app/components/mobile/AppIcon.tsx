@@ -22,7 +22,7 @@ export default function AppIcon({
       <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-2 ${isFolder ? 'bg-blue-500/10 border-blue-400/30' : 'bg-blue-500/80 border-blue-400/30'} border backdrop-blur-md`}>
         {icon}
       </div>
-      <span className={`text-xs ${isFolder ? 'text-yellow-300' : 'text-white'}`}>
+      <span className={`text-xs ${isFolder ? 'text-blue-500' : 'text-white'}`}>
         {title}
       </span>
     </motion.button>

@@ -143,144 +143,162 @@ export default function DesktopView({ apps, onAppClick, onLock, onRestart, onShu
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.7 }}
-      className="relative w-full h-full overflow-hidden bg-[url('/wallpaper.jpg')] bg-cover bg-center select-none"
-      ref={desktopRef}
-      onContextMenu={handleContextMenu}
-      onClick={closeContextMenu}
-    >
-      <MenuBar 
-        onOpenAbout={() => openApp('about')} 
-        onOpenCredits={() => openApp('credits')} 
-        onOpenTrash={() => openApp('trash')}
-        onLockScreen={onLock}
-        onRestart={onRestart}
-        onShutdown={onShutdown}
-      />
-      
-      <DesktopIcons 
-        onAppClick={openApp} 
-        onContextMenu={(e, id) => {
-          e.preventDefault();
-          setContextMenu({
-            x: e.clientX,
-            y: e.clientY,
-            visible: true,
-            itemId: id
-          });
-        }}
-      />
-
-      <AnimatePresence>
-        {windows.map(({id, zIndex, maximized, minimized}) => {
-          if (minimized) return null;
-          
-          const app = [...APPS, ...ALL_APPS].find(a => a.id === id);
-          return (
-            <Window
-              key={id}
-              appId={id}
-              title={app?.title || ''}
-              zIndex={zIndex}
-              isMaximized={maximized}
-              onClose={() => closeApp(id)}
-              onMinimize={() => toggleMinimize(id)}
-              onMaximize={() => toggleMaximize(id)}
-              onMouseDown={() => bringToFront(id)}
-            >
-              {renderAppContent(id)}
-            </Window>
-          );
-        })}
-      </AnimatePresence>
-
-      {contextMenu.visible && (
+    <div className="relative w-full h-full overflow-hidden select-none">
+      {/* Background Image with Theme Support */}
+      <div className="absolute inset-0 z-0">
         <div 
-          className="fixed bg-white/90 dark:bg-gray-800/90 backdrop-blur-md rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 py-1 z-50"
+          className="absolute inset-0 bg-cover bg-center desktop-background"
           style={{
-            left: contextMenu.x,
-            top: contextMenu.y,
-            minWidth: '200px'
+            backgroundImage: "url('/wallpaper.jpg')",
           }}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div className="text-sm text-gray-800 dark:text-gray-200">
-            {contextMenu.itemId && (
-              <button 
-                className="w-full text-left px-4 py-2 hover:bg-blue-500 hover:text-white"
-                onClick={() => {
-                  openApp(contextMenu.itemId!);
-                  closeContextMenu();
-                }}
-              >
-                Open
-              </button>
-            )}
-            <button className="w-full text-left px-4 py-2 hover:bg-blue-500 hover:text-white">
-              Get Info
-            </button>
-            <div className="border-t border-gray-200 dark:border-gray-700 my-1"></div>
-            <button className="w-full text-left px-4 py-2 hover:bg-blue-500 hover:text-white">
-              Sort By
-              <span className="float-right">▸</span>
-            </button>
-            <button className="w-full text-left px-4 py-2 hover:bg-blue-500 hover:text-white">
-              Clean Up
-            </button>
-            <div className="border-t border-gray-200 dark:border-gray-700 my-1"></div>
-            <button className="w-full text-left px-4 py-2 hover:bg-blue-500 hover:text-white">
-              New Folder
-            </button>
-          </div>
-        </div>
-      )}
-
-      <Dock 
-        apps={APPS}
-        activeApps={windows.map(w => w.id)}
-        onAppClick={openApp}
-        onDockItemClick={(id) => {
-          const window = windows.find(w => w.id === id);
-          if (window?.minimized) {
-            toggleMinimize(id);
-          } else if (window) {
-            bringToFront(id);
-          } else {
-            openApp(id);
+        />
+        <style jsx global>{`
+          @media (prefers-color-scheme: light) {
+            .desktop-background {
+              background-image: url('/wallpaper-light.jpg') !important;
+            }
           }
-        }}
-      />
+        `}</style>
+        <div className="absolute inset-0" />
+      </div>
 
-      <NotificationCenter
-        isOpen={notificationCenterOpen}
-        onClose={() => setNotificationCenterOpen(false)}
-        doNotDisturb={doNotDisturb}
-        onToggleDoNotDisturb={() => setDoNotDisturb(!doNotDisturb)}
-        onMarkAllRead={() => setHasUnreadNotifications(false)}
-      />
-
-      {/* Notification Center Toggle Button */}
-      <motion.button
-        initial={{ y: '100%' }}
-        animate={{ y: [-5, 5, -5] }}
-        transition={{ delay: 0.5, duration: 2, repeat: Infinity, repeatType: 'loop' }}
-        className="fixed right-0 top-1/2 -mr-12 -rotate-90 transform -translate-y-1/2 bg-gray-800/90 hover:bg-gray-900/90 backdrop-blur-md text-white px-3 py-3 rounded-lg shadow-lg border border-gray-700 flex items-center cursor-pointer z-30"
-        onClick={() => setNotificationCenterOpen(!notificationCenterOpen)}
-        whileHover={{ x: -5 }}
-        whileTap={{ scale: 0.95 }}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.7 }}
+        className="relative z-10 w-full h-full"
+        ref={desktopRef}
+        onContextMenu={handleContextMenu}
+        onClick={closeContextMenu}
       >
-        <div className="flex flex-row items-center gap-2">
-          <Bell className={`w-5 h-5 ${hasUnreadNotifications ? 'text-blue-400' : 'text-gray-400'}`} />
-          <span className={`text-xs font-medium origin-center whitespace-nowrap ${hasUnreadNotifications ? 'text-blue-400' : 'text-gray-400'}`}>
+        <MenuBar 
+          onOpenAbout={() => openApp('about')} 
+          onOpenCredits={() => openApp('credits')} 
+          onOpenTrash={() => openApp('trash')}
+          onLockScreen={onLock}
+          onRestart={onRestart}
+          onShutdown={onShutdown}
+        />
+        
+        <DesktopIcons 
+          onAppClick={openApp} 
+          onContextMenu={(e, id) => {
+            e.preventDefault();
+            setContextMenu({
+              x: e.clientX,
+              y: e.clientY,
+              visible: true,
+              itemId: id
+            });
+          }}
+        />
 
-            Notification Center
-          </span>
-        </div>
-      </motion.button>
+        <AnimatePresence>
+          {windows.map(({id, zIndex, maximized, minimized}) => {
+            if (minimized) return null;
+            
+            const app = [...APPS, ...ALL_APPS].find(a => a.id === id);
+            return (
+              <Window
+                key={id}
+                appId={id}
+                title={app?.title || ''}
+                zIndex={zIndex}
+                isMaximized={maximized}
+                onClose={() => closeApp(id)}
+                onMinimize={() => toggleMinimize(id)}
+                onMaximize={() => toggleMaximize(id)}
+                onMouseDown={() => bringToFront(id)}
+              >
+                {renderAppContent(id)}
+              </Window>
+            );
+          })}
+        </AnimatePresence>
 
-    </motion.div>
+        {contextMenu.visible && (
+          <div 
+            className="fixed bg-gray-800/90 dark:bg-gray-800/90 backdrop-blur-md rounded-lg shadow-lg border border-gray-700 dark:border-gray-700 py-1 z-50"
+            style={{
+              left: contextMenu.x,
+              top: contextMenu.y,
+              minWidth: '200px'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="text-sm text-gray-200 dark:text-gray-200">
+              {contextMenu.itemId && (
+                <button 
+                  className="w-full text-left px-4 py-2 hover:bg-blue-500 hover:text-white"
+                  onClick={() => {
+                    openApp(contextMenu.itemId!);
+                    closeContextMenu();
+                  }}
+                >
+                  Open
+                </button>
+              )}
+              <button className="w-full text-left px-4 py-2 hover:bg-blue-500 hover:text-white">
+                Get Info
+              </button>
+              <div className="border-t border-gray-700 dark:border-gray-700 my-1"></div>
+              <button className="w-full text-left px-4 py-2 hover:bg-blue-500 hover:text-white">
+                Sort By
+                <span className="float-right">▸</span>
+              </button>
+              <button className="w-full text-left px-4 py-2 hover:bg-blue-500 hover:text-white">
+                Clean Up
+              </button>
+              <div className="border-t border-gray-700 dark:border-gray-700 my-1"></div>
+              <button className="w-full text-left px-4 py-2 hover:bg-blue-500 hover:text-white">
+                New Folder
+              </button>
+            </div>
+          </div>
+        )}
+
+        <Dock 
+          apps={APPS}
+          activeApps={windows.map(w => w.id)}
+          onAppClick={openApp}
+          onDockItemClick={(id) => {
+            const window = windows.find(w => w.id === id);
+            if (window?.minimized) {
+              toggleMinimize(id);
+            } else if (window) {
+              bringToFront(id);
+            } else {
+              openApp(id);
+            }
+          }}
+        />
+
+        <NotificationCenter
+          isOpen={notificationCenterOpen}
+          onClose={() => setNotificationCenterOpen(false)}
+          doNotDisturb={doNotDisturb}
+          onToggleDoNotDisturb={() => setDoNotDisturb(!doNotDisturb)}
+          onMarkAllRead={() => setHasUnreadNotifications(false)}
+        />
+
+        {/* Notification Center Toggle Button */}
+        <motion.button
+          initial={{ y: '100%' }}
+          animate={{ y: [-5, 5, -5] }}
+          transition={{ delay: 0.5, duration: 2, repeat: Infinity, repeatType: 'loop' }}
+          className="fixed right-0 top-1/2 -mr-12 -rotate-90 transform -translate-y-1/2 bg-gray-800/90 hover:bg-gray-900/90 backdrop-blur-md text-white px-3 py-3 rounded-lg shadow-lg border border-gray-700 flex items-center cursor-pointer z-30"
+          onClick={() => setNotificationCenterOpen(!notificationCenterOpen)}
+          whileHover={{ x: -5 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <div className="flex flex-row items-center gap-2">
+            <Bell className={`w-5 h-5 ${hasUnreadNotifications ? 'text-blue-400' : 'text-gray-400'}`} />
+            <span className={`text-xs font-medium origin-center whitespace-nowrap ${hasUnreadNotifications ? 'text-blue-400' : 'text-gray-400'}`}>
+              Notification Center
+            </span>
+          </div>
+        </motion.button>
+      </motion.div>
+    </div>
   );
 }

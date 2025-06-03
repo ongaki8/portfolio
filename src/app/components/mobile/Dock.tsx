@@ -24,25 +24,25 @@ export default function Dock({ apps, onAppClick }: {
       title: 'Phone',
       isInDock: true,
       href: 'tel:+971561472975',
-      getIcon: () => <Phone size={24} className="text-gray-200" />
+      getIcon: () => <Phone size={24} className="text-blue-400 dark:text-blue-400" />
     },
     { 
       id: 'mail',
       title: 'Mail',
       isInDock: true,
       href: 'mailto:b8ongaki@icloud.com',
-      getIcon: () => <Mail size={24} className="text-gray-200" />
+      getIcon: () => <Mail size={24} className="text-[#EA4335] dark:text-[#EA4335]" />
     },
     { 
       id: 'whatsapp',
       title: 'WhatsApp',
       isInDock: true,
       href: 'whatsapp://send?phone=971561472975&text=Hello%20Brian',
-      getIcon: () => <FaWhatsapp size={24} className="text-gray-200" />
+      getIcon: () => <FaWhatsapp size={24} className="text-green-600 dark:text-green-500" />
     }
   ];
 
-  // Combine passed apps with default apps if no apps are provided
+  // Combine default apps with provided apps
   const dockApps: DockAppConfig[] = apps.length > 0 
     ? apps.map(app => ({
         id: app.id,
@@ -62,10 +62,10 @@ export default function Dock({ apps, onAppClick }: {
     }
   };
 
-  return (
+    return (
     <div className="absolute bottom-6 left-0 right-0 px-8">
       <motion.div 
-        className="bg-gray-800/80 backdrop-blur-xl rounded-3xl p-2 flex justify-around border border-gray-700"
+        className="bg-gray-200/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl p-2 flex justify-around border border-gray-300 dark:border-gray-700"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
@@ -78,7 +78,7 @@ export default function Dock({ apps, onAppClick }: {
             className="p-2"
             onClick={() => handleAppClick(app)}
           >
-            <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-gray-700/50 hover:bg-gray-600/70 transition-colors">
+            <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-gray-300/50 dark:bg-gray-700/50 hover:bg-gray-300/70 dark:hover:bg-gray-600/70 border border-gray-400/40 transition-colors">
               {app.getIcon()}
             </div>
           </motion.button>

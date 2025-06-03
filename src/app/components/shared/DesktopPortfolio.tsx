@@ -100,7 +100,7 @@ export default function DesktopPortfolio() {
   };
 
   return (
-    <section className="relative py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-screen">
+    <section className="relative py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 min-h-screen">
       {/* Floating tech bubbles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {allTags.map((tag, i) => (
@@ -139,36 +139,38 @@ export default function DesktopPortfolio() {
             </h2>
             <div className="absolute inset-0 bg-blue-500/10 rounded-full blur-3xl group-hover:opacity-100 opacity-0 transition-opacity duration-500" />
           </div>
-          <p className="text-gray-400 max-w-2xl mx-auto font-mono text-sm mb-6">
+          <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto font-mono text-sm mb-6">
             {portfolioText.subtitle}
           </p>
+
+          <hr className="border-t border-gray-300 dark:border-gray-700 my-6" />
 
           <div className="inline-flex">
             <motion.div 
               whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-2 text-sm text-orange-400 font-mono px-3 py-1.5 bg-gray-800/50 rounded-lg border border-orange-400"
+              className="flex items-center gap-2 mt-1 text-sm text-orange-500 dark:text-orange-400 font-mono px-3 py-1.5 bg-gray-100/70 dark:bg-gray-800/50 rounded-lg border border-orange-400"
             >
-              <ShieldAlert className="w-4 h-4 text-orange-400" />
+              <ShieldAlert className="w-4 h-4 text-orange-500 dark:text-orange-400" />
               <span>{portfolioText.notification}</span>
             </motion.div>
           </div>
           
-          {/* Interactive terminal mockup */}
+          {/* Interactive terminal */}
           <div 
-            className="mt-8 mx-auto max-w-md bg-gray-800/50 border border-gray-700 rounded-lg p-4 text-left cursor-pointer hover:border-blue-500 transition-all"
+            className="mt-8 mx-auto max-w-md bg-gray-100/70 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-700 rounded-lg p-4 text-left cursor-pointer hover:border-blue-500 transition-all"
             onClick={() => setShowFilters(!showFilters)}
           >
-            <div className="flex items-center gap-2 text-gray-400 mb-1">
+            <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 mb-1">
               <span className="font-mono text-sm">view_mode</span>
             </div>
-            <div className="font-mono text-blue-500 text-sm flex items-center gap-2">
+            <div className="font-mono text-blue-600 dark:text-blue-500 text-sm flex items-center gap-2">
               <icons.AppWindowMac size={16} />
               {`Currently Viewing: ${showFilters ? 'GRID_WITH_MENU' : 'GRID_WITHOUT_MENU'}`}
             </div>
           </div>
         </motion.div>
 
-        {/* Dynamic filter chips with hover effects - conditionally rendered */}
+        {/* Dynamic filter chips with hover effects */}
         {showFilters && (
           <motion.div
             className="flex flex-wrap justify-center gap-2 mb-8 top-4 z-20"
@@ -183,7 +185,7 @@ export default function DesktopPortfolio() {
               className={`px-3 py-1 rounded-full text-xs font-medium transition-all flex items-center gap-1 ${
                 activeFilter === 'All' 
                   ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20' 
-                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                  : 'bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700'
               }`}
             >
               {activeFilter === 'All' ? <icons.Expand size={14} /> : <icons.Shrink size={14} />}
@@ -204,7 +206,7 @@ export default function DesktopPortfolio() {
                 className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
                   activeFilter === tag 
                     ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20' 
-                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                    : 'bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700'
                 }`}
               >
                 {tag}
@@ -213,7 +215,7 @@ export default function DesktopPortfolio() {
           </motion.div>
         )}
 
-        {/* Interactive project grid */}
+        {/* Project grid */}
         <motion.div
           ref={ref}
           variants={containerVariants}
@@ -260,7 +262,7 @@ function ProjectCard({
   return (
     <motion.div
       variants={variants}
-      className={`relative group overflow-hidden rounded-2xl bg-gray-800/50 backdrop-blur-sm border border-gray-700 hover:border-blue-500 cursor-pointer transition-all duration-500 h-auto`}
+      className={`relative group overflow-hidden rounded-2xl bg-white/70 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-300 dark:border-gray-700 hover:border-blue-500 cursor-pointer transition-all duration-500 h-auto`}
       whileHover={{ 
         y: -10,
         boxShadow: '0 20px 25px -5px rgba(59, 130, 246, 0.1), 0 10px 10px -5px rgba(59, 130, 246, 0.04)'
@@ -287,8 +289,8 @@ function ProjectCard({
       {/* Project content */}
       <div className="p-6 flex flex-col h-full">
         <div className="">
-          <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-          <p className="text-gray-300 mb-4 text-sm">{project.description}</p>
+          <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">{project.title}</h3>
+          <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">{project.description}</p>
           
           {/* Tech stack badges */}
           <div className="flex flex-wrap gap-2">
@@ -301,7 +303,7 @@ function ProjectCard({
                 className={`text-xs text-blue-500 font-mono px-2 py-1 rounded-md ${
                   hoveredTech === tag 
                     ? 'bg-blue-600/70 text-white shadow-lg shadow-blue-500/30' 
-                    : 'bg-gray-900/70 text-blue-500'
+                    : 'bg-gray-200 dark:bg-gray-900 text-blue-600 dark:text-blue-500'
                 }`}
               >
                 {tag}
