@@ -59,7 +59,7 @@ export default function DesktopShutdown({ onStart, onRestart, onShutdown }: Desk
             <Power className="text-white" size={48} />
           </motion.button>
           <h1 className="text-3xl font-medium text-white mb-3">System terminated. Goodbye, world.</h1>
-          <p className="text-white/60 text-sm">Click on the power button or press Enter to start the system</p>
+          <p className="text-white/60 text-sm">Click on the power button or press Enter to boot the system</p>
         </div>
       </motion.div>
     </div>

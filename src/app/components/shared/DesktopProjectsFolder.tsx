@@ -132,11 +132,11 @@ export default function ProjectsFolder() {
 
   const projectNotes: ProjectNote[] = [
     {
-      id: 'note-2',
-      title: 'Pilot Performance & Fatigue Monitor',
-      content: 'A dashboard that aggregates biometric data and flight logs to assess pilot alertness and fatigue levels in real-time. Includes AI-driven risk scoring and actionable alerts for crew management to improve flight safety.',
-      status: 'idea-phase',
-      techStack: ['TensorFlow', 'APIs']
+      id: 'note-1',
+      title: '3D Workspace Portfolio',
+      content: 'Step into a 3D interactive portfolio set within a virtual room. Move around freely, explore the space, and interact with objects - all presented in an immersive, game-like environment.',
+      status: 'in-progress',
+      techStack: ['Three.js', 'Blender']
     }
   ];
 

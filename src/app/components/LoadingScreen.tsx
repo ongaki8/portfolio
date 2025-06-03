@@ -120,7 +120,7 @@ export default function LoadingScreen({ duration = 1.5 }: LoadingScreenProps) {
           {/* Desktop */}
           <div className="hidden md:block mt-10">
             <p className="text-sm text-gray-600 dark:text-gray-500">
-              System version 1.0.1 | Secure connection established.
+              System version 29.03.1996 | Secure connection established.
             </p>
           </div>
         </motion.div>
