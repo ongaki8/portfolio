@@ -944,22 +944,22 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
           <div className="md:w-1/2">
             {/* Core Features */}
             <div className="p-3 bg-gray-100 dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600 mb-8">
-              <h4 className="font-mono text-xs text-center text-gray-500 dark:text-gray-400 mb-2">CORE_FEATURES</h4>
-              <ul className="space-y-2 text-sm">
+              <h4 className="font-mono font-medium text-xs text-left text-[#117bae] mb-2">CORE_FEATURES</h4>
+              <ul className="space-y-2 text-sm font-light text-gray-600 dark:text-gray-300">
                 <li className="flex items-start gap-2">
-                  <span className="text-[#117bae]">•</span>
+                  <span className="">•</span>
                   <span>Push-based emergency notifications with role targeting</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-[#117bae]">•</span>
+                  <span className="">•</span>
                   <span>Smart analytics dashboard with insights</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-[#117bae]">•</span>
+                  <span className="">•</span>
                   <span>Alert progress tracking with real-time updates</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-[#117bae]">•</span>
+                  <span className="">•</span>
                   <span>Device number assignment to role/user</span>
                 </li>
               </ul>
@@ -967,7 +967,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
 
             {/* Creative Timeline Visualization */}
             <div className="mb-8 p-4 bg-[#f8fafc] dark:bg-gray-800 border border-[#e2e8f0] dark:border-gray-700 rounded-lg">
-              <h4 className="font-mono text-xs text-gray-500 dark:text-gray-400 mb-3">ALERT_FLOW</h4>
+              <h4 className="font-mono font-medium text-xs text-[#117bae] mb-3">ALERT_FLOW</h4>
               <div className="relative">
                 {/* Vertical timeline line */}
                 <div className="absolute left-4 h-full w-px bg-gradient-to-b from-[#117bae]/30 via-[#117bae]/50 to-[#117bae]/30 dark:from-[#117bae]/20 dark:via-[#117bae]/40 dark:to-[#117bae]/20"></div>
@@ -1110,12 +1110,11 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
             </span>
-            <span className="text-green-600 dark:text-green-400 font-mono">SYSTEM_ACTIVE • 24/7 MONITORING</span>
+            <span className="text-green-600 dark:text-green-400 font-mono">SYSTEM_ONLINE • KERNEL INITIALIZED</span>
           </div>
 
         </motion.div>
 
-        <hr className="border-t border-gray-300 dark:border-gray-700 my-8" />
 
         {/* Tabs */}
         <div className="flex border-b border-gray-200 dark:border-gray-700 mb-6">

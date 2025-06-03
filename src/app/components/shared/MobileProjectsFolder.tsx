@@ -158,12 +158,12 @@ export default function ProjectsFolder() {
   };
 
   const projectNotes: ProjectNote[] = [
-    {
-      id: 'note-2',
-      title: 'Pilot Performance & Fatigue Monitor',
-      content: 'A dashboard that aggregates biometric data and flight logs to assess pilot alertness and fatigue levels in real-time. Includes AI-driven risk scoring and actionable alerts for crew management to improve flight safety.',
-      status: 'idea-phase',
-      techStack: ['TensorFlow', 'APIs']
+     {
+      id: 'note-1',
+      title: '3D Workspace Portfolio',
+      content: 'Step into a 3D interactive portfolio set within a virtual room. Move around freely, explore the space, and interact with objects - all presented in an immersive, game-like environment.',
+      status: 'in-progress',
+      techStack: ['Three.js', 'Blender']
     }
   ];
 
@@ -812,22 +812,22 @@ export default function ProjectsFolder() {
               <div className="flex flex-col gap-4 mb-4">
                 {/* Core Features */}
                 <div className="p-2 bg-gray-100 dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600">
-                  <h4 className="font-mono text-[10px] text-center text-gray-500 dark:text-gray-400 mb-1">CORE_FEATURES</h4>
-                  <ul className="space-y-1 text-xs">
+                  <h4 className="font-mono font-medium text-[10px] text-left text-[#117bae] mb-1">CORE_FEATURES</h4>
+                  <ul className="space-y-1 text-xs font-light text-gray-600 dark:text-gray-300">
                     <li className="flex items-start gap-1">
-                      <span className="text-[#117bae]">•</span>
+                      <span className="">•</span>
                       <span>Push-based emergency notifications with role targeting</span>
                     </li>
                     <li className="flex items-start gap-1">
-                      <span className="text-[#117bae]">•</span>
+                      <span className="">•</span>
                       <span>Smart analytics dashboard with insights</span>
                     </li>
                     <li className="flex items-start gap-1">
-                      <span className="text-[#117bae]">•</span>
+                      <span className="">•</span>
                       <span>Alert progress tracking with real-time updates</span>
                     </li>
                     <li className="flex items-start gap-1">
-                      <span className="text-[#117bae]">•</span>
+                      <span className="">•</span>
                       <span>Device number assignment to role/user</span>
                     </li>
                   </ul>
@@ -835,7 +835,7 @@ export default function ProjectsFolder() {
 
                 {/* Creative Timeline Visualization */}
                 <div className="p-3 bg-[#f8fafc] dark:bg-gray-800 border border-[#e2e8f0] dark:border-gray-700 rounded-lg">
-                  <h4 className="font-mono text-[10px] text-gray-500 dark:text-gray-400 mb-2">ALERT_FLOW</h4>
+                  <h4 className="font-mono font-medium text-[10px] text-[#117bae] mb-2">ALERT_FLOW</h4>
                   <div className="relative">
 
                     {/* Vertical Line */}
@@ -986,7 +986,7 @@ export default function ProjectsFolder() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
             </span>
-            <span className="text-green-600 dark:text-green-400 font-mono">SYSTEM_ACTIVE • 24/7 MONITORING</span>
+            <span className="text-green-600 dark:text-green-400 font-mono">SYSTEM_ONLINE • KERNEL INITIALIZED</span>
           </div>
         </motion.div>
 
