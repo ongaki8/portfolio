@@ -98,5 +98,13 @@ export const projects = [
     tags: ['WordPress', 'Elementor', 'CSS', 'PHP', 'MySQL'],
     link: 'https://app.reb.ac',
     hasWalkthrough: false
-  }
+  },
+  {
+    title: 'Afro Heist',
+    description: 'Arts & Entertainment company with WooCommerce integration. Built with Elementor.',
+    tags: ['WordPress', 'WooCommerce', 'Elementor', 'PHP'],
+    image: '/projects/afro-heist.jpg',
+    link: null,
+    hasWalkthrough: true
+  },
 ];

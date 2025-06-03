@@ -73,7 +73,16 @@ export const projects = [
     image: '/projects/rebac-app.jpg',
     link: 'https://app.reb.ac',
     hasWalkthrough: false
-  }
+  },
+    {
+    id: 8,
+    title: 'Afro Heist',
+    description: 'Arts & Entertainment company with WooCommerce integration. Built with Elementor.',
+    tags: ['WordPress', 'WooCommerce', 'Elementor', 'PHP'],
+    image: '/projects/afro-heist.jpg',
+    link: null,
+    hasWalkthrough: true
+  },
 ];
 
 export const allTags = [...new Set(projects.flatMap(project => project.tags))];
