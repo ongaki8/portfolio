@@ -60,7 +60,7 @@ export const commandResponses = {
     '│  ├─────────────────────┤                         │',
     '│  │  Phone             │ +971 56 147 2975         │',
     '│  ├─────────────────────┤                         │',
-    '│  │  WhatsApp          │ +49 152 1562 9524        │',
+    '│  │  WhatsApp          │ +971 56 147 2975         │',
     '│  └─────────────────────┘                         │',
     '│                                                  │',
     '│  Type "links" to open these directly             │',
