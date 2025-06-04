@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div align="center">
 
 # <span style="color: #0070f3">Brian's Portfolio</span>
