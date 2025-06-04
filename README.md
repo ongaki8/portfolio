@@ -2,7 +2,7 @@
 
 # <span style="color: #0070f3">Brian's Portfolio</span>
 
-![Portfolio Screenshot](./public/screenshot.png)
+![Portfolio Screenshot](./public/screenshot.jpg)
 
 *A modern, interactive developer portfolio with macOS-inspired UI built with Next.js*
 
