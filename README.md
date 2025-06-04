@@ -7,7 +7,7 @@
 
 *A modern, interactive developer portfolio with macOS-inspired UI built with Next.js*
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyour-username%2Fportfolio)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 </div>
@@ -25,7 +25,25 @@
 
 ---
 
-## Getting Started
+## <span style="color: #0070f3">🛠 Tech Stack</span>
+
+| Category       | Technologies                                                                 |
+|----------------|-----------------------------------------------------------------------------|
+| **Framework**  | ![Next.js](https://img.shields.io/badge/Next.js-000000?logo=nextdotjs)      |
+| **Styling**    | ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css) |
+| **Animation**  | ![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?logo=framer) |
+| **Icons**      | ![Lucide](https://img.shields.io/badge/Lucide-FF6D00?logo=lucide)           |
+| **Deployment** | ![Vercel](https://img.shields.io/badge/Vercel-000000?logo=vercel)           |
+
+---
+
+## <span style="color: #0070f3">📦 Getting Started</span>
+
+### Prerequisites
+- Node.js 18+
+- npm/yarn/pnpm
+
+### Installation
 
 First, run the development server:
 
@@ -57,6 +75,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyour-username%2Fportfolio)
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 =======
