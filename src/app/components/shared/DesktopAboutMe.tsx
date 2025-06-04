@@ -268,7 +268,7 @@ export default function DesktopAboutMe() {
             >
               <Settings className="mx-auto text-red-500 mb-2" size={28} />
               <h3 className="text-gray-900 dark:text-white font-medium">Other</h3>
-              <p className="text-xs font-mono text-red-500 mt-1">3 skills</p>
+              <p className="text-xs font-mono text-red-500 mt-1">2 skills</p>
             </motion.div>
           </div>
         </div>

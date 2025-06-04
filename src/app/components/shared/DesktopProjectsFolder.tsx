@@ -555,7 +555,7 @@ export default function ProjectsFolder() {
                         <div className="h-54">
                             <div className="relative h-[100%] rounded-lg overflow-hidden">
                                 <Image
-                                src="/folder/real-model.jpg"
+                                src="/folder/real-model.webp"
                                 alt="3D Workspace Preview"
                                 fill
                                 className="object-cover rounded-lg"
@@ -1044,7 +1044,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
               {/* Phone screen content */}
               <div className="rounded-[1.7rem] overflow-hidden w-[272px] h-[591px] bg-white dark:bg-gray-800">
                 <img 
-                  src="/folder/sos.png" 
+                  src="/folder/sos.webp" 
                   className="w-full h-full object-cover"
                   alt="Emergency Response App showing active alert screen"
                 />

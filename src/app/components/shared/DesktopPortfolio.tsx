@@ -144,16 +144,6 @@ export default function DesktopPortfolio() {
           </p>
 
           <hr className="border-t border-gray-300 dark:border-gray-700 my-6" />
-
-          <div className="inline-flex">
-            <motion.div 
-              whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-2 mt-1 text-sm text-orange-500 dark:text-orange-400 font-mono px-3 py-1.5 bg-gray-100/70 dark:bg-gray-800/50 rounded-lg border border-orange-400"
-            >
-              <ShieldAlert className="w-4 h-4 text-orange-500 dark:text-orange-400" />
-              <span>{portfolioText.notification}</span>
-            </motion.div>
-          </div>
           
           {/* Interactive terminal */}
           <div 

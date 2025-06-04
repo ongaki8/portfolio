@@ -155,7 +155,7 @@ export default function DesktopView({ apps, onAppClick, onLock, onRestart, onShu
         <style jsx global>{`
           @media (prefers-color-scheme: light) {
             .desktop-background {
-              background-image: url('/wallpaper-light.jpg') !important;
+              background-image: url('/wallpaper-light.webp') !important;
             }
           }
         `}</style>

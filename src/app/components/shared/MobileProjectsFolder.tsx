@@ -559,7 +559,7 @@ export default function ProjectsFolder() {
                     <div className="font-mono text-[10px] text-gray-500 dark:text-gray-500 mb-3">// LOCALHOST:3000</div>
                     <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
                       <Image
-                        src="/folder/real-model.jpg"
+                        src="/folder/real-model.webp"
                         alt="3D Workspace Preview"
                         fill
                         className="object-cover rounded-lg"
@@ -920,7 +920,7 @@ export default function ProjectsFolder() {
                     <div className="rounded-[1.5rem] overflow-hidden w-[230px] h-[480px] bg-white dark:bg-gray-800">
                       <div className="relative w-full h-full">
                         <Image
-                          src="/folder/sos.png"
+                          src="/folder/sos.webp"
                           alt="Emergency Response App showing active alert screen"
                           fill
                           className="object-cover"

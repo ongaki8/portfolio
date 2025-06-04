@@ -113,16 +113,7 @@ export default function MobilePortfolio() {
         </p>
       </motion.div>
 
-      <hr className="border-t border-gray-300 dark:border-gray-700 my-2" />
-
-      <div className="text-center inline-flex p-4 mb-2">
-        <motion.div 
-          whileHover={{ scale: 1.05 }}
-          className="flex items-center gap-1 text-xs text-orange-500 dark:text-orange-400 font-mono px-2 py-2 bg-transparent rounded-md border border-orange-400"
-        >
-          <span>{portfolioText.notification}</span>
-        </motion.div>
-      </div>
+      <hr className="border-t border-gray-300 dark:border-gray-700 my-6" />
 
       {/* Filter chips */}
       <div className="mb-6 overflow-x-auto pb-2 scrollbar-hide">

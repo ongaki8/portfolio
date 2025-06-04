@@ -339,7 +339,7 @@ export default function HomeScreen({
     <style jsx>{`
       @media (prefers-color-scheme: light) {
         div[style*="/wallpaper.jpg"] {
-          background-image: url('/wallpaper-light.jpg') !important;
+          background-image: url('/wallpaper-light.webp') !important;
         }
       }
     `}</style>

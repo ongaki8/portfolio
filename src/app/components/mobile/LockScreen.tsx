@@ -28,7 +28,7 @@ export default function LockScreen({ onUnlock }: { onUnlock: () => void }) {
           style={{
             backgroundImage: `
               url('/wallpaper.jpg'),
-              url('/wallpaper-light.jpg')
+              url('/wallpaper-light.webp')
             `,
             backgroundBlendMode: 'normal',
           }}
@@ -37,7 +37,7 @@ export default function LockScreen({ onUnlock }: { onUnlock: () => void }) {
           <style jsx>{`
             @media (prefers-color-scheme: light) {
               div[style*="/wallpaper.jpg"] {
-                background-image: url('/wallpaper-light.jpg') !important;
+                background-image: url('/wallpaper-light.webp') !important;
               }
             }
           `}</style>
