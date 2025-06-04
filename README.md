@@ -10,6 +10,9 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
+<span style="color: #0070f3">🌐 Live Demo</span>
+➡️ https://ongaki.website
+
 </div>
 
 ---
@@ -74,10 +77,11 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyour-username%2Fportfolio)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-=======
-# portfolio
->>>>>>> 708d1d5382584cbba6138cb6531755a5c94f06ad
+<div align="center">
+Crafted with ☕ by Brian Ongaki
+Twitter
+GitHub
+
+</div> ```
