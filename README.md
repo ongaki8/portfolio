@@ -79,9 +79,9 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyour-username%2Fportfolio)
 
+---
+
 <div align="center">
 Crafted with ☕ by Brian Ongaki
-Twitter
-GitHub
 
 </div> ```
