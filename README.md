@@ -83,4 +83,4 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 <div align="center">
 Crafted with ☕ by Brian Ongaki
 
-</div> ```
+</div>
