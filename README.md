@@ -1,5 +1,29 @@
 <<<<<<< HEAD
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+
+# <span style="color: #0070f3">Brian's Portfolio</span>
+
+![Portfolio Screenshot](./public/screenshot.png)
+
+*A modern, interactive developer portfolio with macOS-inspired UI built with Next.js*
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyour-username%2Fportfolio)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
+</div>
+
+---
+
+## <span style="color: #0070f3">🚀 Features</span>
+
+- **MacOS-Style UI** - Desktop-inspired interface with draggable windows
+- **Next.js 14** - App Router, Server Components, and optimized performance
+- **Dynamic Themes** - Light/dark mode with system preference detection
+- **Interactive Elements** - Animated with Framer Motion
+- **Project Showcase** - Filterable project gallery with case studies
+- **Responsive Design** - Works on all device sizes
+
+---
 
 ## Getting Started
 
