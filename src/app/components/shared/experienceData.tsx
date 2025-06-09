@@ -107,4 +107,12 @@ export const projects = [
     link: null,
     hasWalkthrough: true
   },
+  {
+    title: 'AH Merch Store',
+    description: 'A modern merch store built for fans and followers of an Arts & Entertainment company.',
+    tags: ['WordPress', 'WooCommerce', 'Elementor', 'PHP'],
+    image: '/projects/afroheiststore.jpg',
+    link: null,
+    hasWalkthrough: true
+  },
 ];

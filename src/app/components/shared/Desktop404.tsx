@@ -201,7 +201,7 @@ export default function Desktop404() {
                   <div>
                     <div>$ npm run dev</div>
                     <div>Compiling page...</div>
-                    <div>Warning: This page is under development</div>
+                    <div>Warning: This page is under development and may not function as expected.</div>
                     <div className="flex items-center mt-1">
                       <span>$</span>
                       <motion.span

@@ -74,12 +74,21 @@ export const projects = [
     link: 'https://app.reb.ac',
     hasWalkthrough: false
   },
-    {
+  {
     id: 8,
     title: 'Afro Heist',
-    description: 'Arts & Entertainment company with WooCommerce integration. Built with Elementor.',
-    tags: ['WordPress', 'WooCommerce', 'Elementor', 'PHP'],
+    description: 'Providing a platform for the next wave of talent in Arts & Entertainment.',
+    tags: ['WordPress', 'Elementor', 'PHP'],
     image: '/projects/afro-heist.jpg',
+    link: null,
+    hasWalkthrough: true
+  },
+  {
+    id: 9,
+    title: 'AH Merch Store',
+    description: 'A modern merch store built for fans and followers of an Arts & Entertainment company.',
+    tags: ['WordPress', 'WooCommerce', 'Elementor', 'PHP'],
+    image: '/projects/afroheiststore.jpg',
     link: null,
     hasWalkthrough: true
   },

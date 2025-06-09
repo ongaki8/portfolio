@@ -100,11 +100,39 @@ export default function DesktopLogin({ onUnlock, onRestart, onShutdown }: Deskto
         className="relative z-10 h-full w-full flex items-center justify-center"
       >
         <motion.div
-          className="w-96 px-10 py-8 bg-gray-900/80 dark:bg-gray-800/30 backdrop-blur-xl rounded-xl border border-white/20 shadow-2xl"
+          className="w-96 px-10 py-8 bg-gray-900/80 dark:bg-gray-800/30 backdrop-blur-xl rounded-xl border border-white/20 shadow-2xl relative overflow-hidden"
           whileHover={{ scale: 1.01 }}
         >
+          {/* Edge Gradient Animation */}
+          <motion.div
+            className="absolute inset-0 rounded-xl pointer-events-none overflow-hidden"
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: [0, 0.3, 0],
+              background: [
+                'conic-gradient(from 0deg at 50% 50%, transparent, rgba(255,255,255,0.1), transparent)',
+                'conic-gradient(from 180deg at 50% 50%, transparent, rgba(255,255,255,0.3), transparent)',
+                'conic-gradient(from 360deg at 50% 50%, transparent, rgba(255,255,255,0.1), transparent)'
+              ]
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+          />
+          
+          {/* Hover Gradient Light */}
+          <motion.div
+            className="absolute inset-0 rounded-xl pointer-events-none opacity-0"
+            whileHover={{ opacity: 0.3 }}
+            style={{
+              background: 'radial-gradient(circle at center, rgba(255,255,255,0.4) 0%, transparent 70%)'
+            }}
+          />
+
           {/* User Avatar */}
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center mb-8 relative z-10">
             <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#131313] to-[#333333] dark:from-black-900 to-black-700 flex items-center justify-center shadow-lg border-2 border-white/20 relative">
               {/* White circle in the center, offset to bottom right */}
               <div className="absolute inset-0 flex items-end justify-end pr-4 pb-3">
@@ -117,12 +145,12 @@ export default function DesktopLogin({ onUnlock, onRestart, onShutdown }: Deskto
           </div>
 
           {/* User Name */}
-          <div className="text-center mb-6">
+          <div className="text-center mb-6 relative z-10">
             <h2 className="text-xl font-medium text-white">Brian Ongaki</h2>
           </div>
 
           {/* Password Field */}
-          <form onSubmit={handleLogin} className="space-y-6">
+          <form onSubmit={handleLogin} className="space-y-6 relative z-10">
             <div>
               <motion.div
                 animate={{

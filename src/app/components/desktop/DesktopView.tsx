@@ -19,6 +19,7 @@ import Desktop404 from '../shared/Desktop404';
 import { AppConfig } from '@/app/utils/types';
 import { Bell } from 'lucide-react';
 import NotificationCenter from './notificationData';
+import SystemInfoPopup from './SystemInfoPopup';
 
 interface DesktopViewProps {
   apps: AppConfig[];
@@ -45,6 +46,7 @@ export default function DesktopView({ apps, onAppClick, onLock, onRestart, onShu
   const [notificationCenterOpen, setNotificationCenterOpen] = useState(false);
   const [doNotDisturb, setDoNotDisturb] = useState(false);
   const [hasUnreadNotifications, setHasUnreadNotifications] = useState(true);
+  const [showSystemInfo, setShowSystemInfo] = useState(false);
 
   const handleContextMenu = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -238,8 +240,14 @@ export default function DesktopView({ apps, onAppClick, onLock, onRestart, onShu
                   Open
                 </button>
               )}
-              <button className="w-full text-left px-4 py-2 hover:bg-blue-500 hover:text-white">
-                Get Info
+              <button 
+                className="w-full text-left px-4 py-2 hover:bg-blue-500 hover:text-white"
+                onClick={() => {
+                  setShowSystemInfo(true);
+                  closeContextMenu();
+                }}
+              >
+                About this Portfolio
               </button>
               <div className="border-t border-gray-700 dark:border-gray-700 my-1"></div>
               <button className="w-full text-left px-4 py-2 hover:bg-blue-500 hover:text-white">
@@ -298,6 +306,14 @@ export default function DesktopView({ apps, onAppClick, onLock, onRestart, onShu
             </span>
           </div>
         </motion.button>
+
+        {/* System Info Popup */}
+        <AnimatePresence>
+          {showSystemInfo && (
+            <SystemInfoPopup onClose={() => setShowSystemInfo(false)} />
+          )}
+        </AnimatePresence>
+
       </motion.div>
     </div>
   );

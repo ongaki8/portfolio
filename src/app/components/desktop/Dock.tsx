@@ -6,17 +6,17 @@ import { useState } from 'react';
 import { AppConfig } from '@/app/utils/types';
 
 interface DockProps {
-  apps: AppConfig[];  // Add this
+  apps: AppConfig[]; 
   activeApps?: string[];
   onAppClick: (id: string) => void;
-  onDockItemClick?: (id: string) => void;  // Add this if needed
+  onDockItemClick?: (id: string) => void; 
 }
 
 export default function Dock({
-  apps,  // Add this
+  apps, 
   activeApps = [],
   onAppClick,
-  onDockItemClick  // Add this if needed
+  onDockItemClick  
 }: DockProps) {
   const [hoveredApp, setHoveredApp] = useState<string | null>(null);
 
