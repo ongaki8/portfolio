@@ -145,14 +145,14 @@ export default function DesktopCredits() {
   };
 
     return (
-    <div className="h-full bg-gray-100 dark:bg-gray-900 p-8 overflow-hidden">
+    <div className="h-full bg-gray-100 dark:bg-gray-900 rounded-2xl p-8 overflow-hidden">
       <div className="max-w-4xl mx-auto h-full flex flex-col">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
           ref={terminalRef}
-          className="flex-1 bg-white/90 dark:bg-gray-900/95 p-6 overflow-y-auto font-mono text-sm text-gray-700 dark:text-gray-300 rounded-lg border border-gray-300 dark:border-gray-700 shadow-lg"
+          className="flex-1 bg-white/90 dark:bg-gray-900/95 p-6 overflow-y-auto font-mono text-sm text-gray-700 dark:text-gray-300 rounded-2xl border border-gray-300 dark:border-gray-700 shadow-sm"
           style={{ fontFamily: 'monospace' }}
           onClick={() => inputRef.current?.focus()}
         >
@@ -213,11 +213,26 @@ export default function DesktopCredits() {
               key={index}
               onClick={() => handleButtonClick(action.command)}
               disabled={isTyping}
-              className={`group bg-gray-200 dark:bg-gray-800 cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-700 rounded-lg p-4 flex flex-col items-center gap-2 transition-all disabled:opacity-50 border border-gray-300 dark:border-gray-700 hover:border-${action.color}-400`}
+              className={`group bg-gray-200 dark:bg-gray-800 cursor-pointer hover:bg-gray-300/60 dark:hover:bg-gray-700 rounded-2xl p-4 flex flex-col items-center gap-2 transition-all disabled:opacity-50 border border-gray-300 dark:border-gray-700 ${
+                action.color === 'blue' ? 'hover:border-blue-400' :
+                action.color === 'green' ? 'hover:border-green-400' :
+                action.color === 'yellow' ? 'hover:border-yellow-400' :
+                'hover:border-purple-400'
+              }`}
             >
-              <div className={`p-3 bg-gray-300 dark:bg-gray-700 group-hover:bg-${action.color}-400/20 rounded-full transition-colors`}>
+              <div className={`p-3 bg-gray-300 dark:bg-gray-700 rounded-full transition-colors ${
+                action.color === 'blue' ? 'group-hover:bg-blue-400/20' :
+                action.color === 'green' ? 'group-hover:bg-green-400/20' :
+                action.color === 'yellow' ? 'group-hover:bg-yellow-400/20' :
+                'group-hover:bg-purple-400/20'
+              }`}>
                 {React.cloneElement(getIconComponent(action.icon), {
-                  className: `text-${action.color}-500 dark:text-${action.color}-400 group-hover:text-${action.color}-300`
+                  className: `${
+                    action.color === 'blue' ? 'text-blue-600 dark:text-blue-400 group-hover:text-blue-600' :
+                    action.color === 'green' ? 'text-green-500 dark:text-green-400 group-hover:text-green-500' :
+                    action.color === 'yellow' ? 'text-yellow-500 dark:text-yellow-400 group-hover:text-yellow-500' :
+                    'text-purple-500 dark:text-purple-400 group-hover:text-purple-400'
+                  }`
                 })}
               </div>
               <span className="text-sm font-medium">{action.label}</span>

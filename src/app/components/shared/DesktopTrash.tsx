@@ -23,7 +23,7 @@ export default function DesktopTrash() {
   };
 
   return (
-    <div className="h-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 p-6 overflow-auto">
+    <div className="h-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-8 overflow-auto">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
@@ -48,17 +48,17 @@ export default function DesktopTrash() {
               {items.length} FILE{items.length !== 1 ? 'S' : ''}
             </div>
             
-            <div className="flex bg-gray-200 dark:bg-gray-800 rounded-md p-1"> 
+            <div className="flex bg-gray-200 dark:bg-gray-800 rounded-xl px-2 py-2"> 
               <button
                 onClick={() => setViewMode('list')}
-                className={`p-2 rounded cursor-pointer ${viewMode === 'list' ? 'bg-gray-300 dark:bg-gray-700 text-blue-600 dark:text-white' : 'text-gray-500 dark:text-gray-400'}`}
+                className={`p-2 rounded-lg cursor-pointer ${viewMode === 'list' ? 'bg-gray-300 dark:bg-gray-700 text-blue-600 dark:text-white' : 'text-gray-500 dark:text-gray-400'}`}
                 title="List View"
               >
                 <FiList size={18} />
               </button>
               <button
                 onClick={() => setViewMode('grid')}
-                className={`p-2 rounded cursor-pointer ${viewMode === 'grid' ? 'bg-gray-300 dark:bg-gray-700 text-blue-600 dark:text-white' : 'text-gray-500 dark:text-gray-400'}`}
+                className={`p-2 rounded-lg cursor-pointer ${viewMode === 'grid' ? 'bg-gray-300 dark:bg-gray-700 text-blue-600 dark:text-white' : 'text-gray-500 dark:text-gray-400'}`}
                 title="Grid View"
               >
                 <FiGrid size={18} />
@@ -93,7 +93,7 @@ export default function DesktopTrash() {
                 ))}
               </div>
             ) : (
-              <div className="bg-gray-200/70 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden mb-8">
+              <div className="bg-gray-200/70 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-300 dark:border-gray-700 rounded-3xl overflow-hidden mb-8">
                 {items.map((item, index) => (
                   <motion.div
                     key={index}
@@ -126,7 +126,7 @@ export default function DesktopTrash() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-gray-200/80 dark:bg-gray-800/70 backdrop-blur-sm border border-gray-300 dark:border-gray-700 rounded-lg p-4 mb-6"
+                className="bg-gray-200/80 dark:bg-gray-800/70 backdrop-blur-sm border border-gray-300 dark:border-gray-700 rounded-3xl p-4 mb-6"
               >
                 <div className="flex justify-between items-start">
                   <div>
@@ -165,14 +165,14 @@ export default function DesktopTrash() {
                 whileHover={{ scale: 1.15 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleEmptyTrash}
-                className="cursor-pointer px-4 py-2 bg-red-100 dark:bg-red-600/20 font-medium text-red-600 dark:text-red-400 text-xs font-mono rounded-md border border-red-300 dark:border-red-700/50 flex items-center gap-2"
+                className="cursor-pointer px-4 py-2 bg-red-100 dark:bg-red-600/20 font-medium text-red-600 dark:text-red-400 text-xs font-mono rounded-xl border border-red-300 dark:border-red-700/50 flex items-center gap-2"
               >
                 <FiTrash2 size={14} /> EMPTY_TRASH
               </motion.button>
             </div>
           </>
         ) : (
-          <div className="flex flex-col items-center justify-center h-64 bg-gray-200/70 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-300 dark:border-gray-700 rounded-lg">
+          <div className="flex flex-col items-center justify-center h-64 bg-gray-200/70 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-300 dark:border-gray-700 rounded-3xl">
             <div className="p-4 bg-gray-300 dark:bg-gray-900/30 rounded-full mb-4">
               <FiTrash2 className="text-gray-400 dark:text-gray-600" size={48} />
             </div>
@@ -184,7 +184,7 @@ export default function DesktopTrash() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setItems(fakeTrashItems)}
-              className="cursor-pointer px-4 py-2 bg-blue-100 dark:bg-blue-600/50 text-blue-600 dark:text-white text-xs rounded-md flex items-center gap-2 font-medium"
+              className="cursor-pointer px-4 py-2 bg-blue-100 dark:bg-blue-600/40 text-blue-600 dark:text-white text-xs rounded-xl border border-blue-600 dark:border-blue-600 flex items-center gap-2 font-medium"
             >
               <FiRotateCw size={16} /> RESTORE_FILES
             </motion.button>

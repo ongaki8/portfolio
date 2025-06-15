@@ -72,51 +72,58 @@ export default function SystemInfoPopup({ onClose }: SystemInfoPopupProps) {
       onClick={onClose}
     >
       <div
-        className="bg-gray-800/90 backdrop-blur-md rounded-xl shadow-2xl border border-gray-700 w-[600px] max-w-[90vw] max-h-[90vh] overflow-hidden flex flex-col"
+        className="bg-gray-800/90 backdrop-blur-md rounded-3xl shadow-2xl border border-gray-700 w-[600px] max-w-[90vw] max-h-[90vh] overflow-hidden flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center justify-between px-6 py-4 border-gray-700">
-          <h2 className="text-xl font-semibold text-gray-200">
+        {/* Centered Header */}
+        {/* <div className="flex items-center justify-between px-6 py-4 border-gray-700">
+          <div className="flex-1"></div>
+          <h2 className="text-xl font-semibold text-gray-200 flex-1 text-center">
             {activeTab === 'about' ? 'Portfolio' : 'Performance Metrics'}
           </h2>
-          <button
-            onClick={onClose}
-            className="text-gray-400 hover:text-white cursor-pointer transition-colors"
-          >
-            ✕
-          </button>
+          <div className="flex-1 flex justify-end">
+            <button
+              onClick={onClose}
+              className="text-gray-400 hover:text-white cursor-pointer transition-colors"
+            >
+              ✕
+            </button>
+          </div>
+        </div> */}
+
+        {/* Centered Tabs */}
+        <div className="flex justify-center px-4 pt-2 mt-3 mb-3">
+          <div className="flex bg-gray-600/40 dark:bg-gray-700/50 rounded-2xl p-1.5">
+            <button
+              className={`px-4 py-1.5 text-sm font-medium rounded-xl transition-colors cursor-pointer ${
+                activeTab === 'about'
+                  ? 'bg-gray-600 text-white shadow-sm'
+                  : 'text-gray-400 hover:text-gray-200'
+              }`}
+              onClick={() => setActiveTab('about')}
+            >
+              ABOUT
+            </button>
+            <button
+              className={`px-4 py-1.5 text-sm font-medium rounded-xl transition-colors cursor-pointer ${
+                activeTab === 'performance'
+                  ? 'bg-gray-600 text-white shadow-sm'
+                  : 'text-gray-400 hover:text-gray-200'
+              }`}
+              onClick={() => setActiveTab('performance')}
+            >
+              PERFORMANCE
+            </button>
+          </div>
         </div>
 
-        <div className="flex border-b border-gray-600 dark:border-gray-700 px-4 pt-2">
-          <button
-            className={`px-4 py-2 text-sm font-medium rounded-t-lg ${
-              activeTab === 'about'
-                ? 'bg-gray-600 dark:bg-gray-700 text-blue-400'
-                : 'text-gray-400 hover:text-gray-200 hover:bg-gray-600/50 dark:hover:bg-gray-700/50 cursor-pointer'
-            }`}
-            onClick={() => setActiveTab('about')}
-          >
-            ABOUT
-          </button>
-          <button
-            className={`px-4 py-2 text-sm font-medium rounded-t-lg ${
-              activeTab === 'performance'
-                ? 'bg-gray-600 dark:bg-gray-700 text-blue-400'
-                : 'text-gray-400 hover:text-gray-200 hover:bg-gray-600/50 dark:hover:bg-gray-700/50 cursor-pointer'
-            }`}
-            onClick={() => setActiveTab('performance')}
-          >
-            PERFORMANCE
-          </button>
-        </div>
-
-        <div className="overflow-y-auto flex-1 p-6">
+         <div className="overflow-y-auto flex-1 p-6">
           {activeTab === 'about' ? (
             <>
-              <div className="flex items-start gap-6 mb-6">
-                <div className="bg-gray-600 dark:bg-gray-700 rounded-lg p-4 flex items-center justify-center">
+              <div className="flex items-center justify-center gap-6 mb-9">
+                <div className="bg-gray-700 dark:bg-gray-700 rounded-2xl p-4 flex items-center justify-center">
                   <div className="w-12 h-12 p-1 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg">
-                    <div className="w-full h-full rounded-lg overflow-hidden">
+                    <div className="w-full h-full rounded-2xl overflow-hidden">
                         <Image
                         src="/icon.png"
                         alt="Profile"
@@ -135,21 +142,21 @@ export default function SystemInfoPopup({ onClose }: SystemInfoPopupProps) {
               </div>
 
               <div className="grid grid-cols-2 gap-4 text-sm mb-6">
-                <div className="bg-gray-600/40 dark:bg-gray-700/50 rounded-lg hover:border hover:border-gray-500 cursor-pointer p-4">
-                  <p className="text-gray-400">Developer</p>
-                  <p className="text-gray-200 mt-1">Brian Ongaki</p>
+                <div className="bg-gray-600/40 dark:bg-gray-700/50 rounded-2xl hover:border hover:border-gray-500 cursor-pointer p-4 flex flex-col items-center justify-center text-center">
+                  <p className="text-gray-400 text-sm">Developer</p>
+                  <p className="text-gray-200 text-lg font-mono mt-1">Brian Ongaki</p>
                 </div>
-                <div className="bg-gray-600/40 dark:bg-gray-700/50 rounded-lg hover:border hover:border-gray-500 cursor-pointer p-4">
-                  <p className="text-gray-400">Framework</p>
-                  <p className="text-gray-200 mt-1">Next.js 14</p>
+                <div className="bg-gray-600/40 dark:bg-gray-700/50 rounded-2xl hover:border hover:border-gray-500 cursor-pointer p-4 flex flex-col items-center justify-center text-center">
+                  <p className="text-gray-400 text-sm">Framework</p>
+                  <p className="text-gray-200 text-lg font-mono mt-1">Next.js 14</p>
                 </div>
-                <div className="bg-gray-600/40 dark:bg-gray-700/50 rounded-lg hover:border hover:border-gray-500 cursor-pointer p-4">
-                  <p className="text-gray-400">UI Library</p>
-                  <p className="text-gray-200 mt-1">Tailwind CSS</p>
+                <div className="bg-gray-600/40 dark:bg-gray-700/50 rounded-2xl hover:border hover:border-gray-500 cursor-pointer p-4 flex flex-col items-center justify-center text-center">
+                  <p className="text-gray-400 text-sm">UI Library</p>
+                  <p className="text-gray-200 text-lg font-mono mt-1">Tailwind CSS</p>
                 </div>
-                <div className="bg-gray-600/40 dark:bg-gray-700/50 rounded-lg hover:border hover:border-gray-500 cursor-pointer p-4">
-                  <p className="text-gray-400">Animation</p>
-                  <p className="text-gray-200 mt-1">Framer Motion</p>
+                <div className="bg-gray-600/40 dark:bg-gray-700/50 rounded-2xl hover:border hover:border-gray-500 cursor-pointer p-4 flex flex-col items-center justify-center text-center">
+                  <p className="text-gray-400 text-sm">Animation</p>
+                  <p className="text-gray-200 text-lg font-mono mt-1">Framer Motion</p>
                 </div>
               </div>
             </>
@@ -171,7 +178,7 @@ export default function SystemInfoPopup({ onClose }: SystemInfoPopupProps) {
 
               {performanceData && (
                 <>
-                  <div className="bg-gradient-to-r from-gray-900/30 to-gray-800/30 border border-green-400 rounded-lg p-4">
+                  <div className="bg-gradient-to-r from-gray-900/30 to-gray-800/30 border border-green-400 rounded-3xl p-4">
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-sm text-gray-400 font-bold">REAL EXPERIENCE SCORE</p>
@@ -215,7 +222,7 @@ export default function SystemInfoPopup({ onClose }: SystemInfoPopupProps) {
                     </div>
                     <div className="grid grid-cols-2 gap-3">
                       {performanceData.metrics.map((metric) => (
-                        <div key={metric.name} className="bg-gray-600/40 dark:bg-gray-700/50 rounded-lg hover:border hover:border-gray-500 cursor-pointer p-3">
+                        <div key={metric.name} className="bg-gray-600/40 dark:bg-gray-700/50 rounded-2xl hover:border hover:border-gray-500 cursor-pointer p-3">
                           <div className="flex justify-between items-start">
                             <div>
                               <p className="text-sm font-medium text-gray-200">
@@ -248,7 +255,7 @@ export default function SystemInfoPopup({ onClose }: SystemInfoPopupProps) {
                       DEVICE COMPARISON
                     </h3>
                     <div className="grid grid-cols-2 gap-4">
-                      <div className="bg-gray-600/40 dark:bg-gray-700/50 rounded-lg hover:border hover:border-gray-500 cursor-pointer p-4">
+                      <div className="bg-gray-600/40 dark:bg-gray-700/50 rounded-2xl hover:border hover:border-gray-500 cursor-pointer p-4">
                         <div className="flex items-center gap-2 mb-2">
                           <div className="w-4 h-4 bg-blue-500 rounded-full"></div>
                           <p className="text-sm font-medium text-gray-200">Desktop</p>
@@ -271,7 +278,7 @@ export default function SystemInfoPopup({ onClose }: SystemInfoPopupProps) {
                           </p>
                         </div>
                       </div>
-                      <div className="bg-gray-600/40 dark:bg-gray-700/50 rounded-lg hover:border hover:border-gray-500 cursor-pointer p-4">
+                      <div className="bg-gray-600/40 dark:bg-gray-700/50 rounded-2xl hover:border hover:border-gray-500 cursor-pointer p-4">
                         <div className="flex items-center gap-2 mb-2">
                           <div className="w-4 h-4 bg-purple-500 rounded-full"></div>
                           <p className="text-sm font-medium text-gray-200">Mobile</p>
@@ -296,7 +303,6 @@ export default function SystemInfoPopup({ onClose }: SystemInfoPopupProps) {
                       </div>
                     </div>
                   </div>
-
                 </>
               )}
             </div>
@@ -305,7 +311,7 @@ export default function SystemInfoPopup({ onClose }: SystemInfoPopupProps) {
 
         <div className="mt-auto p-4 border-t border-gray-600 dark:border-gray-700">
           {activeTab === 'about' ? (
-            <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm font-medium transition-colors cursor-pointer">
+            <button className="w-full bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-2xl text-sm font-medium transition-colors cursor-pointer">
               Check for Updates...
             </button>
           ) : (

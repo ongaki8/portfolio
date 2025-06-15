@@ -81,7 +81,7 @@ export default function Desktop404() {
   }, []);
 
   return (
-    <div className="h-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 p-4 sm:p-8 overflow-auto">
+    <div className="h-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-8 sm:p-8 overflow-auto">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
@@ -99,7 +99,7 @@ export default function Desktop404() {
         </motion.div>
 
         <div className="flex items-start justify-center p-4 mt-4">
-          <div className="w-full max-w-5xl rounded-md overflow-hidden bg-[#f3f3f3] dark:bg-[#252526] border border-[#e5e7eb] dark:border-[#37373d] shadow-xl">
+          <div className="w-full max-w-5xl rounded-2xl overflow-hidden bg-[#f3f3f3] dark:bg-[#252526] border border-[#e5e7eb] dark:border-[#37373d] shadow-xl">
             {/* ONG Title Bar */}
             <div className="bg-[#007acc] dark:bg-[#181818] border-b border-[#e5e7eb] dark:border-[#37373d] px-3 py-2 flex items-center justify-between">
               <div className="flex-1 flex justify-center items-center">

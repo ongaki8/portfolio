@@ -81,18 +81,18 @@ function GridIcon({
       onClick={onClick}
       onContextMenu={onContextMenu}
     >
-      <div className={`p-3 rounded-lg backdrop-blur-md border shadow-lg w-16 h-16 flex items-center justify-center
-        ${isFolder ? 'bg-blue-500/10 border-blue-400/30' : 'bg-gray-200/70 dark:bg-gray-800/70 border border-gray-300 dark:border-gray-700'}
-        ${isSelected ? (isFolder ? 'bg-blue-500/20 ring-2 ring-blue-500/70 dark:ring-blue-400/60' : 'bg-blue-500/20 ring-2 ring-blue-400/60') : ''}`}>
+      <div className={`p-3 rounded-2xl backdrop-blur-md border shadow-lg w-16 h-16 flex items-center justify-center
+        ${isFolder ? 'bg-blue-600/10 border-blue-600/30' : 'bg-gray-200/70 dark:bg-gray-800/70 border border-gray-300 dark:border-gray-700'}
+        ${isSelected ? (isFolder ? 'bg-blue-600/20 ring-2 ring-blue-600/70 dark:ring-blue-600/60' : 'bg-blue-600/20 ring-2 ring-blue-600/60') : ''}`}>
         <Icon
           {...app.iconProps}
           size={30}
-          className={isFolder ? 'text-blue-500 dark:text-blue-400' : 'text-gray-700 dark:text-gray-200'}
+          className={isFolder ? 'text-blue-600 dark:text-blue-600' : 'text-gray-700 dark:text-gray-200'}
           style={{ strokeWidth: 1.2 }}
         />
       </div>
       <span className={`mt-2 text-xs font-regular text-center max-w-[80px] truncate ${
-        isFolder ? 'text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-white'
+        isFolder ? 'text-blue-600 dark:text-blue-600' : 'text-gray-700 dark:text-white'
       }`}>
         {app.title}
       </span>

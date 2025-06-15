@@ -2,6 +2,7 @@
 'use client';
 import { motion, useDragControls, AnimatePresence } from 'framer-motion';
 import { useState, useRef } from 'react';
+import { X, Minus, Maximize2, Minimize2 } from 'lucide-react';
 
 interface WindowProps {
   appId: string;
@@ -28,10 +29,10 @@ export default function Window({
 }: WindowProps) {
   const dragControls = useDragControls();
   const windowRef = useRef<HTMLDivElement>(null);
-  const resizeRef = useRef<HTMLDivElement>(null);
-
+  const [isHoveringControls, setIsHoveringControls] = useState(false);
   const [isResizing, setIsResizing] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
+  const [resizeDirection, setResizeDirection] = useState('');
 
   // Store original size and position before maximizing
   const [originalSize, setOriginalSize] = useState({ width: 0, height: 0 });
@@ -53,27 +54,99 @@ export default function Window({
     onMouseDown();
   };
 
-  const startResize = (e: React.PointerEvent) => {
+  const startResize = (e: React.PointerEvent, direction: string) => {
     e.stopPropagation();
     setIsResizing(true);
+    setResizeDirection(direction);
+    
     const startX = e.clientX;
     const startY = e.clientY;
     const startWidth = size.width;
     const startHeight = size.height;
+    const startLeft = position.x;
+    const startTop = position.y;
 
     const doResize = (moveEvent: PointerEvent) => {
-      const newWidth = startWidth + (moveEvent.clientX - startX);
-      const newHeight = startHeight + (moveEvent.clientY - startY);
-      setSize({
-        width: Math.max(300, newWidth),
-        height: Math.max(200, newHeight)
-      });
+      const deltaX = moveEvent.clientX - startX;
+      const deltaY = moveEvent.clientY - startY;
+
+      switch (direction) {
+        case 'top':
+          setSize({
+            width: startWidth,
+            height: Math.max(200, startHeight - deltaY)
+          });
+          setPosition({
+            x: startLeft,
+            y: startTop + deltaY
+          });
+          break;
+        case 'bottom':
+          setSize({
+            width: startWidth,
+            height: Math.max(200, startHeight + deltaY)
+          });
+          break;
+        case 'left':
+          setSize({
+            width: Math.max(300, startWidth - deltaX),
+            height: startHeight
+          });
+          setPosition({
+            x: startLeft + deltaX,
+            y: startTop
+          });
+          break;
+        case 'right':
+          setSize({
+            width: Math.max(300, startWidth + deltaX),
+            height: startHeight
+          });
+          break;
+        case 'top-left':
+          setSize({
+            width: Math.max(300, startWidth - deltaX),
+            height: Math.max(200, startHeight - deltaY)
+          });
+          setPosition({
+            x: startLeft + deltaX,
+            y: startTop + deltaY
+          });
+          break;
+        case 'top-right':
+          setSize({
+            width: Math.max(300, startWidth + deltaX),
+            height: Math.max(200, startHeight - deltaY)
+          });
+          setPosition({
+            x: startLeft,
+            y: startTop + deltaY
+          });
+          break;
+        case 'bottom-left':
+          setSize({
+            width: Math.max(300, startWidth - deltaX),
+            height: Math.max(200, startHeight + deltaY)
+          });
+          setPosition({
+            x: startLeft + deltaX,
+            y: startTop
+          });
+          break;
+        case 'bottom-right':
+          setSize({
+            width: Math.max(300, startWidth + deltaX),
+            height: Math.max(200, startHeight + deltaY)
+          });
+          break;
+      }
     };
 
     const stopResize = () => {
       window.removeEventListener('pointermove', doResize);
       window.removeEventListener('pointerup', stopResize);
       setIsResizing(false);
+      setResizeDirection('');
     };
 
     window.addEventListener('pointermove', doResize);
@@ -82,16 +155,12 @@ export default function Window({
 
   const handleToggleMaximize = () => {
     if (isMaximized) {
-      
       setSize(originalSize);
       setPosition(originalPosition);
       onMaximize(); 
     } else {
-      
       setOriginalSize(size);
       setOriginalPosition(position);
-
-      // Maximize 
       setPosition({ x: 0, y: 0 });
       setSize({ width: window.innerWidth, height: window.innerHeight - 32 });
       onMaximize(); 
@@ -110,16 +179,17 @@ export default function Window({
       {!isClosing ? (
         <motion.div
           ref={windowRef}
-          className={`bg-gray-900 dark:bg-gray-900 rounded-lg shadow-xl overflow-hidden border border-gray-700 dark:border-gray-700 flex flex-col ${
+          className={`bg-gray-900 dark:bg-gray-900 rounded-3xl overflow-hidden border border-gray-700 dark:border-gray-700 flex flex-col ${
             isMaximized ? 'fixed' : 'absolute'
-          }`}
+          } shadow-2xl shadow-[0_20px_50px_rgba(0,0,0,0.4)]`}
           style={{
             zIndex,
             top: isMaximized ? '2rem' : undefined,
             width: isMaximized ? '100vw' : size.width,
             height: isMaximized ? 'calc(100vh - 2rem)' : size.height,
             x: isMaximized ? 0 : position.x,
-            y: isMaximized ? 0 : position.y
+            y: isMaximized ? 0 : position.y,
+            boxShadow: isMaximized ? '0 4px 12px rgba(0, 0, 0, 0.15)' : undefined
           }}
           drag={!isMaximized && !isResizing}
           dragControls={dragControls}
@@ -143,46 +213,56 @@ export default function Window({
         >
           {/* Glassmorphism Header */}
           <div
-            className="px-4 py-2 flex items-center justify-between cursor"
+            className="px-4 py-3 bg-gray-800/90 dark:bg-transparent flex items-center justify-between cursor"
             style={{
-              backdropFilter: 'blur(12px)',
-              WebkitBackdropFilter: 'blur(12px)',
-              backgroundColor: 'rgba(29, 39, 54, 1)',
-              borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
+              backdropFilter: 'blur(64px)',
+              WebkitBackdropFilter: 'blur(64px)',
+              borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+              boxShadow: zIndex > 1 ? '0 1px 3px rgba(0, 0, 0, 0.2)' : 'none'
             }}
             onPointerDown={startDrag}
           >
-            <div className="flex items-center space-x-2">
+            <div 
+              className="flex items-center space-x-2"
+              onMouseEnter={() => setIsHoveringControls(true)}
+              onMouseLeave={() => setIsHoveringControls(false)}
+            >
               <button
                 onClick={handleClose}
-                className="w-3 h-3 rounded-full bg-red-500 hover:bg-red-600 flex items-center justify-center transition-colors"
+                className="relative w-4 h-4 rounded-full bg-red-500 hover:bg-red-600 transition-colors"
                 aria-label="Close"
               >
-                <svg viewBox="0 0 10 10" className="w-2 h-2 opacity-0 hover:opacity-100">
-                  <path stroke="currentColor" strokeWidth="1.2" d="M2,2 L8,8 M8,2 L2,8" />
-                </svg>
+                <X 
+                  className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 transition-opacity ${isHoveringControls ? 'opacity-100' : 'opacity-0'}`} 
+                  strokeWidth={2.5}
+                />
               </button>
               <button
                 onClick={onMinimize}
-                className="w-3 h-3 rounded-full bg-yellow-500 hover:bg-yellow-600 flex items-center justify-center transition-colors"
+                className="relative w-4 h-4 rounded-full bg-yellow-500 hover:bg-yellow-600 transition-colors"
                 aria-label="Minimize"
               >
-                <svg viewBox="0 0 10 10" className="w-2 h-2 opacity-0 hover:opacity-100">
-                  <path stroke="currentColor" strokeWidth="1.2" d="M2,5 L8,5" />
-                </svg>
+                <Minus 
+                  className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 transition-opacity ${isHoveringControls ? 'opacity-100' : 'opacity-0'}`} 
+                  strokeWidth={2.5}
+                />
               </button>
               <button
                 onClick={handleToggleMaximize}
-                className="w-3 h-3 rounded-full bg-green-500 hover:bg-green-600 flex items-center justify-center transition-colors"
+                className="relative w-4 h-4 rounded-full bg-green-500 hover:bg-green-600 transition-colors"
                 aria-label="Maximize"
               >
-                <svg viewBox="0 0 10 10" className="w-2 h-2 opacity-0 hover:opacity-100">
-                  {isMaximized ? (
-                    <path stroke="currentColor" strokeWidth="1.2" d="M2,4 L6,4 L6,8 M4,2 L8,2 L8,6" />
-                  ) : (
-                    <path stroke="currentColor" strokeWidth="1.2" d="M2,2 L8,2 L8,8 L2,8 Z" />
-                  )}
-                </svg>
+                {isMaximized ? (
+                  <Minimize2 
+                    className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 transition-opacity ${isHoveringControls ? 'opacity-100' : 'opacity-0'}`} 
+                    strokeWidth={2.5}
+                  />
+                ) : (
+                  <Maximize2 
+                    className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 transition-opacity ${isHoveringControls ? 'opacity-100' : 'opacity-0'}`} 
+                    strokeWidth={2.5}
+                  />
+                )}
               </button>
             </div>
 
@@ -205,21 +285,77 @@ export default function Window({
             {children}
           </motion.div>
 
-          {/* Resize Handle */}
+          {/* Resize Icons */}
           {!isMaximized && (
-            <div
-              ref={resizeRef}
-              className="absolute bottom-0 right-0 w-4 h-4 cursor-nwse-resize"
-              onPointerDown={startResize}
-            >
-              <svg
-                viewBox="0 0 24 24"
-                className="w-full h-full text-gray-500 dark:text-gray-500"
-                fill="currentColor"
+            <>
+              {/* Corner Icons */}
+              <div
+                className="absolute top-0 left-0 w-4 h-4 cursor-nwse-resize opacity-0 hover:opacity-0 transition-opacity"
+                onPointerDown={(e) => startResize(e, 'top-left')}
               >
-                <path d="M8 16H16V8H8V16Z" />
-              </svg>
-            </div>
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-full h-full text-gray-500 dark:text-gray-500"
+                  fill="currentColor"
+                >
+                  <path d="M8 16H16V8H8V16Z" />
+                </svg>
+              </div>
+              <div
+                className="absolute top-0 right-0 w-4 h-4 cursor-nesw-resize opacity-0 hover:opacity-0 transition-opacity"
+                onPointerDown={(e) => startResize(e, 'top-right')}
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-full h-full text-gray-500 dark:text-gray-500"
+                  fill="currentColor"
+                >
+                  <path d="M8 16H16V8H8V16Z" />
+                </svg>
+              </div>
+              <div
+                className="absolute bottom-0 left-0 w-4 h-4 cursor-nesw-resize opacity-0 hover:opacity-0 transition-opacity"
+                onPointerDown={(e) => startResize(e, 'bottom-left')}
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-full h-full text-gray-500 dark:text-gray-500"
+                  fill="currentColor"
+                >
+                  <path d="M8 16H16V8H8V16Z" />
+                </svg>
+              </div>
+              <div
+                className="absolute bottom-0 right-0 w-4 h-4 cursor-nwse-resize opacity-0 hover:opacity-0 transition-opacity"
+                onPointerDown={(e) => startResize(e, 'bottom-right')}
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-full h-full text-gray-500 dark:text-gray-500"
+                  fill="currentColor"
+                >
+                  <path d="M8 16H16V8H8V16Z" />
+                </svg>
+              </div>
+
+              {/* Edge Icons */}
+              <div
+                className="absolute top-0 left-4 right-4 h-2 cursor-ns-resize"
+                onPointerDown={(e) => startResize(e, 'top')}
+              />
+              <div
+                className="absolute bottom-0 left-4 right-4 h-2 cursor-ns-resize"
+                onPointerDown={(e) => startResize(e, 'bottom')}
+              />
+              <div
+                className="absolute left-0 top-4 bottom-4 w-2 cursor-ew-resize"
+                onPointerDown={(e) => startResize(e, 'left')}
+              />
+              <div
+                className="absolute right-0 top-4 bottom-4 w-2 cursor-ew-resize"
+                onPointerDown={(e) => startResize(e, 'right')}
+              />
+            </>
           )}
         </motion.div>
       ) : null}

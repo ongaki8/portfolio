@@ -22,7 +22,7 @@ export default function Dock({
 
   return (
     <motion.div 
-      className="fixed bottom-12 left-1/2 transform -translate-x-1/2 flex gap-4 bg-gray-800/80 backdrop-blur-md p-3 px-4 rounded-xl border border-gray-700 shadow-lg z-50"
+      className="fixed bottom-12 left-1/2 transform -translate-x-1/2 flex gap-4 bg-gray-800/80 backdrop-blur-md p-3 px-4 rounded-2xl border border-gray-700 shadow-lg z-50"
     >
       {APPS.map((app) => {
         const Icon = app.iconComponent;
@@ -43,7 +43,7 @@ export default function Dock({
                 isActive ? 'bg-gray-700/50' : 'bg-gray-700/30'
               } ${isHovered ? 'ring-2 ring-white/20' : ''}`}>
                 <Icon {...app.iconProps} className={`${
-                  app.isFolder ? 'text-blue-400' : 'text-white'
+                  app.isFolder ? 'text-blue-600' : 'text-white'
                 }`} />
               </div>
 

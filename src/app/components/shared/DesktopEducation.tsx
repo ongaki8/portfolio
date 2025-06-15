@@ -88,7 +88,7 @@ export default function DesktopEducation() {
   return (
   <div 
     ref={containerRef}
-    className="h-full overflow-y-auto p-6 bg-gray-50 dark:bg-gray-900"
+    className="h-full overflow-y-auto rounded-2xl p-8 bg-gray-50 dark:bg-gray-900"
   >
     {/* Header */}
     <motion.div
@@ -110,7 +110,7 @@ export default function DesktopEducation() {
     {/* Education Timeline Section */}
     <section className="mb-12">
       <h2 className="text-xl font-mono font-medium text-gray-800 dark:text-gray-200 mb-6 flex items-center gap-2">
-        <GraduationCap className="text-blue-500" size={20} />
+        <GraduationCap className="text-blue-600" size={20} />
         EDUCATION
       </h2>
       
@@ -125,16 +125,16 @@ export default function DesktopEducation() {
             transition={{ delay: 0.3 + index * 0.1 }}
             className="relative pl-10 pb-8 last:pb-0 group"
           >
-            <div className="absolute left-5 top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-blue-500 border-4 border-blue-200 dark:border-blue-900 z-10 animate-pulse"></div>
+            <div className="absolute left-5 top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-blue-600 border-4 border-blue-200 dark:border-blue-900 z-10 animate-pulse"></div>
             
             <div 
-              className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md hover:shadow-blue-500/20 hover:border-blue-500 transition-all duration-300 cursor-pointer"
+              className="bg-white dark:bg-gray-800 rounded-3xl p-5 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md hover:shadow-blue-600/20 hover:border-blue-600 transition-all duration-300 cursor-pointer"
               onClick={() => toggleEducationExpand(index)}
             >
               <div className="flex justify-between items-start">
                 <div>
                   <h3 className="text-lg font-medium text-gray-800 dark:text-white">{item.institution}</h3>
-                  <p className="font-mono text-blue-500 mb-1">{item.degree}</p>
+                  <p className="font-mono text-blue-600 mb-1">{item.degree}</p>
                   <span className="text-xs font-mono text-gray-500 bg-gray-100 dark:bg-gray-900 px-2 py-1 rounded inline-block mb-2">
                     {item.period}
                   </span>
@@ -146,7 +146,7 @@ export default function DesktopEducation() {
                       e.stopPropagation();
                       toggleEducationExpand(index);
                     }}
-                    className="text-gray-400 hover:text-blue-500 transition-colors hover:cursor-pointer"
+                    className="text-gray-400 hover:text-blue-600 transition-colors hover:cursor-pointer"
                     aria-label={expandedEducation.includes(index) ? "Collapse details" : "Expand details"}
                   >
                     {expandedEducation.includes(index) ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
@@ -197,7 +197,7 @@ export default function DesktopEducation() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 + index * 0.1 }}
-          className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md hover:shadow-green-500/20 hover:border-green-500 transition-all duration-300 mb-4"
+          className="bg-white dark:bg-gray-800 rounded-3xl p-5 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md hover:shadow-green-500/20 hover:border-green-500 transition-all duration-300 mb-4"
         >
           <div className="flex justify-between items-start">
             <div>
@@ -228,7 +228,7 @@ export default function DesktopEducation() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5 + index * 0.1 }}
-            className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md hover:shadow-purple-500/20 hover:border-purple-500 transition-all duration-300 cursor-pointer"
+            className="bg-white dark:bg-gray-800 rounded-3xl shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md hover:shadow-purple-500/20 hover:border-purple-500 transition-all duration-300 cursor-pointer"
             onClick={() => toggleCertificateExpand(index)}
           >
             <div className="p-5">
@@ -309,10 +309,10 @@ export default function DesktopEducation() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.6 + index * 0.1 }}
-            className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md hover:shadow-yellow-500/20 hover:border-yellow-500 transition-all duration-300"
+            className="bg-white dark:bg-gray-800 rounded-3xl p-5 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md hover:shadow-yellow-500/20 hover:border-yellow-500 transition-all duration-300"
           >
             <div className="flex items-start gap-4">
-              <div className="bg-yellow-100 dark:bg-yellow-900/30 p-3 rounded-lg">
+              <div className="bg-yellow-100 dark:bg-yellow-900/30 p-3 rounded-xl">
                 <Award className="text-yellow-500 dark:text-yellow-400" size={24} />
               </div>
               <div className="flex-1">
@@ -354,7 +354,7 @@ export default function DesktopEducation() {
                   <button 
                     onClick={zoomIn}
                     disabled={scale >= 3}
-                    className="p-2 text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-500 disabled:opacity-30 hover:cursor-pointer"
+                    className="p-2 text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-600 disabled:opacity-30 hover:cursor-pointer"
                     aria-label="Zoom in"
                   >
                     <ZoomIn size={20} />
@@ -365,14 +365,14 @@ export default function DesktopEducation() {
                   <button 
                     onClick={zoomOut}
                     disabled={scale <= 0.5}
-                    className="p-2 text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-500 disabled:opacity-30 hover:cursor-pointer"
+                    className="p-2 text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-600 disabled:opacity-30 hover:cursor-pointer"
                     aria-label="Zoom out"
                   >
                     <ZoomOut size={20} />
                   </button>
                   <button 
                     onClick={toggleFit}
-                    className="p-2 text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-500 hover:cursor-pointer"
+                    className="p-2 text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-600 hover:cursor-pointer"
                     aria-label={isFitted ? "Zoom to actual size" : "Fit to window"}
                   >
                     {isFitted ? <Maximize size={20} /> : <Minimize size={20} />}

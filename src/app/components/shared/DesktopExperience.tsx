@@ -59,7 +59,7 @@ export default function DesktopExperience() {
   const scrollPercentage = maxScroll > 0 ? Math.round((scrollPosition / maxScroll) * 100) : 0;
 
   return (
-    <div className="h-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 p-4 sm:p-8 overflow-auto">
+    <div className="h-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-8 sm:p-8 overflow-auto">
   <div className="max-w-6xl mx-auto">
     {/* Header */}
     <motion.div
@@ -68,7 +68,7 @@ export default function DesktopExperience() {
       transition={{ duration: 0.8 }}
       className="text-center mb-8"
     >
-      <h1 className="text-4xl sm:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600 mb-4">
+      <h1 className="text-4xl sm:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 mb-4">
         EXPERIENCE_CONSOLE
       </h1>
       <p className="text-gray-500 dark:text-gray-400 font-mono text-sm sm:text-base">
@@ -81,7 +81,7 @@ export default function DesktopExperience() {
     {/* Experience Timeline */}
     <div className="mb-16">
       <h2 className="text-xl font-mono font-medium text-gray-800 dark:text-gray-200 mb-6 flex items-center gap-2">
-        <Wrench className="text-blue-500" size={20} />
+        <Wrench className="text-blue-600" size={20} />
         CAREER_TIMELINE
       </h2>
       
@@ -96,23 +96,23 @@ export default function DesktopExperience() {
             transition={{ delay: index * 0.1 }}
             className="relative pl-10 pb-8 last:pb-0 group"
           >
-            <div className="absolute left-5 top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-blue-500 border-4 border-blue-200 dark:border-blue-900 z-10 animate-pulse"></div>
+            <div className="absolute left-5 top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-blue-600 border-4 border-blue-200 dark:border-blue-900 z-10 animate-pulse"></div>
             
             <div 
-              className="bg-white dark:bg-gray-800 backdrop-blur-sm rounded-xl p-5 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md hover:shadow-blue-500/10 hover:border-blue-500 transition-all duration-300 cursor-pointer"
+              className="bg-white dark:bg-gray-800 backdrop-blur-sm rounded-3xl p-5 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md hover:shadow-blue-600/10 hover:border-blue-600 transition-all duration-300 cursor-pointer"
               onClick={() => setExpandedExperience(expandedExperience === index ? null : index)}
             >
               <div className="flex justify-between items-start">
                 <div className="flex-1">
                   <h3 className="text-lg font-medium text-gray-800 dark:text-white">{exp.company}</h3>
-                  <p className="font-mono text-blue-500 mb-1">{exp.role}</p>
+                  <p className="font-mono text-blue-600 mb-1">{exp.role}</p>
                   <span className="text-xs font-mono text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-900 px-2 py-1 rounded inline-block mb-2">
                     {exp.period}
                   </span>
                   <p className="text-s text-gray-600 dark:text-gray-300 mb-3">{exp.description}</p>
                   <div className="flex flex-wrap gap-2 mb-3">
                     {exp.tech.map((tech, i) => (
-                      <span key={i} className="text-xs font-mono bg-gray-100 dark:bg-gray-900 text-blue-500 px-2 py-1 rounded">
+                      <span key={i} className="text-xs font-mono bg-gray-100 dark:bg-gray-900 text-blue-600 px-2 py-1 rounded">
                         {tech}
                       </span>
                     ))}
@@ -128,12 +128,12 @@ export default function DesktopExperience() {
                     className="overflow-hidden"
                   >
                     <div className="pt-3 border-t border-gray-200 dark:border-gray-700">
-                      <h4 className="text-sm font-semibold text-blue-500 mb-2">KEY_RESPONSIBILITIES</h4>
+                      <h4 className="text-sm font-semibold text-blue-600 mb-2">KEY_RESPONSIBILITIES</h4>
                       <ul className="space-y-2">
                         {exp.responsibilities.map((item, i) => (
                           <li key={i} className="flex items-start gap-2">
                             <GitCommitHorizontal 
-                              className="text-blue-500 mt-1.5 flex-shrink-0" 
+                              className="text-blue-600 mt-1.5 flex-shrink-0" 
                               size={14} 
                             />
                             <span className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
@@ -148,7 +148,7 @@ export default function DesktopExperience() {
                 
                 <button 
                   onClick={(e) => toggleExpand(index, e)}
-                  className="ml-4 p-1 text-gray-400 hover:text-blue-500 transition-colors"
+                  className="ml-4 p-1 text-gray-400 hover:text-blue-600 transition-colors"
                   aria-label={expandedExperience === index ? "Collapse details" : "Expand details"}
                 >
                   {expandedExperience === index ? (
@@ -169,7 +169,7 @@ export default function DesktopExperience() {
     {/* Projects Carousel */}
     <div className="mb-8">
       <h2 className="text-xl font-mono font-medium text-gray-800 dark:text-gray-200 mb-6 flex items-center gap-2">
-        <FolderCode className="text-blue-500" size={20} />
+        <FolderCode className="text-blue-600" size={20} />
         PROJECT_SHOWCASE
       </h2>
       
@@ -196,13 +196,13 @@ export default function DesktopExperience() {
               <motion.div
                 key={index}
                 whileHover={{ y: -5 }}
-                className="flex-shrink-0 w-64 bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden shadow-lg hover:shadow-blue-500/10 transition-all cursor-pointer relative"
+                className="flex-shrink-0 w-64 bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-3xl overflow-hidden shadow-sm hover:border-blue-600 transition-all cursor-pointer relative"
                 style={{ scrollSnapAlign: 'start' }}
                 onClick={(e) => handleProjectClick(index, e)}
               >
                 {project.link && (
                   <div className="absolute top-2 right-2 bg-white/80 dark:bg-gray-900/80 rounded-full p-1 z-10">
-                    <FiExternalLink className="text-blue-500" size={14} />
+                    <FiExternalLink className="text-blue-600" size={14} />
                   </div>
                 )}
                 
@@ -225,7 +225,7 @@ export default function DesktopExperience() {
                   <p className="text-xs text-gray-700 dark:text-gray-300 text-sm mb-3">{project.description}</p>
                   <div className="flex flex-wrap gap-1">
                     {project.tags.map((tag, i) => (
-                      <span key={i} className="text-xs font-mono bg-gray-100 dark:bg-gray-900/70 text-blue-500 px-2 py-1 rounded">
+                      <span key={i} className="text-xs font-mono bg-gray-100 dark:bg-gray-900/70 text-blue-600 px-2 py-1 rounded">
                         {tag}
                       </span>
                     ))}
@@ -243,7 +243,7 @@ export default function DesktopExperience() {
                       className="overflow-hidden"
                     >
                       <div className="pt-3 mt-3 border-t border-gray-200 dark:border-gray-700">
-                        <div className="text-xs font-mono border border-blue-500/40 text-blue-700 dark:text-white p-2 rounded-lg text-center bg-blue-100/30 dark:bg-blue-600/30">
+                        <div className="text-xs font-mono border border-blue-600/40 text-blue-700 dark:text-white p-2 rounded-lg text-center bg-blue-100/30 dark:bg-blue-600/30">
                           WALKTHROUGH AVAILABLE ON REQUEST
                         </div>
                       </div>
@@ -269,7 +269,7 @@ export default function DesktopExperience() {
         <div className="mt-4 flex items-center gap-3">
           <div className="flex-1 h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
             <div 
-              className="h-full bg-blue-500 rounded-full transition-all duration-300"
+              className="h-full bg-blue-600 rounded-full transition-all duration-300"
               style={{ width: `${scrollPercentage}%` }}
             />
           </div>
@@ -279,10 +279,6 @@ export default function DesktopExperience() {
         </div>
       </div>
     </div>
-
-    {/* Decorators */}
-    <div className="absolute top-1/4 left-10 w-32 h-32 rounded-full bg-green-500/10 filter blur-3xl pointer-events-none"></div>
-    <div className="absolute bottom-10 right-10 w-32 h-32 rounded-full bg-blue-500/10 filter blur-3xl pointer-events-none"></div>
   </div>
 </div>
   );

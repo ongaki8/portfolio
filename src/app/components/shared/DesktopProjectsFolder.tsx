@@ -113,7 +113,7 @@ export default function ProjectsFolder() {
   // Helper functions
   const getUpdateColor = (type: string) => {
     switch(type) {
-      case 'feature': return 'bg-blue-500';
+      case 'feature': return 'bg-blue-600';
       case 'fix': return 'bg-red-500';
       case 'improvement': return 'bg-green-500';
       case 'note': return 'bg-purple-500';
@@ -123,7 +123,7 @@ export default function ProjectsFolder() {
 
     const getPriorityColor = (type: string) => {
     switch(type) {
-      case 'low': return 'bg-blue-500/70';
+      case 'low': return 'bg-blue-600/70';
       case 'medium': return 'bg-green-500/70';
       case 'high': return 'bg-red-500/70';
       default: return 'bg-gray-500';
@@ -151,7 +151,7 @@ export default function ProjectsFolder() {
   const getStatusColor = (status: string) => {
     switch(status) {
       case 'planned': return 'bg-gray-500';
-      case 'in-progress': return 'bg-blue-500';
+      case 'in-progress': return 'bg-blue-600';
       case 'completed': return 'bg-green-500';
       default: return 'bg-gray-500';
     }
@@ -179,9 +179,9 @@ export default function ProjectsFolder() {
             </div>
 
             {/* Updates Log Section */}
-            <div className="bg-gray-200/50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
+            <div className="bg-gray-200/50 dark:bg-gray-800/50 rounded-3xl border border-gray-200 dark:border-gray-700 p-4">
               <div className="flex items-center gap-2 mb-3">
-                <Terminal className="text-blue-500" size={16} />
+                <Terminal className="text-blue-600" size={16} />
                 <h3 className="font-mono font-medium text-sm text-gray-700 dark:text-gray-300">UPDATES_LOG</h3>
                 <div className="flex-1 border-gray-300 dark:border-gray-600"></div>
               </div>
@@ -194,7 +194,7 @@ export default function ProjectsFolder() {
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="flex items-start gap-3 p-2 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded transition-colors"
+                    className="flex items-start gap-3 p-2 hover:bg-gray-200 dark:hover:bg-gray-700/50 rounded-2xl transition-colors cursor-pointer"
                   >
                     <div className={`mt-1 flex-shrink-0 w-2 h-2 rounded-full ${getUpdateColor(update.type)}`}></div>
                     <div>
@@ -212,7 +212,7 @@ export default function ProjectsFolder() {
             </div>
 
             {/* TODO Checklist Section */}
-            <div className="bg-gray-200/50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
+            <div className="bg-gray-200/50 dark:bg-gray-800/50 rounded-3xl border border-gray-200 dark:border-gray-700 p-4">
               <div className="flex items-center gap-2 mb-3">
                 <LayoutList className="text-green-500" size={16} />
                 <h3 className="font-mono font-medium text-sm text-gray-700 dark:text-gray-300">TASKS_QUEUE</h3>
@@ -225,7 +225,7 @@ export default function ProjectsFolder() {
                     key={task.id}
                     initial={{ opacity: 0, y: 5 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="flex items-start gap-3 p-2 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded transition-colors"
+                    className="flex items-start gap-3 p-2 hover:bg-gray-200 dark:hover:bg-gray-700/50 rounded-2xl transition-colors cursor-pointer"
                   >
                     <div className={`mt-0.5 flex-shrink-0 w-4 h-4 rounded-sm border ${task.isChecked 
                       ? 'bg-green-500 border-green-500 flex items-center justify-center' 
@@ -259,7 +259,7 @@ export default function ProjectsFolder() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700 hover:border-purple-500 transition-all duration-300 cursor-pointer group"
+                  className="bg-white dark:bg-gray-800 rounded-3xl p-4 shadow-xs border border-gray-200 dark:border-gray-700 hover:border-purple-500 transition-all duration-300 cursor-pointer group"
                   onClick={() => toggleNoteExpand(index)}
                 >
                   <div className="flex items-center gap-2 mb-3">
@@ -362,18 +362,18 @@ export default function ProjectsFolder() {
             <div className="flex flex-col md:flex-row gap-7">
               <div className="flex-1">
                 <h2 className="text-xl font-mono font-medium text-gray-800 dark:text-gray-200 mb-4 flex items-center gap-2">
-                  <Box className="text-blue-500" size={18} />
+                  <Box className="text-blue-600" size={18} />
                   3D_PORTFOLIO
                 </h2>
                 
-                <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-gray-700 mb-6">
+                <div className="bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-sm border border-gray-200 dark:border-gray-700 mb-6">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
-                      <GalleryVerticalEnd className="text-blue-500 dark:text-blue-400" size={24} />
+                    <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-xl">
+                      <GalleryVerticalEnd className="text-blue-600 dark:text-blue-400" size={24} />
                     </div>
                     <div>
                       <h3 className="text-lg font-mono font-light text-gray-800 dark:text-white">IMMERSIVE_UI</h3>
-                      <p className="text-xs font-mono text-blue-500 dark:text-blue-500">Status: <span className="text-blue-500">In Progress</span></p>
+                      <p className="text-xs font-mono text-blue-600 dark:text-blue-600">Status: <span className="text-blue-600">In Progress</span></p>
                     </div>
                   </div>
                   
@@ -392,7 +392,7 @@ export default function ProjectsFolder() {
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.1 }}
                           >
-                            <h4 className="font-mono text-xs font-medium text-blue-500 dark:text-blue-500">
+                            <h4 className="font-mono text-xs font-medium text-blue-600 dark:text-blue-600">
                               <TypeAnimation
                                 sequence={['T', 500, 'TECH_STACK', 1500]}
                                 wrapper="span"
@@ -417,11 +417,11 @@ export default function ProjectsFolder() {
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: 0 }}
                                 whileHover={{ scale: 1.05 }}
-                                className="flex items-center gap-3 p-2 bg-white/50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700 backdrop-blur-sm cursor-pointer group"
+                                className="flex items-center gap-3 p-2 bg-white/50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-600 transition-colors backdrop-blur-sm cursor-pointer group"
                               >
                                 <motion.div
                                   animate={{ 
-                                    color: ['#3b82f6', '#60a5fa', '#3b82f6'],
+                                    color: ['#165dfb', '#3b82f6', '#165dfb'],
                                     transition: { 
                                       duration: 3,
                                       repeat: Infinity,
@@ -446,7 +446,7 @@ export default function ProjectsFolder() {
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.1 }}
                           >
-                            <h4 className="font-mono text-xs font-medium text-blue-500">
+                            <h4 className="font-mono text-xs font-medium text-blue-600">
                               <TypeAnimation
                                 sequence={['F', 500, 'FEATURES', 1500]}
                                 wrapper="span"
@@ -470,11 +470,11 @@ export default function ProjectsFolder() {
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: 0 }}
                                 whileHover={{ scale: 1.05 }}
-                                className="flex items-center gap-3 p-2 bg-white/50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700 backdrop-blur-sm cursor-pointer group"
+                                className="flex items-center gap-3 p-2 bg-white/50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-600 transition-colors backdrop-blur-sm cursor-pointer group"
                               >
                                 <motion.div
                                   animate={{ 
-                                    color: ['#3b82f6', '#60a5fa', '#3b82f6'],
+                                    color: ['#165dfb', '#3b82f6', '#165dfb'],
                                     scale: [1, 1.2, 1],
                                     transition: { 
                                       duration: 3,
@@ -495,23 +495,23 @@ export default function ProjectsFolder() {
                         </div>
 
                         <div className="mb-2">
-                        <h4 className="font-mono text-xs text-gray-500 dark:text-gray-400 mb-2">INTERACTIVE_ELEMENTS</h4>
+                        <h4 className="font-mono text-xs font-medium text-gray-500 dark:text-gray-400 mb-2">INTERACTIVE_ELEMENTS</h4>
                         <div className="grid grid-cols-2 gap-2">
-                            <div className="p-2 bg-white/50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700 backdrop-blur-sm cursor-pointer">
-                            <div className="text-blue-500 font-mono text-xs mb-1">COMPUTER</div>
-                            <p className="text-xs text-gray-600 dark:text-gray-300">Click to start experience</p>
+                            <div className="p-2 bg-white/50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-600 transition-colors backdrop-blur-sm cursor-pointer">
+                            <div className="text-blue-600 font-mono text-xs mb-1">COMPUTER</div>
+                            <p className="text-xs font-mono font-light text-gray-600 dark:text-gray-300">Click to start experience</p>
                             </div>
-                            <div className="p-2 bg-white/50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700 backdrop-blur-sm cursor-pointer">
-                            <div className="text-blue-500 font-mono text-xs mb-1">SKETCHBOOK</div>
-                            <p className="text-xs text-gray-600 dark:text-gray-300">Click & hold to scribble</p>
+                            <div className="p-2 bg-white/50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-600 transition-colors backdrop-blur-sm cursor-pointer">
+                            <div className="text-blue-600 font-mono text-xs mb-1">SKETCHBOOK</div>
+                            <p className="text-xs font-mono font-light text-gray-600 dark:text-gray-300">Click & hold to scribble</p>
                             </div>
-                            <div className="p-2 bg-white/50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700 backdrop-blur-sm cursor-pointer">
-                            <div className="text-blue-500 font-mono text-xs mb-1">PHONE</div>
-                            <p className="text-xs text-gray-600 dark:text-gray-300">Click to show contact info</p>
+                            <div className="p-2 bg-white/50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-600 transition-colors backdrop-blur-sm cursor-pointer">
+                            <div className="text-blue-600 font-mono text-xs mb-1">PHONE</div>
+                            <p className="text-xs font-mono font-light text-gray-600 dark:text-gray-300">Click to show contact info</p>
                             </div>
-                            <div className="p-2 bg-white/50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700 backdrop-blur-sm cursor-pointer">
-                            <div className="text-blue-500 font-mono text-xs mb-1">HEADPHONES</div>
-                            <p className="text-xs text-gray-600 dark:text-gray-300">Click to play music</p>
+                            <div className="p-2 bg-white/50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-600 transition-colors backdrop-blur-sm cursor-pointer">
+                            <div className="text-blue-600 font-mono text-xs mb-1">HEADPHONES</div>
+                            <p className="text-xs font-mono font-light text-gray-600 dark:text-gray-300">Click to play music</p>
                             </div>
                         </div>
                         </div> 
@@ -521,7 +521,7 @@ export default function ProjectsFolder() {
               </div>
               
               <div className="flex-1">
-                <div className="bg-gray-100/70 dark:bg-gray-800 rounded-lg overflow-hidden border border-gray-300 dark:border-gray-700 mb-7">
+                <div className="bg-gray-100/70 dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-300 dark:border-gray-700 mb-7">
                   <div className="p-2 bg-gray-700 flex gap-1">
                     <div className="w-2 h-2 rounded-full bg-red-500"></div>
                     <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
@@ -543,7 +543,7 @@ export default function ProjectsFolder() {
                   </div>
                 </div>
                 
-                <div className="bg-gray-100/70 dark:bg-gray-800 rounded-lg overflow-hidden border border-gray-300 dark:border-gray-700">
+                <div className="bg-gray-100/70 dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-300 dark:border-gray-700">
                   <div className="p-2 bg-gray-700 flex gap-1">
                     <div className="w-2 h-2 rounded-full bg-red-500"></div>
                     <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
@@ -568,13 +568,13 @@ export default function ProjectsFolder() {
               </div> 
             </div>
             {/* Digital percentage display */}
-              <div className="w-full backdrop-blur-sm bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700">
+              <div className="w-full backdrop-blur-sm bg-white dark:bg-gray-800 rounded-3xl p-4 shadow-sm border border-gray-200 dark:border-gray-700">
                 <div className="space-y-2 px-2">
                   <div className="flex justify-between items-center">
-                    <span className="font-mono text-sm text-blue-500">BUILD_STATUS</span>
+                    <span className="font-mono text-sm text-blue-600">BUILD_STATUS</span>
                     <div className="relative">
                       <motion.div
-                        className="font-mono text-sm text-blue-500"
+                        className="font-mono text-sm text-blue-600"
                         initial={{ opacity: 0, y: -5 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4 }}
@@ -582,7 +582,7 @@ export default function ProjectsFolder() {
                         60%
                       </motion.div>
                       <motion.div 
-                        className="absolute -bottom-1 left-0 w-full h-5/100 bg-blue-500"
+                        className="absolute -bottom-1 left-0 w-full h-5/100 bg-blue-600"
                         initial={{ scaleX: 0 }}
                         animate={{ scaleX: 1 }}
                         transition={{ delay: 0.6, duration: 0.8 }}
@@ -593,11 +593,11 @@ export default function ProjectsFolder() {
                   {/* Hexagon pattern progress bar */}
                   <div className="relative h-4 w-full overflow-hidden">
                     {/* Background hex pattern */}
-                    <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+PHBhdGggZD0iTTAgMEw1IDBMNSAyTDEwIDJMMTUgMEwxNSAyTDEwIDRMNSA0TDAgMloiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIi8+PC9zdmc+')] opacity-20" />
+                    <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+PHBhdGggZD0iTTAgMEw1IDBMNSAyTDEwIDJMMTUgMEwxNSAyTDEwIDRMNSA0TDAgMloiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIi8+PC9zdmc+')] opacity-80" />
                     
                     {/* Progress fill with animated "scan line" */}
                     <motion.div 
-                      className="absolute top-0 left-0 h-full bg-blue-500"
+                      className="absolute top-0 left-0 h-full bg-blue-600"
                       initial={{ width: 0 }}
                       animate={{ width: '60%' }}
                       transition={{ duration: 1.5, ease: "easeInOut" }}
@@ -631,7 +631,7 @@ export default function ProjectsFolder() {
                   <div className="flex justify-between px-1 mb-5">
                     {[0, 25, 50, 75, 100].map((point) => (
                       <div key={point} className="relative">
-                        <div className={`w-0.5 h-2 ${60 >= point ? 'bg-blue-500' : 'bg-gray-300 dark:bg-gray-600'}`} />
+                        <div className={`w-0.5 h-2 ${60 >= point ? 'bg-blue-600' : 'bg-gray-300 dark:bg-gray-600'}`} />
                         <span className="absolute left-1/2 transform -translate-x-1/2 mt-1 text-[10px] font-mono text-gray-400">
                           {point}%
                         </span>
@@ -646,9 +646,9 @@ export default function ProjectsFolder() {
       case 'web':
   return (
     <div className="space-y-6">
-  <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+  <div className="bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
     <div className="flex items-center gap-3 mb-4">
-      <div className="p-2 bg-[#b3938f]/20 dark:bg-[#b3938f]/10 rounded-lg">
+      <div className="p-2 bg-[#b3938f]/20 dark:bg-[#b3938f]/10 rounded-xl">
       <FontAwesomeIcon icon={faShopify} className="text-[#b3938f]" style={{ fontSize: 24 }} />
       </div>
       <div>
@@ -662,22 +662,22 @@ A fully responsive Shopify storefront with a strong focus on perfomance, mobile 
 Integrated key Shopify apps to enhance functionality and crafted a custom UI to elevate the shopping experience and drive engagement.
     </p>
 
-    <div className="mb-6 p-4 bg-[#b3938f]/10 dark:bg-[#b3938f]/5 rounded-lg border border-[#b3938f]/20">
-      <h4 className="font-mono font-medium text-xs text-[#b3938f] mb-3">PERFORMANCE_METRICS</h4>
+    <div className="mb-6 p-4 bg-[#b3938f]/10 dark:bg-[#b3938f]/5 rounded-3xl border border-[#b3938f]/20 text-center">
+  <h4 className="font-mono font-medium text-l text-[#b3938f] dark:text-[#c4a39f] mb-3">PERFORMANCE_METRICS</h4>
       <div className="grid grid-cols-2 gap-3">
-        <div className="bg-white dark:bg-gray-800 p-2 rounded-lg border border-gray-200 dark:border-gray-700">
+        <div className="bg-white dark:bg-gray-800 p-2 rounded-2xl border border-gray-200 dark:border-gray-700">
           <img 
             src="/folder/gtmetrix.png" 
             alt="GTmetrix" 
-            className="w-full h-24 object-cover mb-1 rounded-lg"
+            className="w-full h-24 object-cover mb-1 rounded-xl"
           />
           <p className="text-xs font-mono text-center text-gray-600 dark:text-gray-300">GTmetrix_Grade</p>
         </div>
-        <div className="bg-white dark:bg-gray-800 p-2 rounded-lg border border-gray-200 dark:border-gray-700">
+        <div className="bg-white dark:bg-gray-800 p-2 rounded-2xl border border-gray-200 dark:border-gray-700">
           <img 
             src="/folder/pagespeed.png" 
             alt="PageSpeed" 
-            className="w-full h-24 object-cover mb-1 rounded-lg"
+            className="w-full h-24 object-cover mb-1 rounded-xl"
           />
           <p className="text-xs font-mono text-center text-gray-600 dark:text-gray-300">PageSpeed_Insights</p>
         </div>
@@ -688,7 +688,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
     <div className="grid grid-cols-2 gap-4 w-fit mb-6">
 
        {/* TECH STACK SECTION */}
-      <div className="relative max-w-md mx-auto p-6 rounded-xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
+      <div className="relative max-w-md mx-auto p-6 rounded-3xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
         {/* Floating bubbles background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {[...Array(12)].map((_, i) => (
@@ -719,7 +719,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
 
         {/* TECH_STACK */}
         <div className="relative z-10 text-center">
-          <h4 className="font-mono font-medium text-l text-[#c4a39f] mb-6">TECH_STACK</h4>
+          <h4 className="font-mono font-medium text-l text-[#b3938f] dark:text-[#c4a39f] mb-6">TECH_STACK</h4>
 
           {/* Interactive tech stack bubbles */}
           <div className="flex flex-wrap justify-center gap-4">
@@ -778,7 +778,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
 
           {/* Floating indicator */}
           <motion.div
-            className="mt-6 text-xs text-gray-400 dark:text-gray-500 flex justify-center"
+            className="mt-6 text-xs text-[#b3938f] dark:text-[#c4a39f] flex justify-center"
             animate={{
               y: [0, 5, 0],
               transition: { repeat: Infinity, duration: 2 }
@@ -791,7 +791,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
       </div>
 
       {/* KEY FEATURES */}
-      <div className="relative p-6 rounded-xl bg-transparent backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
+      <div className="relative p-6 rounded-3xl bg-transparent backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
       
         {/* Animated Header */}
         <motion.div 
@@ -800,7 +800,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <h4 className="font-mono font-medium text-l text-[#c4a39f]">
+          <h4 className="font-mono font-medium text-l  text-[#b3938f] dark:text-[#c4a39f]">
             <TypeAnimation
               sequence={['KEY_FEATURES', 1000, 'KEY_FEATURES_', 500]}
               wrapper="span"
@@ -831,7 +831,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
               transition={{ delay: 0.0 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
-              className="flex items-center gap-2 p-2 bg-white/50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700 backdrop-blur-sm cursor-pointer group"
+              className="flex items-center gap-2 p-2 bg-white/50 dark:bg-gray-800/50 rounded-2xl border border-gray-200 dark:border-gray-700 hover:border-[#b3938f] dark:hover:border-[#c4a39f] transition-colors backdrop-blur-sm cursor-pointer group"
             >
               <motion.div
                 animate={{ 
@@ -897,7 +897,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
           </div>
           </div>
 
-          <div className="mb-4 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 shadow-md">
+          <div className="mb-4 rounded-3xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-md">
             <img 
               src="/folder/trendsetterbabe.png" 
               alt="Trendsetter Babe Shopify Store" 
@@ -908,7 +908,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
                 href="https://www.trendsetterbabe.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-xs font-mono text-[#b3938f] hover:text-[#b38b87] transition-colors"
+                className="text-xs font-mono text-[#c4a39f] hover:text-[#b38b87] transition-colors"
               >
                 www.trendsetterbabe.com
               </a>
@@ -921,7 +921,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
       case 'mobile':
   return (
     <div className="space-y-6">
-      <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+      <div className="bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
         {/* Header Section */}
         <div className="flex items-center gap-3 mb-4">
           <div className="p-2 bg-[#d2e6f3] dark:bg-[#117bae]/20 rounded-lg">
@@ -929,7 +929,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
           </div>
           <div>
             <h2 className="text-lg font-mono font-medium text-gray-800 dark:text-white">Emergency Response App</h2>
-            <p className="text-xs font-mono text-[#117bae]">Status: <span className="text-blue-500">In Progress</span></p>
+            <p className="text-xs font-mono text-[#117bae]">Status: <span className="text-blue-600">In Progress</span></p>
           </div>
         </div>
 
@@ -943,7 +943,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
           {/* Left Column - Content */}
           <div className="md:w-1/2">
             {/* Core Features */}
-            <div className="p-3 bg-gray-100 dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600 mb-8">
+            <div className="p-3 bg-gray-100 dark:bg-gray-700 rounded-2xl border border-gray-200 dark:border-gray-600 mb-8">
               <h4 className="font-mono font-medium text-xs text-left text-[#117bae] mb-2">CORE_FEATURES</h4>
               <ul className="space-y-2 text-sm font-light text-gray-600 dark:text-gray-300">
                 <li className="flex items-start gap-2">
@@ -966,7 +966,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
             </div>
 
             {/* Creative Timeline Visualization */}
-            <div className="mb-8 p-4 bg-[#f8fafc] dark:bg-gray-800 border border-[#e2e8f0] dark:border-gray-700 rounded-lg">
+            <div className="mb-8 p-4 bg-[#f8fafc] dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-2xl">
               <h4 className="font-mono font-medium text-xs text-[#117bae] mb-3">ALERT_FLOW</h4>
               <div className="relative">
                 {/* Vertical timeline line */}
@@ -1011,7 +1011,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
             </div>
 
             {/* Tech Stack with Horizontal Icons */}
-            <div className="p-4 border border-gray-200 dark:border-gray-600 rounded-lg">
+            <div className="p-4 border border-gray-200 dark:border-gray-600 rounded-2xl">
                 <h4 className="font-mono text-xs text-center text-gray-500 dark:text-gray-400 mb-3">TECH_STACK</h4>
                 <div className="flex flex-wrap justify-evenly gap-4 sm:gap-1">
                     {[
@@ -1057,8 +1057,8 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
           </div>
         </div>
 
-        {/* Additional Creative Element - Stats Bar */}
-        <div className="mt-6 p-3 bg-[#f1f8fe] dark:bg-[#0d3a5a] rounded-lg border border-[#d2e6f3] dark:border-[#117bae]/30">
+        {/* Stats Bar */}
+        <div className="mt-6 p-3 bg-[#f1f8fe] dark:bg-[#0d3a5a] rounded-2xl border border-[#d2e6f3] dark:border-[#117bae]/30">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div>
               <div className="text-2xl font-bold text-[#117bae] dark:text-[#5ab0e8]">99.9%</div>
@@ -1088,7 +1088,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
   };
 
   return (
-    <div className="h-full bg-gray-50 dark:bg-gray-900 p-6 overflow-auto">
+    <div className="h-full bg-gray-50 dark:bg-gray-900 rounded-3xl p-8 overflow-auto">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <motion.div
@@ -1097,7 +1097,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
           transition={{ duration: 0.5 }}
           className="text-center mb-10"
         >
-        <h1 className="text-4xl sm:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600 mb-4">
+        <h1 className="text-4xl sm:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 mb-4">
             {`import { Projects } from ‘scratch’`}
           </h1>
           <p className="text-gray-400 font-mono text-sm sm:text-base">
@@ -1127,7 +1127,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
         </button>
         <button
           onClick={() => setActiveTab('portfolio')}
-          className={`px-4 py-2 text-sm font-medium flex items-center gap-1 cursor-pointer ${activeTab === 'portfolio' ? 'text-blue-600 dark:text-blue-500 border-b-2 border-blue-500' : 'text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-500'}`}
+          className={`px-4 py-2 text-sm font-medium flex items-center gap-1 cursor-pointer ${activeTab === 'portfolio' ? 'text-blue-600 dark:text-blue-600 border-b-2 border-blue-600' : 'text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-600'}`}
         >
           <Globe size={16} />
           Portfolio

@@ -64,7 +64,7 @@ export default function DesktopContact() {
   };
 
   return (
-  <div className="h-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 p-8 overflow-auto">
+  <div className="h-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-8 overflow-auto">
     <div className="max-w-6xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
@@ -72,7 +72,7 @@ export default function DesktopContact() {
         transition={{ duration: 0.8 }}
         className="text-center mb-8"
       >
-        <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600 mb-4">
+        <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 mb-4">
           CONNECT_WITH_ME
         </h1>
         <p className="text-gray-500 dark:text-gray-400 font-mono text-base">
@@ -83,12 +83,12 @@ export default function DesktopContact() {
       <hr className="border-t border-gray-300 dark:border-gray-700 my-8" />
 
       <div className="flex justify-center mb-8">
-        <div className="inline-flex bg-gray-200 dark:bg-gray-800 rounded-lg p-1 border border-gray-300 dark:border-gray-700">
+        <div className="inline-flex bg-gray-200 dark:bg-gray-800 rounded-2xl p-1 border border-gray-300 dark:border-gray-700">
           <button
             onClick={() => setActiveTab('social')}
-            className={`px-4 py-2 rounded-md font-mono text-sm font-medium transition-all ${
+            className={`px-4 py-2 rounded-xl font-mono text-sm font-medium transition-all ${
               activeTab === 'social'
-                ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 border border-blue-500/30 cursor-pointer'
+                ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 border border-blue-600/30 cursor-pointer'
                 : 'text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white cursor-pointer'
             }`}
           >
@@ -96,7 +96,7 @@ export default function DesktopContact() {
           </button>
           <button
             onClick={() => setActiveTab('form')}
-            className={`px-4 py-2 rounded-md font-mono text-sm font-medium transition-all ${
+            className={`px-4 py-2 rounded-xl font-mono text-sm font-medium transition-all ${
               activeTab === 'form'
                 ? 'bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 border border-purple-500/30 cursor-pointer'
                 : 'text-gray-500 dark:text-gray-400 hover:text-purple-600 dark:hover:text-white cursor-pointer'
@@ -107,7 +107,7 @@ export default function DesktopContact() {
         </div>
       </div>
 
-      <div className="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-300 dark:border-gray-800 rounded-xl overflow-hidden shadow-2xl">
+      <div className="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-300 dark:border-gray-800 rounded-3xl overflow-hidden shadow-sm">
         {activeTab === 'social' && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -116,7 +116,7 @@ export default function DesktopContact() {
             className="p-8"
           >
             <h2 className="text-xl font-mono font-medium text-blue-600 dark:text-blue-400 mb-6 flex items-center">
-              <span className="inline-block w-3 h-3 bg-blue-500 rounded-full mr-2 animate-pulse"></span>
+              <span className="inline-block w-3 h-3 bg-blue-600 rounded-full mr-2 animate-pulse"></span>
               PING_ME
             </h2>
             <div className="grid grid-cols-3 gap-4">
@@ -126,7 +126,7 @@ export default function DesktopContact() {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`p-4 rounded-lg border border-gray-300 dark:border-gray-800 hover:border-blue-400 dark:hover:border-blue-500 transition-all ${
+                  className={`p-4 rounded-2xl border border-gray-300 dark:border-gray-800 hover:border-blue-400 dark:hover:border-blue-600 transition-all ${
                     index === isHovering
                       ? 'bg-blue-50 dark:bg-gray-800/50'
                       : 'bg-gray-100/70 dark:bg-gray-900/50'
@@ -159,7 +159,7 @@ export default function DesktopContact() {
             transition={{ duration: 0.5 }}
             className="p-8"
           >
-            <h2 className="text-xl font-mono text-purple-600 dark:text-purple-400 mb-6 flex items-center">
+            <h2 className="text-xl font-mono font-medium text-purple-600 dark:text-purple-400 mb-6 flex items-center">
               <span className="inline-block w-3 h-3 bg-purple-500 rounded-full mr-2 animate-pulse"></span>
               TRANSMIT_MESSAGE
             </h2>
@@ -175,7 +175,7 @@ export default function DesktopContact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 font-mono text-sm"
+                    className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 font-mono text-sm"
                     placeholder="Enter your name"
                   />
                 </div>
@@ -190,7 +190,7 @@ export default function DesktopContact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 font-mono text-sm"
+                    className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 font-mono text-sm"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -205,7 +205,7 @@ export default function DesktopContact() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 font-mono text-sm"
+                    className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 font-mono text-sm"
                     placeholder="Type your message here..."
                   />
                 </div>
@@ -227,7 +227,7 @@ export default function DesktopContact() {
                   disabled={isSubmitting}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className={`px-6 py-3 bg-gradient-to-r from-purple-100 dark:from-purple-900/50 to-purple-100 dark:to-purple-900/50 rounded-lg text-purple-600 dark:text-purple-300 font-mono text-sm font-medium border border-purple-300 dark:border-purple-500/30 hover:shadow-lg hover:shadow-purple-500/20 transition-all ${
+                  className={`px-6 py-3 bg-gradient-to-r from-purple-100 dark:from-purple-900/50 to-purple-100 dark:to-purple-900/50 rounded-xl text-purple-600 dark:text-purple-300 font-mono text-sm font-medium border border-purple-300 dark:border-purple-500/30 hover:shadow-lg transition-all cursor-pointer ${
                     isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
                   }`}
                 >
@@ -249,7 +249,7 @@ export default function DesktopContact() {
         )}
       </div>
 
-      <div className="absolute bottom-10 right-10 w-32 h-32 rounded-full bg-blue-500/10 filter blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-10 right-10 w-32 h-32 rounded-full bg-blue-600/10 filter blur-3xl pointer-events-none"></div>
     </div>
   </div>
 );

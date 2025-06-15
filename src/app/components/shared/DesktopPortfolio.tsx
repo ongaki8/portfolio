@@ -100,7 +100,9 @@ export default function DesktopPortfolio() {
   };
 
   return (
-    <section className="relative py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 min-h-screen">
+    <section 
+    className="h-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-8 sm:p-8 overflow-auto">
+    {/* className="relative rounded-3xl py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 min-h-screen"> */}
       {/* Floating tech bubbles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {allTags.map((tag, i) => (
@@ -134,10 +136,10 @@ export default function DesktopPortfolio() {
           className="text-center mb-16"
         >
           <div className="inline-block relative group">
-            <h2 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600 mb-4 relative z-10">
+            <h2 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 mb-4 relative z-10">
               {portfolioText.title}
             </h2>
-            <div className="absolute inset-0 bg-blue-500/10 rounded-full blur-3xl group-hover:opacity-100 opacity-0 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-blue-600/10 rounded-full blur-3xl group-hover:opacity-100 opacity-0 transition-opacity duration-500" />
           </div>
           <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto font-mono text-sm mb-6">
             {portfolioText.subtitle}
@@ -147,13 +149,13 @@ export default function DesktopPortfolio() {
           
           {/* Interactive terminal */}
           <div 
-            className="mt-8 mx-auto max-w-md bg-gray-100/70 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-700 rounded-lg p-4 text-left cursor-pointer hover:border-blue-500 transition-all"
+            className="mt-8 mx-auto max-w-md bg-gray-100/70 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-700 rounded-2xl shadow-sm p-4 text-left cursor-pointer hover:border-blue-600 transition-all"
             onClick={() => setShowFilters(!showFilters)}
           >
             <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 mb-1">
               <span className="font-mono text-sm">view_mode</span>
             </div>
-            <div className="font-mono text-blue-600 dark:text-blue-500 text-sm flex items-center gap-2">
+            <div className="font-mono text-blue-600 dark:text-blue-600 text-sm flex items-center gap-2">
               <icons.AppWindowMac size={16} />
               {`Currently Viewing: ${showFilters ? 'GRID_WITH_MENU' : 'GRID_WITHOUT_MENU'}`}
             </div>
@@ -172,9 +174,9 @@ export default function DesktopPortfolio() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveFilter('All')}
-              className={`px-3 py-1 rounded-full text-xs font-medium transition-all flex items-center gap-1 ${
+              className={`px-3 py-1 rounded-2xl text-xs font-medium transition-all flex items-center gap-1 cursor-pointer ${
                 activeFilter === 'All' 
-                  ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20' 
+                  ? 'bg-blue-600 text-white shadow-lg' 
                   : 'bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700'
               }`}
             >
@@ -186,17 +188,17 @@ export default function DesktopPortfolio() {
               <motion.button
                 key={tag}
                 whileHover={{ 
-                  scale: 1.05,
-                  boxShadow: '0 0 10px rgba(59, 130, 246, 0.4)'
+                  scale: 1.1,
+                  // boxShadow: '0 0 10px rgba(59, 130, 246, 0.4)'
                 }}
                 whileTap={{ scale: 0.95 }}
                 onHoverStart={() => setHoveredTech(tag)}
                 onHoverEnd={() => setHoveredTech(null)}
                 onClick={() => setActiveFilter(tag)}
-                className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
+                className={`px-3 py-1 rounded-2xl text-xs font-medium transition-all cursor-pointer ${
                   activeFilter === tag 
-                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20' 
-                    : 'bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700'
+                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20' 
+                    : 'bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300/0 dark:hover:bg-gray-700/0 border border-transparent hover:border-blue-600'
                 }`}
               >
                 {tag}
@@ -232,10 +234,6 @@ export default function DesktopPortfolio() {
           <EmptyState setActiveFilter={setActiveFilter} />
         )}
       </div>
-
-      {/* Interactive background elements */}
-      <div className="absolute bottom-10 right-10 w-32 h-32 rounded-full bg-blue-500/10 filter blur-3xl pointer-events-none animate-pulse"></div>
-      <div className="absolute top-1/4 left-10 w-48 h-48 rounded-full bg-purple-500/10 filter blur-3xl pointer-events-none animate-pulse" style={{ animationDelay: '1s' }}></div>
     </section>
   );
 }
@@ -252,7 +250,7 @@ function ProjectCard({
   return (
     <motion.div
       variants={variants}
-      className={`relative group overflow-hidden rounded-2xl bg-white/70 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-300 dark:border-gray-700 hover:border-blue-500 cursor-pointer transition-all duration-500 h-auto`}
+      className={`relative group overflow-hidden rounded-3xl shadow-sm bg-white/70 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-300 dark:border-gray-700 hover:border-blue-600 cursor-pointer transition-all duration-500 h-auto`}
       whileHover={{ 
         y: -10,
         boxShadow: '0 20px 25px -5px rgba(59, 130, 246, 0.1), 0 10px 10px -5px rgba(59, 130, 246, 0.04)'
@@ -290,10 +288,10 @@ function ProjectCard({
                 variants={techGlowVariants}
                 initial="initial"
                 whileHover="hover"
-                className={`text-xs text-blue-500 font-mono px-2 py-1 rounded-md ${
+                className={`text-xs bg-transparent border border-blue-600 text-blue-600 font-mono px-2.5 py-1 rounded-xl ${
                   hoveredTech === tag 
-                    ? 'bg-blue-600/70 text-white shadow-lg shadow-blue-500/30' 
-                    : 'bg-gray-200 dark:bg-gray-900 text-blue-600 dark:text-blue-500'
+                    ? 'bg-blue-600/70 text-white shadow-lg shadow-blue-600/30' 
+                    : 'bg-gray-200 dark:bg-gray-900 text-blue-600 dark:text-blue-600'
                 }`}
               >
                 {tag}
@@ -312,7 +310,7 @@ function ProjectCard({
             className="overflow-hidden mt-4"
           >
             <div className="pt-4 border-t border-gray-700">
-              <div className="border border-blue-500/40 text-white p-2 rounded-lg text-center bg-blue-600/30">
+              <div className="border border-blue-600/40 text-white p-2 rounded-lg text-center bg-blue-600/30">
                 <span className="text-xs font-mono">{portfolioText.walkthrough.title}</span>
               </div>
             </div>
@@ -321,7 +319,7 @@ function ProjectCard({
       </div>
 
       {/* Hover glow effect */}
-      <div className="absolute inset-0 bg-blue-500/5 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute inset-0 bg-blue-600/5 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
     </motion.div>
   );
 }

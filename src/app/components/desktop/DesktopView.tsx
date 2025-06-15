@@ -17,7 +17,7 @@ import DesktopTrash from '../shared/DesktopTrash';
 import ProjectsFolder from '../shared/DesktopProjectsFolder';
 import Desktop404 from '../shared/Desktop404';
 import { AppConfig } from '@/app/utils/types';
-import { Bell } from 'lucide-react';
+import { Bell, ChevronRight, FolderPlus, Info, LayoutGrid, MonitorCog, Trash2 } from 'lucide-react';
 import NotificationCenter from './notificationData';
 import SystemInfoPopup from './SystemInfoPopup';
 
@@ -154,6 +154,9 @@ export default function DesktopView({ apps, onAppClick, onLock, onRestart, onShu
             backgroundImage: "url('/wallpaper.jpg')",
           }}
         />
+
+        <div className="absolute inset-0 bg-gray-500/30 dark:bg-gray-700/0" />
+
         <style jsx global>{`
           @media (prefers-color-scheme: light) {
             .desktop-background {
@@ -220,7 +223,7 @@ export default function DesktopView({ apps, onAppClick, onLock, onRestart, onShu
 
         {contextMenu.visible && (
           <div 
-            className="fixed bg-gray-800/90 dark:bg-gray-800/90 backdrop-blur-md rounded-lg shadow-lg border border-gray-700 dark:border-gray-700 py-1 z-50"
+            className="fixed bg-gray-800/90 backdrop-blur-3xl rounded-xl shadow-lg border-1 border-gray-200 dark:border-gray-500 shadow-lg py-1 z-50"
             style={{
               left: contextMenu.x,
               top: contextMenu.y,
@@ -228,10 +231,10 @@ export default function DesktopView({ apps, onAppClick, onLock, onRestart, onShu
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="text-sm text-gray-200 dark:text-gray-200">
+            <div className="text-sm text-gray-200 dark:text-gray-200 px-1">
               {contextMenu.itemId && (
                 <button 
-                  className="w-full text-left px-4 py-2 hover:bg-blue-500 hover:text-white"
+                  className="w-full text-left px-4 py-2 hover:bg-blue-600 hover:text-white"
                   onClick={() => {
                     openApp(contextMenu.itemId!);
                     closeContextMenu();
@@ -241,24 +244,30 @@ export default function DesktopView({ apps, onAppClick, onLock, onRestart, onShu
                 </button>
               )}
               <button 
-                className="w-full text-left px-4 py-2 hover:bg-blue-500 hover:text-white"
+                className="w-full text-left px-4 py-2 hover:bg-blue-800 hover:text-white flex rounded-lg items-center gap-2"
                 onClick={() => {
                   setShowSystemInfo(true);
                   closeContextMenu();
                 }}
               >
-                About this Portfolio
+                <MonitorCog className="w-4 h-4" />
+                About System
               </button>
               <div className="border-t border-gray-700 dark:border-gray-700 my-1"></div>
-              <button className="w-full text-left px-4 py-2 hover:bg-blue-500 hover:text-white">
-                Sort By
-                <span className="float-right">▸</span>
+              <button className="w-full text-left px-4 py-2 hover:bg-blue-800 hover:text-white rounded-lg flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <LayoutGrid className="w-4 h-4" />
+                  Sort By
+                </div>
+                <ChevronRight className="w-4 h-4" />
               </button>
-              <button className="w-full text-left px-4 py-2 hover:bg-blue-500 hover:text-white">
+              <button className="w-full text-left px-4 py-2 hover:bg-blue-800 hover:text-white rounded-lg flex items-center gap-2">
+                <Trash2 className="w-4 h-4" />
                 Clean Up
               </button>
               <div className="border-t border-gray-700 dark:border-gray-700 my-1"></div>
-              <button className="w-full text-left px-4 py-2 hover:bg-blue-500 hover:text-white">
+              <button className="w-full text-left px-4 py-2 hover:bg-blue-800 hover:text-white rounded-lg flex items-center gap-2">
+                <FolderPlus className="w-4 h-4" />
                 New Folder
               </button>
             </div>
@@ -290,22 +299,24 @@ export default function DesktopView({ apps, onAppClick, onLock, onRestart, onShu
         />
 
         {/* Notification Center Toggle Button */}
-        <motion.button
-          initial={{ y: '100%' }}
-          animate={{ y: [-5, 5, -5] }}
-          transition={{ delay: 0.5, duration: 2, repeat: Infinity, repeatType: 'loop' }}
-          className="fixed right-0 top-1/2 -mr-12 -rotate-90 transform -translate-y-1/2 bg-gray-800/90 hover:bg-gray-900/90 backdrop-blur-md text-white px-3 py-3 rounded-lg shadow-lg border border-gray-700 flex items-center cursor-pointer z-30"
-          onClick={() => setNotificationCenterOpen(!notificationCenterOpen)}
-          whileHover={{ x: -5 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <div className="flex flex-row items-center gap-2">
-            <Bell className={`w-5 h-5 ${hasUnreadNotifications ? 'text-blue-400' : 'text-gray-400'}`} />
-            <span className={`text-xs font-medium origin-center whitespace-nowrap ${hasUnreadNotifications ? 'text-blue-400' : 'text-gray-400'}`}>
-              Notification Center
-            </span>
-          </div>
-        </motion.button>
+        {!notificationCenterOpen && (
+          <motion.button
+            initial={{ y: '100%' }}
+            animate={{ y: [-5, 5, -5] }}
+            transition={{ delay: 0.5, duration: 2, repeat: Infinity, repeatType: 'loop' }}
+            className="fixed right-0 top-1/2 -mr-12 -rotate-90 transform -translate-y-1/2 bg-gray-800/90 hover:bg-gray-900/90 backdrop-blur-md text-white px-3 py-3 rounded-2xl shadow-lg border border-gray-700 flex items-center cursor-pointer z-30"
+            onClick={() => setNotificationCenterOpen(!notificationCenterOpen)}
+            whileHover={{ x: -5 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <div className="flex flex-row items-center gap-2">
+              <Bell className={`w-5 h-5 ${hasUnreadNotifications ? 'text-blue-500' : 'text-gray-400'}`} />
+              <span className={`text-xs font-medium origin-center whitespace-nowrap ${hasUnreadNotifications ? 'text-blue-500' : 'text-gray-400'}`}>
+                Notification Center
+              </span>
+            </div>
+          </motion.button>
+        )}
 
         {/* System Info Popup */}
         <AnimatePresence>

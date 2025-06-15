@@ -2,7 +2,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Lock, User, Power, RotateCw, Loader2 } from 'lucide-react';
+import { Lock, User, Power, RotateCw, Loader2, LogIn } from 'lucide-react';
 import Image from 'next/image';
 import { useTheme } from '../ThemeProvider';
 
@@ -100,53 +100,51 @@ export default function DesktopLogin({ onUnlock, onRestart, onShutdown }: Deskto
         className="relative z-10 h-full w-full flex items-center justify-center"
       >
         <motion.div
-          className="w-96 px-10 py-8 bg-gray-900/80 dark:bg-gray-800/30 backdrop-blur-xl rounded-xl border border-white/20 shadow-2xl relative overflow-hidden"
-          whileHover={{ scale: 1.01 }}
+          className="w-96 px-10 py-8 bg-transparent dark:bg-transparent backdrop-blur-xl rounded-3xl border-1 border-gray-200/30 dark:border-gray-500/30 shadow-2xl relative overflow-hidden"
+          whileHover={{ scale: 1.03 }}
+          style={{
+            // Liquid UI effect
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+          }}
         >
-          {/* Edge Gradient Animation */}
+          {/* Liquid UI Background Effect */}
           <motion.div
-            className="absolute inset-0 rounded-xl pointer-events-none overflow-hidden"
-            initial={{ opacity: 0 }}
-            animate={{
-              opacity: [0, 0.3, 0],
-              background: [
-                'conic-gradient(from 0deg at 50% 50%, transparent, rgba(255,255,255,0.1), transparent)',
-                'conic-gradient(from 180deg at 50% 50%, transparent, rgba(255,255,255,0.3), transparent)',
-                'conic-gradient(from 360deg at 50% 50%, transparent, rgba(255,255,255,0.1), transparent)'
-              ]
-            }}
+            className="absolute inset-0 rounded-3xl pointer-events-none overflow-hidden"
             transition={{
-              duration: 4,
+              duration: 15,
               repeat: Infinity,
               ease: "linear"
-            }}
-          />
-          
-          {/* Hover Gradient Light */}
-          <motion.div
-            className="absolute inset-0 rounded-xl pointer-events-none opacity-0"
-            whileHover={{ opacity: 0.3 }}
-            style={{
-              background: 'radial-gradient(circle at center, rgba(255,255,255,0.4) 0%, transparent 70%)'
             }}
           />
 
           {/* User Avatar */}
           <div className="flex justify-center mb-8 relative z-10">
-            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#131313] to-[#333333] dark:from-black-900 to-black-700 flex items-center justify-center shadow-lg border-2 border-white/20 relative">
-              {/* White circle in the center, offset to bottom right */}
+            <motion.div 
+              className="w-24 h-24 rounded-full bg-gradient-to-br from-[#131313] to-[#333333] dark:from-black-900 to-black-700 flex items-center justify-center shadow-lg border-2 border-white/20 relative"
+              whileHover={{ scale: 1.05 }}
+            >
+              {/* White Circle */}
               <div className="absolute inset-0 flex items-end justify-end pr-4 pb-3">
-                <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-md">
-                  {/* The number 8, slightly offset */}
+                <motion.div 
+                  className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-md"
+                  whileHover={{ scale: 1.1 }}
+                >
+                  {/* 8 */}
                   <span className="text-3xl font-black text-gray-900 select-none" style={{ marginLeft: '2px', marginTop: '2px' }}>8</span>
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* User Name */}
-          <div className="text-center mb-6 relative z-10">
-            <h2 className="text-xl font-medium text-white">Brian Ongaki</h2>
+          <div className="text-center mb-8 relative z-10">
+            <motion.h2 
+              className="text-xl font-mono font-medium text-gray-900/80 dark:text-white"
+              whileHover={{ scale: 1.02 }}
+            >
+              Brian's Portfolio
+            </motion.h2>
           </div>
 
           {/* Password Field */}
@@ -157,7 +155,7 @@ export default function DesktopLogin({ onUnlock, onRestart, onShutdown }: Deskto
                   borderColor: isFocused ? 'rgba(255, 255, 255, 0.4)' : 'rgba(255, 255, 255, 0.2)',
                   backgroundColor: isFocused ? 'rgba(255, 255, 255, 0.15)' : 'rgba(255, 255, 255, 0.1)'
                 }}
-                className="flex items-center px-4 py-3 rounded-lg border border-white/20 bg-white/10"
+                className="flex items-center px-4 py-3 rounded-2xl border border-white/20 bg-white/10"
               >
                 <Lock className="text-white/60 mr-3" size={18} />
                 <input
@@ -176,7 +174,7 @@ export default function DesktopLogin({ onUnlock, onRestart, onShutdown }: Deskto
               type="submit"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full py-3 px-4 rounded-lg bg-gray-500 hover:bg-gray-900/50 dark:hover:bg-gray-700/70 text-gray-100 hover:text-gray-100 text-md font-medium transition-colors shadow-md relative overflow-hidden cursor-pointer"
+              className="w-full py-3 px-4 rounded-2xl bg-gray-500/90 dark:bg-gray-700/90 hover:bg-gray-700/90 dark:hover:bg-gray-800/90 text-white text-md font-medium transition-all shadow-md relative overflow-hidden cursor-pointer flex items-center justify-center gap-2"
               onClick={triggerWave}
             >
               <AnimatePresence>
@@ -190,7 +188,10 @@ export default function DesktopLogin({ onUnlock, onRestart, onShutdown }: Deskto
                   />
                 )}
               </AnimatePresence>
-              <span className="relative z-10">LOGIN</span>
+              <span className="relative z-10 flex items-center gap-2 font-mono">
+                <LogIn size={18} />
+                LOGIN
+              </span>
             </motion.button>
           </form>
         </motion.div>
@@ -211,20 +212,24 @@ export default function DesktopLogin({ onUnlock, onRestart, onShutdown }: Deskto
 
         {/* Restart/Shutdown Buttons (bottom right) */}
         <div className="absolute bottom-8 right-8 flex space-x-4">
-          <button 
+          <motion.button 
             onClick={onRestart}
             className="text-black/50 dark:text-white/60 hover:gray/60 dark:hover:text-white transition-colors flex items-center gap-1 cursor-pointer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             <RotateCw size={16} />
             <span className="text-md">Restart</span>
-          </button>
-          <button 
+          </motion.button>
+          <motion.button 
             onClick={onShutdown}
             className="text-black/50 dark:text-white/60 hover:gray/60 dark:hover:text-white transition-colors flex items-center gap-1 cursor-pointer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             <Power size={16} />
             <span className="text-md">Shut Down</span>
-          </button>
+          </motion.button>
         </div>
       </motion.div>
     </div>
