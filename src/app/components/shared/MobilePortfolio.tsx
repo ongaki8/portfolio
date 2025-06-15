@@ -206,7 +206,7 @@ export default function MobilePortfolio() {
         </motion.div>
 
         {/* Center Project Display */}
-        <div className="relative min-h-[400px]">
+        <div className="relative min-h-[390px]">
           <AnimatePresence custom={direction} initial={false}>
             <motion.div
               key={currentIndex}
@@ -219,14 +219,14 @@ export default function MobilePortfolio() {
                 x: { type: "spring", stiffness: 300, damping: 30 },
                 opacity: { duration: 0.2 }
               }}
-              className="absolute inset-0 bg-white/70 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-gray-700 w-full"
+              className="absolute inset-0 bg-white/70 dark:bg-gray-800/50 backdrop-blur-sm shadow-sm rounded-3xl border border-gray-200 dark:border-gray-700 w-full"
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
               onDragEnd={handleDragEnd}
               onClick={() => handleProjectClick(filteredProjects[currentIndex].id)}
               onPointerDown={(e) => e.stopPropagation()}
             >
-              <div className="relative h-48 rounded-t-lg overflow-hidden">
+              <div className="relative h-48 rounded-t-3xl overflow-hidden">
                 <img 
                   src={filteredProjects[currentIndex].image} 
                   alt={filteredProjects[currentIndex].title}
@@ -246,7 +246,7 @@ export default function MobilePortfolio() {
                   {filteredProjects[currentIndex].tags.map(tag => (
                     <span 
                       key={tag}
-                      className="text-[0.7rem] font-mono bg-gray-200 dark:bg-gray-900 text-blue-600 dark:text-blue-500 px-1.5 py-0.5 rounded"
+                      className="text-[0.7rem] font-mono bg-gray-200 dark:bg-gray-900 text-blue-600 dark:text-blue-500 px-2 py-0.5 rounded-2xl"
                     >
                       {tag}
                     </span>
@@ -256,8 +256,8 @@ export default function MobilePortfolio() {
                 {/* Project section */}
                   {!filteredProjects[currentIndex].link && filteredProjects[currentIndex].hasWalkthrough && (
                     <div className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700">
-                      <div className="border border-blue-500/40 text-gray-800 dark:text-white p-2 rounded-lg text-center bg-blue-100/30 dark:bg-blue-600/30">
-                        <span className="text-xs font-mono">{portfolioText.walkthrough.title}</span>
+                      <div className="border border-blue-500/40 text-gray-800 dark:text-white p-2 rounded-2xl text-center bg-blue-100/30 dark:bg-blue-600/30">
+                        <span className="text-sm font-mono">{portfolioText.walkthrough.title}</span>
                       </div>
                     </div>
                   )}
@@ -271,7 +271,7 @@ export default function MobilePortfolio() {
                               window.open(link, '_blank');
                             }
                           }}
-                        className="border border-blue-500/40 text-white dark:text-white p-2 rounded-lg text-center bg-blue-600 dark:bg-blue-600/30 w-full text-xs font-mono hover:bg-blue-200/40 dark:hover:bg-blue-700/40 transition"
+                        className="border border-blue-500/40 text-gray-800 dark:text-white p-2 rounded-2xl text-center bg-blue-100/30 dark:bg-blue-600/30 w-full text-sm font-mono"
                       >
                         VIEW PROJECT
                       </button>
@@ -323,7 +323,7 @@ export default function MobilePortfolio() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
-        className="bg-gray-200/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 border border-blue-500 dark:border-gray-700 mb-8"
+        className="bg-gray-200/90 dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl p-4 border border-blue-500 dark:border-gray-700 mb-8"
       >
         <div className="flex justify-between items-center mb-3">
           <h3 className="text-sm font-mono text-blue-600 dark:text-blue-500 flex items-center gap-2">
@@ -332,19 +332,19 @@ export default function MobilePortfolio() {
           </h3>
           <button
             onClick={() => setActiveFilter('All')}
-            className="text-xs font-mono px-2 py-1 bg-gray-100 dark:bg-gray-900/50 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition text-gray-700 dark:text-gray-300"
+            className="text-xs font-mono px-2.5 py-1.5 bg-gray-100 dark:bg-gray-900/50 border border-gray-300 dark:border-gray-600 rounded-2xl hover:bg-gray-200 dark:hover:bg-gray-800 transition text-gray-700 dark:text-gray-300"
           >
             [DEFAULT_STATE]
           </button>
         </div>
 
-        <div className="bg-gray-100 dark:bg-gray-900/70 p-3 rounded-lg border border-blue-500 font-mono text-xs mb-3">
+        <div className="bg-gray-100 dark:bg-gray-900/70 p-3 rounded-2xl border border-blue-500 font-mono text-xs mb-3">
           <div className="text-blue-600 dark:text-blue-500 mb-2">$ tech_stack --analyze</div>
           <div className="text-gray-500 dark:text-gray-400">&gt; Scanning {allTags.length} technologies...</div>
         </div>
 
         <div 
-          className="bg-gray-100 dark:bg-gray-900/70 p-3 rounded border-lg border-gray-300 dark:border-gray-700 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800/50 transition mb-3 min-h-20 flex flex-col justify-center"
+          className="bg-gray-100 dark:bg-gray-900/70 p-3 rounded-2xl border-lg border-gray-300 dark:border-gray-700 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800/50 transition min-h-20 flex flex-col justify-center"
           onClick={() => {
             const randomTag = allTags[Math.floor(Math.random() * allTags.length)];
             setActiveFilter(randomTag);

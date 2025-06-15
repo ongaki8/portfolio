@@ -171,7 +171,7 @@ export default function MobileCredits() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
         ref={terminalRef}
-        className="flex-1 bg-gray-100/95 dark:bg-gray-900/95 p-4 overflow-y-auto font-mono text-xs text-gray-800 dark:text-gray-300 rounded-lg border border-gray-300 dark:border-gray-700 shadow-lg"
+        className="flex-1 bg-gray-100/95 dark:bg-gray-900/95 p-6 overflow-y-auto font-mono text-xs text-gray-800 dark:text-gray-300 rounded-3xl border border-gray-300 dark:border-gray-700 shadow-lg"
         style={{ fontFamily: 'monospace' }}
         onClick={() => inputRef.current?.focus()}
       >
@@ -235,7 +235,7 @@ export default function MobileCredits() {
             key={index}
             onClick={() => handleButtonClick(action.command)}
             disabled={isTyping}
-            className={`group bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 rounded-lg p-2 flex flex-col items-center gap-1 transition-all disabled:opacity-50 border border-gray-300 dark:border-gray-700 hover:border-${action.color}-400`}
+            className={`group bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 rounded-2xl p-2 flex flex-col items-center gap-1 transition-all disabled:opacity-50 border border-gray-300 dark:border-gray-700 hover:border-${action.color}-400`}
           >
             <div className={`p-2 bg-gray-400/20 dark:bg-gray-700 group-hover:bg-${action.color}-400/20 rounded-full transition-colors`}>
               {React.cloneElement(getIconComponent(action.icon), {

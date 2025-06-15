@@ -86,7 +86,7 @@ export default function DesktopExperience() {
       </h2>
       
       <div className="relative">
-        <div className="absolute left-5 top-0 h-full w-0.5 bg-blue-200 dark:bg-blue-900"></div>
+        <div className="absolute left-[10px] top-0 h-full w-0.5 bg-blue-200 dark:bg-blue-900"></div>
         
         {experiences.map((exp, index) => (
           <motion.div
@@ -96,7 +96,7 @@ export default function DesktopExperience() {
             transition={{ delay: index * 0.1 }}
             className="relative pl-10 pb-8 last:pb-0 group"
           >
-            <div className="absolute left-5 top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-blue-600 border-4 border-blue-200 dark:border-blue-900 z-10 animate-pulse"></div>
+            <div className="absolute left-[11px] top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-blue-600 border-4 border-blue-200 dark:border-blue-900 z-10 animate-pulse"></div>
             
             <div 
               className="bg-white dark:bg-gray-800 backdrop-blur-sm rounded-3xl p-5 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md hover:shadow-blue-600/10 hover:border-blue-600 transition-all duration-300 cursor-pointer"
@@ -112,7 +112,7 @@ export default function DesktopExperience() {
                   <p className="text-s text-gray-600 dark:text-gray-300 mb-3">{exp.description}</p>
                   <div className="flex flex-wrap gap-2 mb-3">
                     {exp.tech.map((tech, i) => (
-                      <span key={i} className="text-xs font-mono bg-gray-100 dark:bg-gray-900 text-blue-600 px-2 py-1 rounded">
+                      <span key={i} className="text-xs font-mono bg-gray-100 dark:bg-gray-900 text-blue-600 px-3 py-1 rounded-2xl">
                         {tech}
                       </span>
                     ))}
@@ -225,7 +225,7 @@ export default function DesktopExperience() {
                   <p className="text-xs text-gray-700 dark:text-gray-300 text-sm mb-3">{project.description}</p>
                   <div className="flex flex-wrap gap-1">
                     {project.tags.map((tag, i) => (
-                      <span key={i} className="text-xs font-mono bg-gray-100 dark:bg-gray-900/70 text-blue-600 px-2 py-1 rounded">
+                      <span key={i} className="text-xs font-mono bg-gray-100 dark:bg-gray-900/70 text-blue-600 px-3 py-1 rounded-2xl">
                         {tag}
                       </span>
                     ))}

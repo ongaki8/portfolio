@@ -117,7 +117,7 @@ export default function MobileExperience() {
         </h2>
         
         <div className="relative">
-          <div className="absolute left-4 top-0 h-full w-0.5 bg-blue-200 dark:bg-blue-900"></div>
+          <div className="absolute left-[10px] top-0 h-full w-0.5 bg-blue-200 dark:bg-blue-900"></div>
           
           {experiences.map((exp, index) => (
             <motion.div
@@ -127,10 +127,10 @@ export default function MobileExperience() {
               transition={{ delay: index * 0.1 }}
               className="relative pl-8 pb-6 last:pb-0 group"
             >
-              <div className="absolute left-4 top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-blue-500 border-4 border-blue-200 dark:border-blue-900 z-10 animate-pulse"></div>
+              <div className="absolute left-[11px] top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-blue-500 border-4 border-blue-200 dark:border-blue-900 z-10 animate-pulse"></div>
               
               <div 
-                className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700 hover:border-blue-500 transition-all duration-300 cursor-pointer"
+                className="bg-white dark:bg-gray-800 rounded-3xl p-5 shadow-sm border border-gray-200 dark:border-gray-700 hover:border-blue-500 transition-all duration-300 cursor-pointer"
                 onClick={() => setExpandedExperience(expandedExperience === index ? null : index)}
               >
                 <div className="flex justify-between items-start">
@@ -143,7 +143,7 @@ export default function MobileExperience() {
                     <p className="text-xs text-gray-600 dark:text-gray-300 mb-2">{exp.description}</p>
                     <div className="flex flex-wrap gap-1 mb-2">
                       {exp.tech.map((tech, i) => (
-                        <span key={i} className="text-[0.7rem] font-mono bg-gray-200 dark:bg-gray-900 text-blue-600 dark:text-blue-500 px-1.5 py-0.5 rounded">
+                        <span key={i} className="text-[0.7rem] font-mono bg-gray-200 dark:bg-gray-900 text-blue-600 dark:text-blue-500 px-2 py-0.5 rounded-2xl">
                           {tech}
                         </span>
                       ))}
@@ -261,7 +261,7 @@ export default function MobileExperience() {
         </motion.div>
 
         {/* Center Project Display */}
-        <div className="relative min-h-[400px]">
+        <div className="relative min-h-[390px]">
           <AnimatePresence custom={direction} initial={false}>
             <motion.div
               key={currentIndex}
@@ -274,14 +274,14 @@ export default function MobileExperience() {
                 x: { type: "spring", stiffness: 300, damping: 30 },
                 opacity: { duration: 0.2 }
               }}
-              className="absolute inset-0 bg-white/70 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-gray-700 w-full"
+              className="absolute inset-0 bg-white/70 dark:bg-gray-800/50 backdrop-blur-sm shadow-sm rounded-3xl border border-gray-200 dark:border-gray-700 w-full"
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
               onDragEnd={handleDragEnd}
               onClick={() => handleProjectClick(filteredProjects[currentIndex].id)}
               onPointerDown={(e) => e.stopPropagation()}
             >
-              <div className="relative h-48 rounded-t-lg overflow-hidden">
+              <div className="relative h-48 rounded-t-3xl overflow-hidden">
                 <img 
                   src={filteredProjects[currentIndex].image} 
                   alt={filteredProjects[currentIndex].title}
@@ -301,7 +301,7 @@ export default function MobileExperience() {
                   {filteredProjects[currentIndex].tags.map(tag => (
                     <span 
                       key={tag}
-                      className="text-[0.7rem] font-mono bg-gray-200 dark:bg-gray-900 text-blue-600 dark:text-blue-500 px-1.5 py-0.5 rounded"
+                      className="text-[0.7rem] font-mono bg-gray-200 dark:bg-gray-900 text-blue-600 dark:text-blue-500 px-2 py-0.5 rounded-2xl"
                     >
                       {tag}
                     </span>
@@ -311,8 +311,8 @@ export default function MobileExperience() {
                 {/* Walkthrough or View Project section */}
                   {!filteredProjects[currentIndex].link && filteredProjects[currentIndex].hasWalkthrough && (
                     <div className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700">
-                      <div className="border border-blue-500/40 text-gray-800 dark:text-white p-2 rounded-lg text-center bg-blue-100/30 dark:bg-blue-600/30">
-                        <span className="text-xs font-mono">{portfolioText.walkthrough.title}</span>
+                      <div className="border border-blue-500/40 text-gray-800 dark:text-white p-2 rounded-2xl text-center bg-blue-100/30 dark:bg-blue-600/30">
+                        <span className="text-sm font-mono">{portfolioText.walkthrough.title}</span>
                       </div>
                     </div>
                   )}
@@ -326,7 +326,7 @@ export default function MobileExperience() {
                               window.open(link, '_blank');
                             }
                           }}
-                        className="border border-blue-500/40 text-gray-800 dark:text-white p-2 rounded-lg text-center bg-blue-100/30 dark:bg-blue-600/30 w-full text-xs font-mono hover:bg-blue-200/40 dark:hover:bg-blue-700/40 transition"
+                        className="border border-blue-500/40 text-gray-800 dark:text-white p-2 rounded-2xl text-center bg-blue-100/30 dark:bg-blue-600/30 w-full text-sm font-mono"
                       >
                         VIEW PROJECT
                       </button>
@@ -370,10 +370,6 @@ export default function MobileExperience() {
           </button>
         </div>
       </motion.div>
-
-      {/* Decorators */}
-      <div className="absolute top-1/4 left-4 w-24 h-24 rounded-full bg-purple-500/10 filter blur-2xl pointer-events-none"></div>
-      <div className="absolute bottom-6 right-4 w-24 h-24 rounded-full bg-blue-500/10 filter blur-2xl pointer-events-none"></div>
     </div>
   </div>
 );

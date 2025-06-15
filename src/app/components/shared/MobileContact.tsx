@@ -110,10 +110,10 @@ export default function MobileContact() {
       <hr className="border-t border-gray-300 dark:border-gray-700 my-8" />
 
       <div className="flex justify-center mb-6">
-        <div className="inline-flex bg-gray-200 dark:bg-gray-800 rounded-lg p-1 border border-gray-300 dark:border-gray-700">
+        <div className="inline-flex bg-gray-200 dark:bg-gray-800 rounded-2xl p-1.5 border border-gray-300 dark:border-gray-700">
           <button
             onClick={() => setActiveTab('social')}
-            className={`px-3 py-1.5 rounded-md font-mono text-xs font-medium transition-all ${
+            className={`px-3 py-1.5 rounded-xl font-mono text-xs font-medium transition-all ${
               activeTab === 'social' 
                 ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 border border-blue-500/30' 
                 : 'text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white'
@@ -123,7 +123,7 @@ export default function MobileContact() {
           </button>
           <button
             onClick={() => setActiveTab('form')}
-            className={`px-3 py-1.5 rounded-md font-mono text-xs font-medium transition-all ${
+            className={`px-3 py-1.5 rounded-xl font-mono text-xs font-medium transition-all ${
               activeTab === 'form' 
                 ? 'bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-500 border border-purple-800/30 dark:border-purple-500/30' 
                 : 'text-gray-500 dark:text-gray-400 hover:text-purple-600 dark:hover:text-white'
@@ -134,7 +134,7 @@ export default function MobileContact() {
         </div>
       </div>
 
-      <div className="bg-gray-100/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-400/30 dark:border-gray-800 rounded-xl overflow-hidden shadow-xl">
+      <div className="bg-gray-100/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-400/30 dark:border-gray-800 rounded-3xl overflow-hidden shadow-xl">
         {activeTab === 'social' && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -153,7 +153,7 @@ export default function MobileContact() {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`p-3 rounded-lg border border-gray-400/30 dark:border-gray-800 hover:border-blue-300 dark:hover:border-gray-700 transition-all ${
+                  className={`p-3 rounded-2xl border border-gray-400/30 dark:border-gray-800 hover:border-blue-300 dark:hover:border-gray-700 transition-all ${
                     index === isHovering ? 'bg-gray-200/50 dark:bg-gray-800/50' : 'bg-gray-100/50 dark:bg-gray-900/50'
                   }`}
                   whileHover={{ scale: 1.02 }}
@@ -201,7 +201,7 @@ export default function MobileContact() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className={`w-full px-3 py-2 bg-gray-200 dark:bg-gray-800 border ${
+                    className={`w-full px-3 py-2 bg-gray-200 dark:bg-gray-800 rounded-xl border ${
                       errors.name ? 'border-red-500/50' : 'border-gray-300 dark:border-gray-700'
                     } rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 font-mono text-sm`}
                     placeholder="Your name"
@@ -220,7 +220,7 @@ export default function MobileContact() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className={`w-full px-3 py-2 bg-gray-200 dark:bg-gray-800 border ${
+                    className={`w-full px-3 py-2 bg-gray-200 dark:bg-gray-800 rounded-xl border ${
                       errors.email ? 'border-red-500/50' : 'border-gray-300 dark:border-gray-700'
                     } rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 font-mono text-sm`}
                     placeholder="your@email.com"
@@ -239,7 +239,7 @@ export default function MobileContact() {
                     rows={4}
                     value={formData.message}
                     onChange={handleChange}
-                    className={`w-full px-3 py-2 bg-gray-200 dark:bg-gray-800 border ${
+                    className={`w-full px-3 py-2 bg-gray-200 dark:bg-gray-800 rounded-xl border ${
                       errors.message ? 'border-red-500/50' : 'border-gray-300 dark:border-gray-700'
                     } rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 font-mono text-sm`}
                     placeholder="Your message"

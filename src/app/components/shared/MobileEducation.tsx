@@ -117,7 +117,7 @@ export default function MobileEducation() {
         </h2>
         
         <div className="relative">
-          <div className="absolute left-4 top-0 h-full w-0.5 bg-blue-200 dark:bg-blue-900"></div>
+          <div className="absolute left-[10px] top-0 h-full w-0.5 bg-blue-200 dark:bg-blue-900"></div>
           
           {educationData.map((item, index) => (
             <motion.div
@@ -127,10 +127,10 @@ export default function MobileEducation() {
               transition={{ delay: 0.3 + index * 0.1 }}
               className="relative pl-8 pb-6 last:pb-0 group"
             >
-              <div className="absolute left-4 top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-blue-500 border-4 border-blue-200 dark:border-blue-900 z-10 animate-pulse"></div>
+              <div className="absolute left-[11px] top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-blue-500 border-4 border-blue-200 dark:border-blue-900 z-10 animate-pulse"></div>
               
               <div 
-                className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700 hover:border-blue-500 transition-all duration-300 cursor-pointer"
+                className="bg-white dark:bg-gray-800 rounded-3xl p-5 shadow-sm border border-gray-200 dark:border-gray-700 hover:border-blue-500 transition-all duration-300 cursor-pointer"
                 onClick={() => toggleEducationExpand(index)}
               >
                 <div className="flex justify-between items-start">
@@ -182,7 +182,7 @@ export default function MobileEducation() {
                         {item.skills?.map((skill, skillIndex) => (
                           <span 
                             key={skillIndex}
-                            className="px-2 py-0.5 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 text-xs font-mono rounded"
+                            className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 text-xs font-mono rounded-2xl"
                           >
                             {skill}
                           </span>
@@ -212,7 +212,7 @@ export default function MobileEducation() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 + index * 0.1 }}
-            className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700 hover:border-green-500 transition-all duration-300 mb-3"
+            className="bg-white dark:bg-gray-800 rounded-3xl p-5 shadow-sm border border-gray-200 dark:border-gray-700 hover:border-green-500 transition-all duration-300 mb-3"
           >
             <div className="flex justify-between items-start">
               <div>
@@ -252,7 +252,7 @@ export default function MobileEducation() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.5 + index * 0.1 }}
-              className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 hover:border-purple-500 transition-all duration-300 cursor-pointer"
+              className="bg-white dark:bg-gray-800 rounded-3xl p-1 shadow-sm border border-gray-200 dark:border-gray-700 hover:border-purple-500 transition-all duration-300 cursor-pointer"
               onClick={() => toggleCertificateExpand(index)}
             >
               <div className="p-4">
@@ -401,13 +401,13 @@ export default function MobileEducation() {
                   x: { type: "tween", duration: 0.2, ease: "easeInOut" },
                   opacity: { duration: 0.3, ease: "easeInOut" }
                 }}
-              className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700 hover:border-yellow-500 transition-all duration-300 absolute inset-0"
+              className="bg-white dark:bg-gray-800 rounded-3xl p-5 border border-gray-200 dark:border-gray-700 hover:border-yellow-500 transition-all duration-300 absolute inset-0"
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
               onDragEnd={handleDragEnd}
             >
               <div className="flex items-start gap-3 h-full">
-                <div className="bg-yellow-100 dark:bg-yellow-900/30 p-3 rounded-md">
+                <div className="bg-yellow-100 dark:bg-yellow-900/30 p-3 rounded-xl">
                   <Award className="text-yellow-500 dark:text-yellow-400" size={20} />
                 </div>
                 <div className="flex-1 flex flex-col h-full">
@@ -422,7 +422,7 @@ export default function MobileEducation() {
                     </p>
                   </div>
 
-                  {awards[currentAward].attachment && (
+                  {/* {awards[currentAward].attachment && (
                     
                     <div className="mt-auto pt-3 border-t border-gray-200 dark:border-gray-700">
                       <button 
@@ -434,7 +434,7 @@ export default function MobileEducation() {
                       </button>
                     </div>
                     
-                  )}
+                  )} */}
 
                 </div>
               </div>

@@ -65,7 +65,7 @@ export default function Dock({ apps, onAppClick }: {
     return (
     <div className="absolute bottom-6 left-0 right-0 px-8">
       <motion.div 
-        className="bg-gray-200/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl p-2 flex justify-around border border-gray-300 dark:border-gray-700"
+        className="bg-gray-200/10 dark:bg-gray-800/10 backdrop-blur-[3px] dark:backdrop-blur-sm shadow-sm rounded-3xl p-2 flex justify-around border border-gray-400/30 dark:border-gray-700"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
@@ -78,7 +78,7 @@ export default function Dock({ apps, onAppClick }: {
             className="p-2"
             onClick={() => handleAppClick(app)}
           >
-            <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-gray-300/50 dark:bg-gray-700/50 hover:bg-gray-300/70 dark:hover:bg-gray-600/70 border border-gray-400/40 transition-colors">
+            <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-gray-300/50 dark:bg-gray-700/50 hover:bg-gray-300/70 dark:hover:bg-gray-600/70 border border-gray-400/40 transition-colors">
               {app.getIcon()}
             </div>
           </motion.button>

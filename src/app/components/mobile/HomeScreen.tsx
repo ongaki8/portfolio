@@ -343,7 +343,7 @@ export default function HomeScreen({
         }
       }
     `}</style>
-    {/* Safe area - status bar */}
+    {/* Status bar */}
     <div className="h-[env(safe-area-inset-top,50px)]"></div>
 
     {/* Main container */}
@@ -399,7 +399,7 @@ export default function HomeScreen({
               damping: 15
             }
           }}
-          className="rounded-2xl bg-gray-200/70 dark:bg-gray-800/70 backdrop-blur-md mt-[3vh] p-[3vw] border border-gray-300 dark:border-gray-700 shadow-lg"
+          className="rounded-3xl bg-transparent dark:bg-transparent backdrop-blur-[1px] dark:backdrop-blur-xl mt-[3vh] p-[5vw] border border-gray-300 dark:border-gray-700 shadow-lg"
         >
           <div className="flex justify-between items-start mb-[2vh]">
             <div>
@@ -430,7 +430,7 @@ export default function HomeScreen({
             <motion.div
               whileTap={{ scale: 0.95 }}
               onClick={toggleCity}
-              className="relative rounded-xl p-[2vw] flex flex-col items-center justify-center border border-gray-300 dark:border-gray-600 cursor-pointer overflow-hidden bg-[#181818] dark:bg-gray-700/50"
+              className="relative rounded-2xl p-[2vw] flex flex-col items-center justify-center border border-gray-300 dark:border-gray-600 cursor-pointer overflow-hidden bg-[#181818] dark:bg-gray-700/50"
             >
               <WeatherEffects condition={dubaiWeather?.condition || null} />
               <span className="text-[3vw] sm:text-[1.5vw] text-white dark:text-gray-300 mb-[0.5vh] relative z-10">
@@ -447,7 +447,7 @@ export default function HomeScreen({
             <motion.div
               whileTap={{ scale: 0.95 }}
               onClick={toggleCity}
-              className="relative rounded-xl p-[2vw] flex flex-col items-center justify-center border border-gray-300 dark:border-gray-600 cursor-pointer overflow-hidden bg-[#181818] dark:bg-gray-700/50"
+              className="relative rounded-2xl p-[2vw] flex flex-col items-center justify-center border border-gray-300 dark:border-gray-600 cursor-pointer overflow-hidden bg-[#181818] dark:bg-gray-700/50"
             >
               <WeatherEffects condition={nairobiWeather?.condition || null} />
               <span className="text-[3vw] sm:text-[1.5vw] text-white dark:text-gray-300 mb-[0.5vh] relative z-10">

@@ -970,12 +970,12 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
               <h4 className="font-mono font-medium text-xs text-[#117bae] mb-3">ALERT_FLOW</h4>
               <div className="relative">
                 {/* Vertical timeline line */}
-                <div className="absolute left-4 h-full w-px bg-gradient-to-b from-[#117bae]/30 via-[#117bae]/50 to-[#117bae]/30 dark:from-[#117bae]/20 dark:via-[#117bae]/40 dark:to-[#117bae]/20"></div>
+                <div className="absolute left-[10px] h-full w-px bg-gradient-to-b from-[#117bae]/30 via-[#117bae]/50 to-[#117bae]/30 dark:from-[#117bae]/20 dark:via-[#117bae]/40 dark:to-[#117bae]/20"></div>
                 
                 {/* Timeline steps with animation */}
                 <div className="space-y-6 pl-8">
                   <div className="relative group">
-                    <div className="absolute -left-8 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#117bae] text-white shadow-md group-hover:scale-110 transition-transform duration-200">
+                    <div className="absolute -left-[34px] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#117bae] text-white shadow-md group-hover:scale-110 transition-transform duration-200">
                       <span className="text-xs font-bold">1</span>
                     </div>
                     <div className="text-sm font-mono font-medium text-gray-800 dark:text-white group-hover:text-[#117bae] transition-colors">Alert Triggered</div>
@@ -983,7 +983,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
                   </div>
                   
                   <div className="relative group">
-                    <div className="absolute -left-8 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#117bae] text-white shadow-md group-hover:scale-110 transition-transform duration-200">
+                    <div className="absolute -left-[34px] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#117bae] text-white shadow-md group-hover:scale-110 transition-transform duration-200">
                       <span className="text-xs font-bold">2</span>
                     </div>
                     <div className="text-sm font-mono font-medium text-gray-800 dark:text-white group-hover:text-[#117bae] transition-colors">Role Targeting</div>
@@ -991,7 +991,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
                   </div>
                   
                   <div className="relative group">
-                    <div className="absolute -left-8 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#117bae] text-white shadow-md group-hover:scale-110 transition-transform duration-200">
+                    <div className="absolute -left-[34px] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#117bae] text-white shadow-md group-hover:scale-110 transition-transform duration-200">
                       <span className="text-xs font-bold">3</span>
                     </div>
                     <div className="text-sm font-mono font-medium text-gray-800 dark:text-white group-hover:text-[#117bae] transition-colors">Push Notification</div>
@@ -999,7 +999,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
                   </div>
                   
                   <div className="relative group">
-                    <div className="absolute -left-8 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#117bae] text-white shadow-md group-hover:scale-110 transition-transform duration-200">
+                    <div className="absolute -left-[34px] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#117bae] text-white shadow-md group-hover:scale-110 transition-transform duration-200">
                       <span className="text-xs font-bold">4</span>
                     </div>
                     <div className="text-sm font-mono font-medium text-gray-800 dark:text-white group-hover:text-[#117bae] transition-colors">Response Tracking</div>
@@ -1012,7 +1012,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
 
             {/* Tech Stack with Horizontal Icons */}
             <div className="p-4 border border-gray-200 dark:border-gray-600 rounded-2xl">
-                <h4 className="font-mono text-xs text-center text-gray-500 dark:text-gray-400 mb-3">TECH_STACK</h4>
+                <h4 className="font-mono text-xs text-md text-center text-gray-500 dark:text-gray-400 mb-3">TECH_STACK</h4>
                 <div className="flex flex-wrap justify-evenly gap-4 sm:gap-1">
                     {[
                     { icon: <Code size={18} className="text-[#117bae]" />, label: "React Native" },

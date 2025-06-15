@@ -117,7 +117,7 @@ export default function LockScreen({ onUnlock }: { onUnlock: () => void }) {
         {notifications.slice(1).reverse().map((notification, index) => (
           <motion.div
             key={notification.id}
-            className="absolute bg-gray-800/60 dark:bg-gray-900/60 backdrop-blur-md rounded-xl border border-white/10"
+            className="absolute bg-gray-600/10 dark:bg-transparent backdrop-blur-xs rounded-3xl border border-gray-400/15 dark:border-white/10"
             style={{
               bottom: `${index * 8 + 8}px`,
               height: '90px',
@@ -136,17 +136,17 @@ export default function LockScreen({ onUnlock }: { onUnlock: () => void }) {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="w-full bg-gray-800/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-xl p-3 shadow-lg border border-white/10 relative z-10"
+          className="w-full bg-gray-200/20 dark:bg-transparent backdrop-blur-xs rounded-3xl p-3 shadow-lg border border-gray-400/15 dark:border-white/10 relative z-10"
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex items-start gap-3">
             {/* App Icon - Rounded Square */}
             <div className="flex flex-col justify-between h-full">
-              <div className="w-12 h-12 rounded-xl bg-gray-700/50 flex items-center justify-center overflow-hidden">
+              <div className="w-12 h-12 rounded-2xl bg-gray-700/50 flex items-center justify-center overflow-hidden">
                 <img 
                   src={`/${notifications[0].app.toLowerCase()}.jpg`}
                   alt={notifications[0].app}
-                  className="w-10 h-10 object-contain rounded-lg"
+                  className="w-10 h-10 object-contain rounded-xl"
                 />
               </div>
             </div>
@@ -154,12 +154,12 @@ export default function LockScreen({ onUnlock }: { onUnlock: () => void }) {
             {/* Notification Content */}
             <div className="flex-1 flex flex-col">
               <div className="flex justify-between items-start">
-                <h3 className="font-medium text-sm">{notifications[0].title}</h3>
-                <span className="text-xs text-gray-400 ml-2 whitespace-nowrap">
+                <h3 className="font-medium text-sm text-gray-700 dark:text-white">{notifications[0].title}</h3>
+                <span className="text-xs text-gray-700 dark:text-gray-400 ml-2 mr-1 whitespace-nowrap">
                   {notifications[0].time}
                 </span>
               </div>
-              <p className="text-sm text-gray-300 mt-1">{notifications[0].message}</p>
+              <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">{notifications[0].message}</p>
             </div>
           </div>
         </motion.div>

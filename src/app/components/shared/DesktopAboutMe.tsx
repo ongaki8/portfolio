@@ -143,12 +143,12 @@ export default function DesktopAboutMe() {
               whileHover={{ y: -3 }}
               className="bg-gray-100 dark:bg-gray-700/40 rounded-2xl p-4 border border-gray-200 dark:border-gray-600 hover:border-blue-600 transition-all group"
             >
-              <div className="flex items-center gap-3 mb-3">
+              <div className="flex items-center gap-3">
                 {cms.icon}
-                <h3 className="text-gray-900 dark:text-white font-medium">{cms.name}</h3>
+                <h3 className="text-gray-700 dark:text-gray-300 font-medium">{cms.name}</h3>
               </div>
               <div className="flex justify-between items-center mb-1">
-                <span className="text-gray-700 dark:text-gray-300 font-mono font-regular">{cms.name}</span>
+                <span className="text-gray-700 dark:text-gray-300 font-mono font-regular"></span>
                 <span className="text-xs font-mono text-gray-700 dark:text-gray-400">{cms.level}%</span>
               </div>
               <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">

@@ -4,6 +4,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { dev404Data } from './data404';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 export default function Mobile404() {
   const [displayedText, setDisplayedText] = useState('');
@@ -85,7 +86,7 @@ useEffect(() => {
         <hr className="border-t border-gray-300 dark:border-gray-700 my-0" />
 
         <div className="text-gray-800 dark:text-[#e2e8f0] font-mono flex items-start p-4 mt-6 mb-4">
-          <div className="w-full rounded-xl overflow-hidden bg-gray-100 dark:bg-[#1a202c] border border-gray-300 dark:border-[#2d3748]">
+          <div className="w-full rounded-2xl overflow-hidden bg-gray-100 dark:bg-[#1a202c] border border-gray-300 dark:border-[#2d3748]">
             {/* Mobile Window Header */}
             <div className="bg-[#2d3748] px-4 py-3 flex items-center justify-center relative">
               <div className="absolute left-4 flex items-center space-x-2">
@@ -110,7 +111,7 @@ useEffect(() => {
             <div className="p-4">
               {/* Code Editor */}
               <div className="p-4">
-                <div className="bg-gray-200 dark:bg-[#0d1117] rounded-lg p-3 mb-4 border border-gray-300 dark:border-[#30363d] h-64 overflow-hidden">
+                <div className="bg-gray-200 dark:bg-[#0d1117] rounded-2xl p-3 mb-4 border border-gray-300 dark:border-[#30363d] h-64 overflow-hidden">
                   <div className="text-xs text-gray-400 dark:text-[#8b949e] mb-2">pageData.tsx</div>
                   <pre 
                     ref={codeRef}
@@ -131,7 +132,7 @@ useEffect(() => {
               </div>
 
               {/* Error Message */}
-              <div className="ml-4 mr-4 p-4 rounded-lg bg-transparent border border-red-700 mb-8">
+              <div className="ml-4 mr-4 p-4 rounded-2xl bg-transparent border border-red-700 mb-8">
                 <div className="items-center">
                   <div>
                     <h3 className="text-sm font-bold text-red-700 text-center">{dev404Data.errorMessage}</h3>
@@ -145,9 +146,14 @@ useEffect(() => {
               {/* Terminal Toggle */}
               <button 
                 onClick={() => setShowTerminal(!showTerminal)}
-                className="w-full py-2 px-3 bg-[#2d3748] dark:bg-[#2d3748] rounded-lg text-xs mb-2 border border-gray-300 dark:border-[#4a5568] text-[#a0aec0] text-left"
+                className="w-full py-2 px-4 bg-[#2d3748] dark:bg-[#2d3748] rounded-2xl text-xs mb-2 border border-gray-300 dark:border-[#4a5568] text-[#a0aec0] text-left flex justify-between items-center"
               >
-                $ {showTerminal ? 'hide terminal' : 'show terminal'}
+                <span>$ {showTerminal ? 'hide terminal' : 'show terminal'}</span>
+                {showTerminal ? (
+                  <ChevronUp className="h-4 w-4" />
+                ) : (
+                  <ChevronDown className="h-4 w-4" />
+                )}
               </button>
 
               {/* Interactive Terminal */}

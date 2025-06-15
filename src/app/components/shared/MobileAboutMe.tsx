@@ -109,7 +109,7 @@ export default function MobileAboutMe() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2 }}
-        className="bg-gray-100/80 dark:bg-gray-800/50 backdrop-blur-sm rounded-lg p-4 border border-gray-300 dark:border-gray-700 mb-8"
+        className="bg-gray-100/80 dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl p-4 border border-gray-300 dark:border-gray-700 mb-8"
       >
         <div className="flex items-center gap-2 mb-3">
           <div className="p-1 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
@@ -132,12 +132,12 @@ export default function MobileAboutMe() {
           </div>
 
           {/* Languages Section */}
-          <div className="bg-gray-200/80 dark:bg-gray-700/30 rounded-lg p-3 border border-gray-200 dark:border-gray-600">
+          <div className="bg-gray-200/80 dark:bg-gray-700/30 rounded-2xl p-4 border border-gray-200 dark:border-gray-600">
             <h3 className="text-gray-900 dark:text-white font-medium font-mono text-lg mb-2 flex items-center gap-2">
               <Languages className="text-purple-600 dark:text-purple-400" size={16} />
               LANGUAGES
             </h3>
-            <div className="space-y-2">
+            <div className="space-y-2 mb-1">
               {languages.map((lang, index) => (
                 <div key={index} className="flex items-center gap-2">
                   <span className="text-xl">{lang.flag}</span>
@@ -157,10 +157,10 @@ export default function MobileAboutMe() {
               ))}
             </div>
           </div>
-          <div className="font-mono font-light flex justify-center items-center gap-1 text-blue-600 dark:text-blue-500 text-sm">
+          {/* <div className="font-mono font-light flex justify-center items-center gap-1 text-blue-600 dark:text-blue-500 text-sm">
             <MapPin className="text-blue-600 dark:text-blue-500" size={16} />
             <span>Based in UAE</span>
-          </div>
+          </div> */}
         </div>
       </motion.div>
 
@@ -169,7 +169,7 @@ export default function MobileAboutMe() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.25 }}
-        className="bg-gray-100/60 dark:bg-gray-800/30 backdrop-blur-sm rounded-lg p-4 border border-gray-200 dark:border-gray-700 mb-8"
+        className="bg-gray-100/60 dark:bg-gray-800/30 backdrop-blur-sm rounded-3xl p-4 border border-gray-200 dark:border-gray-700 mb-8"
       >
         <div className="flex items-center gap-2 mb-3">
           <div className="p-1 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
@@ -183,7 +183,7 @@ export default function MobileAboutMe() {
             <motion.div
               key={index}
               whileHover={{ y: -2 }}
-              className="bg-gray-200/60 dark:bg-gray-700/20 rounded-lg p-3 border border-gray-200 dark:border-gray-600 hover:border-blue-500 transition-all"
+              className="bg-gray-200/60 dark:bg-gray-700/20 rounded-2xl p-4 border border-gray-200 dark:border-gray-600 hover:border-blue-500 transition-all"
             >
               <div className="flex items-center gap-2 mb-1">
                 {item.icon}
@@ -201,7 +201,7 @@ export default function MobileAboutMe() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
-        className="bg-gray-100/80 dark:bg-gray-800/50 backdrop-blur-sm rounded-lg p-4 border border-gray-200 dark:border-gray-700 mb-8"
+        className="bg-gray-100/80 dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl p-4 border border-gray-200 dark:border-gray-700 mb-8"
       >
         <div className="flex items-center gap-2 mb-3">
           <div className="p-1 bg-purple-100 dark:bg-purple-900/30 rounded-lg">
@@ -215,14 +215,14 @@ export default function MobileAboutMe() {
             <motion.div
               key={index}
               whileHover={{ y: -2 }}
-              className="bg-gray-200/60 dark:bg-gray-700/40 rounded-lg p-3 border border-gray-200 dark:border-gray-600 hover:border-blue-500 transition-all group"
+              className="bg-gray-200/60 dark:bg-gray-700/40 rounded-2xl p-4 border border-gray-200 dark:border-gray-600 hover:border-blue-500 transition-all group"
             >
-              <div className="flex items-center gap-2 mb-2">
+              <div className="flex items-center gap-2">
                 {cms.icon}
-                <h3 className="text-gray-900 dark:text-white text-sm font-medium">{cms.name}</h3>
+                <h3 className="text-gray-700 dark:text-gray-300 text-sm font-medium">{cms.name}</h3>
               </div>
               <div className="flex justify-between items-center mb-1">
-                <span className="text-gray-700 dark:text-gray-300 font-mono text-xs">{cms.name}</span>
+                <span className="text-gray-700 dark:text-gray-300 font-mono text-xs"></span>
                 <span className="text-xs font-mono text-gray-400">{cms.level}%</span>
               </div>
               <div className="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2">
@@ -312,7 +312,7 @@ export default function MobileAboutMe() {
                 x: { type: "tween", duration: 0.2, ease: "easeInOut" },
                 opacity: { duration: 0.3, ease: "easeInOut" }
               }}
-              className="bg-gray-100/80 dark:bg-gray-800/50 backdrop-blur-sm rounded-lg p-4 border border-gray-200 dark:border-gray-700 hover:border-blue-500 transition-all duration-300 absolute inset-0"
+              className="bg-gray-100/80 dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl p-5 border border-gray-200 dark:border-gray-700 hover:border-blue-500 transition-all duration-300 absolute inset-0"
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
               onDragEnd={handleDragEnd}
@@ -378,12 +378,12 @@ export default function MobileAboutMe() {
           TECH_VISUALIZATION
         </h2>
         
-        <div className="bg-gray-100/80 dark:bg-gray-800/50 backdrop-blur-sm rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+        <div className="bg-gray-100/80 dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl p-4 border border-gray-200 dark:border-gray-700">
           <div className="grid grid-cols-2 gap-3 text-center">
             {/* Frontend */}
             <motion.div
               whileHover={{ y: -3 }}
-              className="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-lg border border-blue-200 dark:border-blue-500/50 cursor-pointer"
+              className="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-2xl border border-blue-200 dark:border-blue-500/50 cursor-pointer"
             >
               <Code className="mx-auto text-blue-600 dark:text-blue-500 mb-1" size={20} />
               <h3 className="text-gray-900 dark:text-white text-sm font-medium">Frontend</h3>
@@ -393,7 +393,7 @@ export default function MobileAboutMe() {
             {/* Backend */}
             <motion.div
               whileHover={{ y: -3 }}
-              className="bg-green-100 dark:bg-green-900/30 p-3 rounded-lg border border-green-200 dark:border-green-500/30 cursor-pointer"
+              className="bg-green-100 dark:bg-green-900/30 p-3 rounded-2xl border border-green-200 dark:border-green-500/30 cursor-pointer"
             >
               <Database className="mx-auto text-green-600 dark:text-green-500 mb-1" size={20} />
               <h3 className="text-gray-900 dark:text-white text-sm font-medium">Backend</h3>
@@ -403,7 +403,7 @@ export default function MobileAboutMe() {
             {/* Dev Tools */}
             <motion.div
               whileHover={{ y: -3 }}
-              className="bg-purple-100 dark:bg-purple-900/30 p-3 rounded-lg border border-purple-200 dark:border-purple-500/30 cursor-pointer"
+              className="bg-purple-100 dark:bg-purple-900/30 p-3 rounded-2xl border border-purple-200 dark:border-purple-500/30 cursor-pointer"
             >
               <GitBranch className="mx-auto text-purple-600 dark:text-purple-500 mb-1" size={20} />
               <h3 className="text-gray-900 dark:text-white text-sm font-medium">Dev Tools</h3>
@@ -413,7 +413,7 @@ export default function MobileAboutMe() {
             {/* Data */}
             <motion.div
               whileHover={{ y: -3 }}
-              className="bg-yellow-100 dark:bg-yellow-900/30 p-3 rounded-lg border border-yellow-200 dark:border-yellow-500/30 cursor-pointer"
+              className="bg-yellow-100 dark:bg-yellow-900/30 p-3 rounded-2xl border border-yellow-200 dark:border-yellow-500/30 cursor-pointer"
             >
               <BarChart2 className="mx-auto text-yellow-600 dark:text-yellow-500 mb-1" size={20} />
               <h3 className="text-gray-900 dark:text-white text-sm font-medium">Data</h3>

@@ -115,7 +115,7 @@ export default function DesktopEducation() {
       </h2>
       
       <div className="relative">
-        <div className="absolute left-5 top-0 h-full w-0.5 bg-blue-200 dark:bg-blue-900"></div>
+        <div className="absolute left-[10px] top-0 h-full w-0.5 bg-blue-200 dark:bg-blue-900"></div>
         
         {educationData.map((item, index) => (
           <motion.div
@@ -125,7 +125,7 @@ export default function DesktopEducation() {
             transition={{ delay: 0.3 + index * 0.1 }}
             className="relative pl-10 pb-8 last:pb-0 group"
           >
-            <div className="absolute left-5 top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-blue-600 border-4 border-blue-200 dark:border-blue-900 z-10 animate-pulse"></div>
+            <div className="absolute left-[11px] top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-blue-600 border-4 border-blue-200 dark:border-blue-900 z-10 animate-pulse"></div>
             
             <div 
               className="bg-white dark:bg-gray-800 rounded-3xl p-5 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md hover:shadow-blue-600/20 hover:border-blue-600 transition-all duration-300 cursor-pointer"
@@ -167,7 +167,7 @@ export default function DesktopEducation() {
                       {item.skills?.map((skill, skillIndex) => (
                         <span 
                           key={skillIndex}
-                          className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 text-xs font-mono rounded inline-block"
+                          className="px-3 py-2 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 text-xs font-mono rounded-2xl inline-block"
                         >
                           {skill}
                         </span>

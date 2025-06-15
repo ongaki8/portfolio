@@ -204,7 +204,7 @@ export default function ProjectsFolder() {
             </div>
 
             {/* Updates Log Section */}
-            <div className="bg-gray-200/50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700 p-3">
+            <div className="bg-gray-200/50 dark:bg-gray-800/50 rounded-3xl border border-gray-200 dark:border-gray-700 p-4">
               <div className="flex items-center gap-2 mb-2">
                 <Terminal className="text-blue-500" size={14} />
                 <h3 className="font-mono font-medium text-xs text-gray-700 dark:text-gray-300">UPDATES_LOG</h3>
@@ -237,7 +237,7 @@ export default function ProjectsFolder() {
             </div>
 
             {/* TODO Checklist Section */}
-            <div className="bg-gray-200/50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700 p-3">
+            <div className="bg-gray-200/50 dark:bg-gray-800/50 rounded-3xl border border-gray-200 dark:border-gray-700 p-4">
               <div className="flex items-center gap-2 mb-2">
                 <LayoutList className="text-green-500" size={14} />
                 <h3 className="font-mono font-medium text-xs text-gray-700 dark:text-gray-300">TASKS_QUEUE</h3>
@@ -284,7 +284,7 @@ export default function ProjectsFolder() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white dark:bg-gray-800 rounded-lg p-3 shadow-sm border border-gray-200 dark:border-gray-700 hover:border-purple-500 transition-all duration-300 cursor-pointer group"
+                  className="bg-white dark:bg-gray-800 rounded-3xl p-4 shadow-sm border border-gray-200 dark:border-gray-700 hover:border-purple-500 transition-all duration-300 cursor-pointer group"
                   onClick={() => toggleNoteExpand(index)}
                 >
                   <div className="flex items-center gap-1.5 mb-2">
@@ -393,7 +393,7 @@ export default function ProjectsFolder() {
             <div className="flex flex-col gap-5">
               <div>
                 
-                <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700 mb-4">
+                <div className="bg-white dark:bg-gray-800 rounded-3xl p-4 shadow-sm border border-gray-200 dark:border-gray-700 mb-4">
                   <div className="flex items-center gap-2 mb-3">
                     <div className="p-1.5 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
                       <GalleryVerticalEnd className="text-blue-500 dark:text-blue-400" size={20} />
@@ -436,7 +436,7 @@ export default function ProjectsFolder() {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0 }}
                             whileHover={{ scale: 1.03 }}
-                            className="flex items-center gap-2 p-1.5 bg-white/50 dark:bg-gray-800/50 rounded border border-gray-200 dark:border-gray-700 backdrop-blur-sm cursor-pointer"
+                            className="flex items-center gap-2 py-1.5 px-2.5 bg-white/50 dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-700 backdrop-blur-sm cursor-pointer"
                           >
                             <motion.div
                               animate={{ 
@@ -482,7 +482,7 @@ export default function ProjectsFolder() {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0 }}
                             whileHover={{ scale: 1.03 }}
-                            className="flex items-center gap-2 p-1.5 bg-white/50 dark:bg-gray-800/50 rounded border border-gray-200 dark:border-gray-700 backdrop-blur-sm cursor-pointer"
+                            className="flex items-center gap-2 py-1.5 px-2.5 bg-white/50 dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-700 backdrop-blur-sm cursor-pointer"
                           >
                             <motion.div
                               animate={{ 
@@ -506,21 +506,21 @@ export default function ProjectsFolder() {
                   </div>
 
                   <div className="mb-1">
-                    <h4 className="font-mono text-[10px] text-gray-500 dark:text-gray-400 mb-1">INTERACTIVE_ELEMENTS</h4>
+                    <h4 className="font-mono text-[10px] text-gray-500 dark:text-gray-400 mb-2.5 text-center">INTERACTIVE_ELEMENTS</h4>
                     <div className="grid grid-cols-2 gap-1.5">
-                        <div className="p-1.5 bg-white/50 dark:bg-gray-800/50 rounded border border-gray-200 dark:border-gray-700 backdrop-blur-sm cursor-pointer">
+                        <div className="py-1.5 px-2.5 bg-white/50 dark:bg-gray-800/50 rounded-2xl border border-gray-200 dark:border-gray-700 backdrop-blur-sm cursor-pointer">
                           <div className="text-blue-500 font-mono text-[10px] mb-0.5">COMPUTER</div>
                           <p className="text-[10px] text-gray-600 dark:text-gray-300">Click to start experience</p>
                         </div>
-                        <div className="p-1.5 bg-white/50 dark:bg-gray-800/50 rounded border border-gray-200 dark:border-gray-700 backdrop-blur-sm cursor-pointer">
+                        <div className="py-1.5 px-2.5 bg-white/50 dark:bg-gray-800/50 rounded-2xl border border-gray-200 dark:border-gray-700 backdrop-blur-sm cursor-pointer">
                           <div className="text-blue-500 font-mono text-[10px] mb-0.5">SKETCHBOOK</div>
                           <p className="text-[10px] text-gray-600 dark:text-gray-300">Click & hold to scribble</p>
                         </div>
-                        <div className="p-1.5 bg-white/50 dark:bg-gray-800/50 rounded border border-gray-200 dark:border-gray-700 backdrop-blur-sm cursor-pointer">
+                        <div className="py-1.5 px-2.5 bg-white/50 dark:bg-gray-800/50 rounded-2xl border border-gray-200 dark:border-gray-700 backdrop-blur-sm cursor-pointer">
                           <div className="text-blue-500 font-mono text-[10px] mb-0.5">PHONE</div>
                           <p className="text-[10px] text-gray-600 dark:text-gray-300">Click to show contact info</p>
                         </div>
-                        <div className="p-1.5 bg-white/50 dark:bg-gray-800/50 rounded border border-gray-200 dark:border-gray-700 backdrop-blur-sm cursor-pointer">
+                        <div className="py-1.5 px-2.5 bg-white/50 dark:bg-gray-800/50 rounded-2xl border border-gray-200 dark:border-gray-700 backdrop-blur-sm cursor-pointer">
                           <div className="text-blue-500 font-mono text-[10px] mb-0.5">HEADPHONES</div>
                           <p className="text-[10px] text-gray-600 dark:text-gray-300">Click to play music</p>
                         </div>
@@ -571,7 +571,7 @@ export default function ProjectsFolder() {
             </div>
             
             {/* Digital percentage display */}
-            <div className="w-full backdrop-blur-sm bg-white dark:bg-gray-800 rounded-lg p-3 shadow-sm border border-gray-200 dark:border-gray-700">
+            <div className="w-full backdrop-blur-sm bg-white dark:bg-gray-800 rounded-xl p-3 shadow-sm border border-gray-200 dark:border-gray-700">
               <div className="space-y-1.5 px-1">
                 <div className="flex justify-between items-center">
                   <span className="font-mono text-xs text-blue-500">BUILD_STATUS</span>
@@ -631,7 +631,7 @@ export default function ProjectsFolder() {
       case 'web':
         return (
           <div className="space-y-4">
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700">
+            <div className="bg-white dark:bg-gray-800 rounded-3xl p-4 shadow-sm border border-gray-200 dark:border-gray-700">
               <div className="flex items-center gap-2 mb-3">
                 <div className="p-1.5 bg-[#b3938f]/20 dark:bg-[#b3938f]/10 rounded-lg">
                   <FontAwesomeIcon icon={faShopify} className="text-[#b3938f]" style={{ fontSize: 20 }} />
@@ -647,11 +647,11 @@ export default function ProjectsFolder() {
                 Integrated key Shopify apps to enhance functionality and crafted a custom UI to elevate the shopping experience and drive engagement.
               </p>
 
-              <div className="mb-4 p-3 bg-[#b3938f]/10 dark:bg-[#b3938f]/5 rounded-lg border border-[#b3938f]/20 min-h-[320px]">
-  <h4 className="font-mono font-medium text-[10px] text-[#b3938f] mb-2">PERFORMANCE_METRICS</h4>
+              <div className="mb-4 p-3 bg-[#b3938f]/10 dark:bg-[#b3938f]/5 rounded-3xl border border-[#b3938f]/20 min-h-[320px]">
+  <h4 className="font-mono font-medium text-[10px] text-[#b3938f] text-center mb-2">PERFORMANCE_METRICS</h4>
   <div className="grid grid-cols-1 gap-2">
-    <div className="bg-white dark:bg-gray-800 p-1 rounded-lg border border-gray-200 dark:border-gray-700">
-      <div className="relative h-25 rounded-lg overflow-hidden mb-0.5">
+    <div className="bg-white dark:bg-gray-800 p-2 rounded-2xl border border-gray-200 dark:border-gray-700">
+      <div className="relative h-25 rounded-xl overflow-hidden mb-0.5">
         <Image
           src="/folder/gtmetrix.png"
           alt="GTmetrix"
@@ -659,10 +659,10 @@ export default function ProjectsFolder() {
           className="object-cover"
         />
       </div>
-      <p className="text-[10px] font-mono text-center text-gray-600 dark:text-gray-300">GTmetrix_Grade</p>
+      <p className="text-[10px] font-mono text-center text-gray-600 dark:text-gray-300 mt-1">GTmetrix_Grade</p>
     </div>
-    <div className="bg-white dark:bg-gray-800 p-1 rounded-lg border border-gray-200 dark:border-gray-700">
-      <div className="relative h-25 rounded-lg overflow-hidden mb-0.5">
+    <div className="bg-white dark:bg-gray-800 p-2 rounded-2xl border border-gray-200 dark:border-gray-700">
+      <div className="relative h-25 rounded-xl overflow-hidden mb-0.5">
         <Image
           src="/folder/pagespeed.png"
           alt="PageSpeed"
@@ -670,7 +670,7 @@ export default function ProjectsFolder() {
           className="object-cover"
         />
       </div>
-      <p className="text-[10px] font-mono text-center text-gray-600 dark:text-gray-300">PageSpeed_Insights</p>
+      <p className="text-[10px] font-mono text-center text-gray-600 dark:text-gray-300 mt-1">PageSpeed_Insights</p>
     </div>
   </div>
 </div>
@@ -678,7 +678,7 @@ export default function ProjectsFolder() {
               <div className="flex justify-center">
                 <div className="grid grid-cols-1 gap-3 w-full mb-4">
                   {/* TECH STACK SECTION */}
-                  <div className="relative p-4 rounded-lg bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
+                  <div className="relative p-4 rounded-3xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
                     <h4 className="font-mono font-medium text-xs text-[#c4a39f] dark:text-[#c4a39f] mb-4 text-center">TECH_STACK</h4>
 
                     {/* Interactive tech stack bubbles */}
@@ -719,7 +719,7 @@ export default function ProjectsFolder() {
                   </div>
 
                   {/* KEY FEATURES */}
-                  <div className="relative p-4 rounded-lg bg-transparent backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
+                  <div className="relative p-4 rounded-3xl bg-transparent backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
                     <h4 className="font-mono font-medium text-xs text-[#c4a39f] dark:text-[#c4a39f] mb-3 text-center">
                       KEY_FEATURES
                     </h4>
@@ -740,7 +740,7 @@ export default function ProjectsFolder() {
                           transition={{ delay: 0.0 }}
                           whileHover={{ scale: 1.03 }}
                           whileTap={{ scale: 0.98 }}
-                          className="flex items-center gap-1 p-1.5 bg-white/50 dark:bg-gray-800/50 rounded border border-gray-200 dark:border-gray-700 backdrop-blur-sm cursor-pointer group"
+                          className="flex items-center gap-1 py-1.5 px-2.5 bg-white/50 dark:bg-gray-800/50 rounded-2xl border border-gray-200 dark:border-gray-700 backdrop-blur-sm cursor-pointer group"
                         >
                           <motion.div
                             animate={{ 
@@ -765,7 +765,7 @@ export default function ProjectsFolder() {
               </div>
             </div>
 
-            <div className="rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 shadow-md">
+            <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-md">
                 <div className="relative w-full h-10 overflow-hidden"> 
                     <Image
                     src="/folder/trendsetterbabe.png"
@@ -774,7 +774,7 @@ export default function ProjectsFolder() {
                     className="object-cover"
                     />
                 </div>
-                <div className="bg-gray-50 dark:bg-gray-900 p-1.5 text-center">
+                <div className="bg-gray-900/90 dark:bg-gray-900 p-1.5 text-center">
                     <a 
                     href="https://www.trendsetterbabe.com" 
                     target="_blank" 
@@ -791,7 +791,7 @@ export default function ProjectsFolder() {
       case 'mobile':
         return (
           <div className="space-y-4">
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700">
+            <div className="bg-white dark:bg-gray-800 rounded-3xl p-4 shadow-sm border border-gray-200 dark:border-gray-700">
               {/* Header Section */}
               <div className="flex items-center gap-2 mb-3">
                 <div className="p-1.5 bg-[#d2e6f3] dark:bg-[#117bae]/20 rounded-lg">
@@ -811,7 +811,7 @@ export default function ProjectsFolder() {
               {/* Single Column Layout for Mobile */}
               <div className="flex flex-col gap-4 mb-4">
                 {/* Core Features */}
-                <div className="p-2 bg-gray-100 dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600">
+                <div className="p-3 bg-gray-100 dark:bg-gray-700 rounded-2xl border border-gray-200 dark:border-gray-600">
                   <h4 className="font-mono font-medium text-[10px] text-left text-[#117bae] mb-1">CORE_FEATURES</h4>
                   <ul className="space-y-1 text-xs font-light text-gray-600 dark:text-gray-300">
                     <li className="flex items-start gap-1">
@@ -834,62 +834,62 @@ export default function ProjectsFolder() {
                 </div>
 
                 {/* Creative Timeline Visualization */}
-                <div className="p-3 bg-[#f8fafc] dark:bg-gray-800 border border-[#e2e8f0] dark:border-gray-700 rounded-lg">
+                <div className="p-3 bg-[#f8fafc] dark:bg-gray-800 border border-[#e2e8f0] dark:border-gray-700 rounded-2xl">
                   <h4 className="font-mono font-medium text-[10px] text-[#117bae] mb-2">ALERT_FLOW</h4>
                   <div className="relative">
 
                     {/* Vertical Line */}
-                    <div className="absolute left-3 h-full w-px bg-gradient-to-b from-[#117bae]/30 via-[#117bae]/50 to-[#117bae]/30 dark:from-[#117bae]/20 dark:via-[#117bae]/40 dark:to-[#117bae]/20"></div>
+                    <div className="absolute left-[12px] h-full w-px bg-gradient-to-b from-[#117bae]/30 via-[#117bae]/50 to-[#117bae]/30 dark:from-[#117bae]/20 dark:via-[#117bae]/40 dark:to-[#117bae]/20"></div>
                     
                     {/* Timeline steps with animation */}
                     <div className="space-y-4 pl-6">
-  <div className="relative group">
-    <div className="absolute -left-5 top-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#117bae] text-white shadow-md group-hover:scale-110 transition-transform duration-200">
-      <span className="text-[10px] font-bold">1</span>
-    </div>
-    <div className="ml-3">
-      <div className="text-xs font-mono font-medium text-gray-800 dark:text-white group-hover:text-[#117bae] transition-colors">Alert Triggered</div>
-      <p className="text-[10px] text-gray-500 dark:text-gray-400">User presses emergency button</p>
-    </div>
-  </div>
-  
-  <div className="relative group">
-    <div className="absolute -left-5 top-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#117bae] text-white shadow-md group-hover:scale-110 transition-transform duration-200">
-      <span className="text-[10px] font-bold">2</span>
-    </div>
-    <div className="ml-3">
-      <div className="text-xs font-mono font-medium text-gray-800 dark:text-white group-hover:text-[#117bae] transition-colors">Role Targeting</div>
-      <p className="text-[10px] text-gray-500 dark:text-gray-400">System identifies appropriate responders</p>
-    </div>
-  </div>
-  
-  <div className="relative group">
-    <div className="absolute -left-5 top-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#117bae] text-white shadow-md group-hover:scale-110 transition-transform duration-200">
-      <span className="text-[10px] font-bold">3</span>
-    </div>
-    <div className="ml-3">
-      <div className="text-xs font-mono font-medium text-gray-800 dark:text-white group-hover:text-[#117bae] transition-colors">Push Notification</div>
-      <p className="text-[10px] text-gray-500 dark:text-gray-400">Instant delivery to all assigned devices</p>
-    </div>
-  </div>
-  
-  <div className="relative group">
-    <div className="absolute -left-5 top-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#117bae] text-white shadow-md group-hover:scale-110 transition-transform duration-200">
-      <span className="text-[10px] font-bold">4</span>
-    </div>
-    <div className="ml-3">
-      <div className="text-xs font-mono font-medium text-gray-800 dark:text-white group-hover:text-[#117bae] transition-colors">Response Tracking</div>
-      <p className="text-[10px] text-gray-500 dark:text-gray-400">System monitors acknowledgments in real-time</p>
-    </div>
-  </div>
-</div>
+                      <div className="relative group">
+                        <div className="absolute -left-[22px] top-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#117bae] text-white shadow-md group-hover:scale-110 transition-transform duration-200">
+                          <span className="text-[10px] font-bold">1</span>
+                        </div>
+                        <div className="ml-3">
+                          <div className="text-xs font-mono font-medium text-gray-800 dark:text-white group-hover:text-[#117bae] transition-colors">Alert Triggered</div>
+                          <p className="text-[10px] text-gray-500 dark:text-gray-400">User presses emergency button</p>
+                        </div>
+                      </div>
+                      
+                      <div className="relative group">
+                        <div className="absolute -left-[22px] top-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#117bae] text-white shadow-md group-hover:scale-110 transition-transform duration-200">
+                          <span className="text-[10px] font-bold">2</span>
+                        </div>
+                        <div className="ml-3">
+                          <div className="text-xs font-mono font-medium text-gray-800 dark:text-white group-hover:text-[#117bae] transition-colors">Role Targeting</div>
+                          <p className="text-[10px] text-gray-500 dark:text-gray-400">System identifies appropriate responders</p>
+                        </div>
+                      </div>
+                      
+                      <div className="relative group">
+                        <div className="absolute -left-[22px] top-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#117bae] text-white shadow-md group-hover:scale-110 transition-transform duration-200">
+                          <span className="text-[10px] font-bold">3</span>
+                        </div>
+                        <div className="ml-3">
+                          <div className="text-xs font-mono font-medium text-gray-800 dark:text-white group-hover:text-[#117bae] transition-colors">Push Notification</div>
+                          <p className="text-[10px] text-gray-500 dark:text-gray-400">Instant delivery to all assigned devices</p>
+                        </div>
+                      </div>
+                      
+                      <div className="relative group">
+                        <div className="absolute -left-[22px] top-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#117bae] text-white shadow-md group-hover:scale-110 transition-transform duration-200">
+                          <span className="text-[10px] font-bold">4</span>
+                        </div>
+                        <div className="ml-3">
+                          <div className="text-xs font-mono font-medium text-gray-800 dark:text-white group-hover:text-[#117bae] transition-colors">Response Tracking</div>
+                          <p className="text-[10px] text-gray-500 dark:text-gray-400">System monitors acknowledgments in real-time</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
                 {/* Tech Stack with Horizontal Icons */}
-                <div className="p-2 border border-gray-200 dark:border-gray-600 rounded-lg">
-                  <h4 className="font-mono text-[10px] text-center text-gray-500 dark:text-gray-400 mb-2">TECH_STACK</h4>
-                  <div className="flex flex-wrap justify-center gap-2">
+                <div className="p-4 border border-gray-200 dark:border-gray-600 rounded-3xl">
+                  <h4 className="font-mono text-[10px] text-center text-md text-gray-500 dark:text-gray-400 mb-2">TECH_STACK</h4>
+                  <div className="flex flex-wrap justify-center gap-1">
                       {[
                       { icon: <Code size={16} className="text-[#117bae]" />, label: "React Native" },
                       { icon: <Smartphone size={16} className="text-[#117bae]" />, label: "Expo" },
@@ -934,7 +934,7 @@ export default function ProjectsFolder() {
               </div>
 
               {/* Stats Bar */}
-              <div className="p-2 bg-[#f1f8fe] dark:bg-[#0d3a5a] rounded-lg border border-[#d2e6f3] dark:border-[#117bae]/30">
+              <div className="px-2 py-4 bg-[#f1f8fe] dark:bg-[#0d3a5a] rounded-3xl border border-[#d2e6f3] dark:border-[#117bae]/30">
                 <div className="grid grid-cols-2 gap-2 text-center">
                   <div>
                     <div className="text-xl font-bold text-[#117bae] dark:text-[#5ab0e8]">99.9%</div>
