@@ -20,6 +20,23 @@ import { AppConfig } from '@/app/utils/types';
 import { Bell, ChevronRight, FolderPlus, Info, LayoutGrid, MonitorCog, Trash2 } from 'lucide-react';
 import NotificationCenter from './notificationData';
 import SystemInfoPopup from './SystemInfoPopup';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Brian Ongaki",
+  description: "Showcasing my skills, projects and professional journey.",
+  openGraph: {
+    title: "Portfolio",
+    description: "Showcasing my skills, projects and professional journey.",
+    images: [
+      {
+        url: "/seo.png",
+        width: 1200,
+        height: 630,
+      }
+    ]
+  }
+};
 
 interface DesktopViewProps {
   apps: AppConfig[];

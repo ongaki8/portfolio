@@ -5,6 +5,23 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Lock, User, Power, RotateCw, Loader2, LogIn } from 'lucide-react';
 import Image from 'next/image';
 import { useTheme } from '../ThemeProvider';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Brian Ongaki",
+  description: "Showcasing my skills, projects and professional journey.",
+  openGraph: {
+    title: "Portfolio",
+    description: "Showcasing my skills, projects and professional journey.",
+    images: [
+      {
+        url: "/seo.png",
+        width: 1200,
+        height: 630,
+      }
+    ]
+  }
+};
 
 interface DesktopLoginProps {
   onUnlock: () => void;

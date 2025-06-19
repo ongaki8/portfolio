@@ -5,6 +5,23 @@ import { useUserData } from '@/app/utils/userData';
 import { CloudSun, Sun, Cloud, CloudRain, CloudLightning } from 'lucide-react';
 import { useEffect, useState, useRef } from 'react';
 import { APPS, isFolder } from '@/app/utils/constants';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Brian Ongaki",
+  description: "Showcasing my skills, projects and professional journey.",
+  openGraph: {
+    title: "Portfolio",
+    description: "Showcasing my skills, projects and professional journey.",
+    images: [
+      {
+        url: "/seo.png",
+        width: 1200,
+        height: 630,
+      }
+    ]
+  }
+};
 
 export default function HomeScreen({ 
   apps, 

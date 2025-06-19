@@ -7,6 +7,23 @@ import AppWindow from './AppWindow';
 import { APPS } from '@/app/utils/constants';
 import LockScreen from './LockScreen';
 import { AppConfig } from '@/app/utils/types';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Brian Ongaki",
+  description: "Showcasing my skills, projects and professional journey.",
+  openGraph: {
+    title: "Portfolio",
+    description: "Showcasing my skills, projects and professional journey.",
+    images: [
+      {
+        url: "/seo.png",
+        width: 1200,
+        height: 630,
+      }
+    ]
+  }
+};
 
 interface MobileViewProps {
   apps: AppConfig[];

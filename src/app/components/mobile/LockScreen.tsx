@@ -4,6 +4,23 @@ import { motion } from 'framer-motion';
 import { useUserData } from '@/app/utils/userData';
 import { useEffect, useState } from 'react';
 import { Flashlight, Camera, FlashlightOff } from 'lucide-react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Brian Ongaki",
+  description: "Showcasing my skills, projects and professional journey.",
+  openGraph: {
+    title: "Portfolio",
+    description: "Showcasing my skills, projects and professional journey.",
+    images: [
+      {
+        url: "/seo.png",
+        width: 1200,
+        height: 630,
+      }
+    ]
+  }
+};
 
 export default function LockScreen({ onUnlock }: { onUnlock: () => void }) {
   const { weather, timeData, getWeatherIcon, toggleCity, currentCity } = useUserData();

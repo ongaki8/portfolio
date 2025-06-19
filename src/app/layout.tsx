@@ -17,8 +17,33 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Brian Ongaki",
-  description: "My Portfolio",
+  title: "Brian Ongaki - Portfolio",
+  description: "Showcasing my skills, projects and professional journey.",
+  metadataBase: new URL("https://ongaki.website"),
+  
+  // OpenGraph
+  openGraph: {
+    title: "Brian Ongaki",
+    description: "Showcasing my skills, projects and professional journey.",
+    url: "https://ongaki.website", 
+    siteName: "Brian Ongaki's Portfolio",
+    images: [
+      {
+        url: "/seo.png",
+        width: 1200,
+        height: 630,
+        alt: "Portfolio Preview",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  
+  // Basic SEO
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
