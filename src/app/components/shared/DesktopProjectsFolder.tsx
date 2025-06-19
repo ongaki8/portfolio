@@ -303,7 +303,7 @@ export default function ProjectsFolder() {
                       className="mt-3 overflow-hidden"
                     >
                           <div className="pt-1 space-y-3">
-                            <div className="bg-gray-100/50 dark:bg-transparent border border-gray-300/50 dark:border-gray-500 rounded-lg">
+                            <div className="bg-gray-100/50 dark:bg-transparent border border-gray-300/50 dark:border-gray-500 rounded-2xl">
                               <div className="p-4">
 
                             <div>
@@ -929,7 +929,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
           </div>
           <div>
             <h2 className="text-lg font-mono font-medium text-gray-800 dark:text-white">Emergency Response App</h2>
-            <p className="text-xs font-mono text-[#117bae]">Status: <span className="text-blue-600">In Progress</span></p>
+            <p className="text-xs font-mono text-[#117bae]">Status: <span className="text-amber-600">Testing</span></p>
           </div>
         </div>
 
@@ -978,7 +978,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
                     <div className="absolute -left-[34px] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#117bae] text-white shadow-md group-hover:scale-110 transition-transform duration-200">
                       <span className="text-xs font-bold">1</span>
                     </div>
-                    <div className="text-sm font-mono font-medium text-gray-800 dark:text-white group-hover:text-[#117bae] transition-colors">Alert Triggered</div>
+                    <div className="text-sm font-mono font-medium text-gray-800 dark:text-white group-hover:text-[#117bae] transition-colors cursor-pointer">Alert Triggered</div>
                     <p className="text-xs text-gray-500 dark:text-gray-400">User presses emergency button</p>
                   </div>
                   
@@ -986,7 +986,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
                     <div className="absolute -left-[34px] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#117bae] text-white shadow-md group-hover:scale-110 transition-transform duration-200">
                       <span className="text-xs font-bold">2</span>
                     </div>
-                    <div className="text-sm font-mono font-medium text-gray-800 dark:text-white group-hover:text-[#117bae] transition-colors">Role Targeting</div>
+                    <div className="text-sm font-mono font-medium text-gray-800 dark:text-white group-hover:text-[#117bae] transition-colors cursor-pointer">Role Targeting</div>
                     <p className="text-xs text-gray-500 dark:text-gray-400">System identifies appropriate responders</p>
                   </div>
                   
@@ -994,7 +994,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
                     <div className="absolute -left-[34px] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#117bae] text-white shadow-md group-hover:scale-110 transition-transform duration-200">
                       <span className="text-xs font-bold">3</span>
                     </div>
-                    <div className="text-sm font-mono font-medium text-gray-800 dark:text-white group-hover:text-[#117bae] transition-colors">Push Notification</div>
+                    <div className="text-sm font-mono font-medium text-gray-800 dark:text-white group-hover:text-[#117bae] transition-colors cursor-pointer">Push Notification</div>
                     <p className="text-xs text-gray-500 dark:text-gray-400">Instant delivery to all assigned devices</p>
                   </div>
                   
@@ -1002,7 +1002,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
                     <div className="absolute -left-[34px] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#117bae] text-white shadow-md group-hover:scale-110 transition-transform duration-200">
                       <span className="text-xs font-bold">4</span>
                     </div>
-                    <div className="text-sm font-mono font-medium text-gray-800 dark:text-white group-hover:text-[#117bae] transition-colors">Response Tracking</div>
+                    <div className="text-sm font-mono font-medium text-gray-800 dark:text-white group-hover:text-[#117bae] transition-colors cursor-pointer">Response Tracking</div>
                     <p className="text-xs text-gray-500 dark:text-gray-400">System monitors acknowledgments in real-time</p>
                   </div>
                 </div>
@@ -1012,7 +1012,7 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
 
             {/* Tech Stack with Horizontal Icons */}
             <div className="p-4 border border-gray-200 dark:border-gray-600 rounded-2xl">
-                <h4 className="font-mono text-xs text-md text-center text-gray-500 dark:text-gray-400 mb-3">TECH_STACK</h4>
+                <h4 className="font-mono text-xs text-md font-medium text-center text-[#117bae] mb-3">TECH_STACK</h4>
                 <div className="flex flex-wrap justify-evenly gap-4 sm:gap-1">
                     {[
                     { icon: <Code size={18} className="text-[#117bae]" />, label: "React Native" },
