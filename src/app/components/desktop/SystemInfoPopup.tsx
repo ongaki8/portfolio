@@ -1,8 +1,8 @@
 // src/app/components/desktop/SystemInfoPopup.tsx
 'use client';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { Bell, AlertCircle } from 'lucide-react';
+import { Bell, AlertCircle, Check } from 'lucide-react';
 import Image from 'next/image';
 
 interface SystemInfoPopupProps {
@@ -42,6 +42,9 @@ export default function SystemInfoPopup({ onClose }: SystemInfoPopupProps) {
   const [performanceData, setPerformanceData] = useState<PerformanceData | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [checkingUpdates, setCheckingUpdates] = useState(false);
+  const [upToDate, setUpToDate] = useState(false);
+  const [lastChecked, setLastChecked] = useState<string | null>(null);
 
   useEffect(() => {
     if (activeTab === 'performance' && !performanceData) {
@@ -62,6 +65,23 @@ export default function SystemInfoPopup({ onClose }: SystemInfoPopupProps) {
     }
   };
 
+  const checkForUpdates = () => {
+    setCheckingUpdates(true);
+    setUpToDate(false);
+    
+    // Simulate checking for updates
+    setTimeout(() => {
+      const now = new Date();
+      setLastChecked(now.toLocaleString());
+      setUpToDate(true);
+      
+      // Hide the overlay after showing the success message
+      setTimeout(() => {
+        setCheckingUpdates(false);
+      }, 2000);
+    }, 3000);
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
@@ -75,22 +95,6 @@ export default function SystemInfoPopup({ onClose }: SystemInfoPopupProps) {
         className="bg-gray-800/90 backdrop-blur-md rounded-3xl shadow-2xl border border-gray-700 w-[600px] max-w-[90vw] max-h-[90vh] overflow-hidden flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Centered Header */}
-        {/* <div className="flex items-center justify-between px-6 py-4 border-gray-700">
-          <div className="flex-1"></div>
-          <h2 className="text-xl font-semibold text-gray-200 flex-1 text-center">
-            {activeTab === 'about' ? 'Portfolio' : 'Performance Metrics'}
-          </h2>
-          <div className="flex-1 flex justify-end">
-            <button
-              onClick={onClose}
-              className="text-gray-400 hover:text-white cursor-pointer transition-colors"
-            >
-              ✕
-            </button>
-          </div>
-        </div> */}
-
         {/* Centered Tabs */}
         <div className="flex justify-center px-4 pt-2 mt-3 mb-3">
           <div className="flex bg-gray-600/40 dark:bg-gray-700/50 rounded-2xl p-1.5">
@@ -117,7 +121,7 @@ export default function SystemInfoPopup({ onClose }: SystemInfoPopupProps) {
           </div>
         </div>
 
-         <div className="overflow-y-auto flex-1 p-6">
+        <div className="overflow-y-auto flex-1 p-6">
           {activeTab === 'about' ? (
             <>
               <div className="flex items-center justify-center gap-6 mb-9">
@@ -311,7 +315,10 @@ export default function SystemInfoPopup({ onClose }: SystemInfoPopupProps) {
 
         <div className="mt-auto p-4 border-t border-gray-600 dark:border-gray-700">
           {activeTab === 'about' ? (
-            <button className="w-full bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-2xl text-sm font-medium transition-colors cursor-pointer">
+            <button 
+              className="w-full bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-2xl text-sm font-medium transition-colors cursor-pointer"
+              onClick={checkForUpdates}
+            >
               Check for Updates...
             </button>
           ) : (
@@ -321,6 +328,54 @@ export default function SystemInfoPopup({ onClose }: SystemInfoPopupProps) {
           )}
         </div>
       </div>
+
+      {/* Update Check Overlay */}
+      <AnimatePresence>
+        {checkingUpdates && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 flex items-center justify-center z-[101] bg-black/50 backdrop-blur-sm"
+          >
+            <motion.div
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 20 }}
+              className="bg-gray-800/90 border border-gray-700 rounded-2xl p-6 w-96 max-w-[90vw] shadow-2xl"
+            >
+              <div className="flex flex-col items-center justify-center space-y-4">
+                {!upToDate ? (
+                  <>
+                    <div className="w-16 h-16 rounded-full bg-blue-600/20 flex items-center justify-center">
+                      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+                    </div>
+                    <h3 className="text-lg font-medium font-mono text-gray-200">Checking for updates...</h3>
+                    <p className="text-sm font-mono text-gray-400 text-center">
+                      Searching for the latest version of Portfolio OS
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <div className="w-16 h-16 rounded-full bg-green-600 flex items-center justify-center">
+                      <Check className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-lg font-medium font-mono text-gray-200">Your system is up-to-date</h3>
+                    <p className="text-sm text-gray-400 font-mono text-center">
+                      You're running the latest version (1.0)
+                    </p>
+                    {lastChecked && (
+                      <p className="text-xs text-gray-500 mt-2">
+                        Last checked at {lastChecked}
+                      </p>
+                    )}
+                  </>
+                )}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }

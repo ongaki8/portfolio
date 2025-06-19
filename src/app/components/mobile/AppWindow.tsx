@@ -1,7 +1,7 @@
 // src/app/components/mobile/AppWindow.tsx
 'use client';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft } from 'lucide-react';
+import { ChevronLeft, CircleChevronLeft } from 'lucide-react';
 import MobileEducation from '../shared/MobileEducation';
 import MobileContact from '../shared/MobileContact';
 import MobileExperience from '../shared/MobileExperience';
@@ -107,8 +107,8 @@ export default function AppWindow({
               onClick={onClose}
               className="flex items-center text-blue-600 dark:text-blue-500 z-50"
             >
-              <ChevronLeft size={20} className="mr-1" />
-              <span className="font-regular">Back</span>
+              <CircleChevronLeft size={20} className="mr-1.5" />
+              <span className="font-regular font-mono">Back</span>
             </button>
             
             <h1 className="font-regular text-lg text-gray-800 dark:text-gray-200 absolute left-1/2 transform -translate-x-1/2">

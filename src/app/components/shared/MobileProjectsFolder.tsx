@@ -334,8 +334,8 @@ export default function ProjectsFolder() {
                       className="mt-2 overflow-hidden"
                     >
                           <div className="pt-1 space-y-2">
-                            <div className="bg-gray-100/50 dark:bg-transparent border border-gray-300/50 dark:border-gray-500 rounded-lg">
-                              <div className="p-3">
+                            <div className="bg-gray-100/50 dark:bg-transparent border border-gray-300/50 dark:border-gray-500 rounded-2xl">
+                              <div className="p-4">
 
                             <div>
                               <h4 className="text-[10px] font-mono font-medium text-purple-600 dark:text-purple-500 mb-0.5">DESCRIPTION</h4>
@@ -799,7 +799,7 @@ export default function ProjectsFolder() {
                 </div>
                 <div>
                   <h2 className="text-base font-mono font-medium text-gray-800 dark:text-white">Emergency Response App</h2>
-                  <p className="text-[10px] font-mono text-[#117bae]">Status: <span className="text-blue-500">In Progress</span></p>
+                  <p className="text-[10px] font-mono text-[#117bae]">Status: <span className="text-amber-500">Testing</span></p>
                 </div>
               </div>
 
@@ -888,7 +888,7 @@ export default function ProjectsFolder() {
 
                 {/* Tech Stack with Horizontal Icons */}
                 <div className="p-4 border border-gray-200 dark:border-gray-600 rounded-3xl">
-                  <h4 className="font-mono text-[10px] text-center text-md text-gray-500 dark:text-gray-400 mb-2">TECH_STACK</h4>
+                  <h4 className="font-mono font-medium text-[10px] text-center text-md text-[#117bae] mb-2">TECH_STACK</h4>
                   <div className="flex flex-wrap justify-center gap-1">
                       {[
                       { icon: <Code size={16} className="text-[#117bae]" />, label: "React Native" },
@@ -917,7 +917,7 @@ export default function ProjectsFolder() {
                     <div className="h-[50px] w-[2px] bg-gray-800 dark:bg-gray-600 absolute -right-[2px] top-[120px] rounded-r-lg"></div>
                     
                     {/* Phone screen content */}
-                    <div className="rounded-[1.5rem] overflow-hidden w-[230px] h-[480px] bg-white dark:bg-gray-800">
+                    <div className="rounded-3xl overflow-hidden w-[230px] h-[480px] bg-white dark:bg-gray-800">
                       <div className="relative w-full h-full">
                         <Image
                           src="/folder/sos.webp"
