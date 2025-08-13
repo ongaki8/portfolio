@@ -272,23 +272,25 @@ export default function DesktopLogin({ onUnlock, onRestart, onShutdown }: Deskto
               type="submit"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full py-3 px-4 rounded-2xl bg-gray-500/90 dark:bg-gray-700/90 hover:bg-gray-700/90 dark:hover:bg-gray-800/90 text-white text-md font-medium transition-all shadow-md relative overflow-hidden cursor-pointer flex items-center justify-center gap-2"
-              onClick={triggerWave}>
-              <AnimatePresence>
-                {waveActive && (
-                  <motion.span
-                    initial={{ scale: 0, opacity: 1 }}
-                    animate={{ scale: 10, opacity: 0 }}
-                    transition={{ duration: 1 }}
-                    className="absolute inset-0 bg-white/20 rounded-full"
-                    style={{ originX: 0.5, originY: 0.5 }}
-                  />
-                )}
-              </AnimatePresence>
-              <span className="relative z-10 flex items-center gap-2 font-mono">
-                <LogIn size={18} />
-                LOGIN
-              </span>
+              className="w-full p-[4px] rounded-2xl border border-gray-600/50 dark:border-gray-600/50"
+            >
+              <div className="w-full py-3 px-4 rounded-xl bg-gray-500/90 dark:bg-gray-700/90 hover:bg-gray-700/90 dark:hover:bg-gray-800/90 text-white text-md font-medium transition-all shadow-md relative overflow-hidden cursor-pointer flex items-center justify-center gap-2">
+                <AnimatePresence>
+                  {waveActive && (
+                    <motion.span
+                      initial={{ scale: 0, opacity: 1 }}
+                      animate={{ scale: 10, opacity: 0 }}
+                      transition={{ duration: 1 }}
+                      className="absolute inset-0 bg-white/20 rounded-full"
+                      style={{ originX: 0.5, originY: 0.5 }}
+                    />
+                  )}
+                </AnimatePresence>
+                <span className="relative z-10 flex items-center gap-2 font-mono">
+                  <LogIn size={18} />
+                  LOGIN
+                </span>
+              </div>
             </motion.button>
           </form>
           <div className="mt-6 left-0 right-0 text-center">

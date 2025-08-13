@@ -22,7 +22,10 @@ export default function Dock({
 
   return (
     <motion.div 
-      className="fixed bottom-12 left-1/2 transform -translate-x-1/2 flex gap-4 bg-gray-800/80 backdrop-blur-md p-3 px-4 rounded-2xl border border-gray-700 shadow-lg z-50"
+      className="fixed bottom-12 left-1/2 transform -translate-x-1/2 flex gap-4 bg-gray-900/20 backdrop-blur-3xl p-3 px-6 rounded-[24px] border border-white/10 shadow-xl z-50"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
     >
       {APPS.map((app) => {
         const Icon = app.iconComponent;
@@ -39,19 +42,19 @@ export default function Dock({
               onClick={() => onAppClick(app.id)}
               className="flex flex-col items-center transition-all duration-200"
             >
-              <div className={`p-2 rounded-full transition-all ${
-                isActive ? 'bg-gray-700/50' : 'bg-gray-700/30'
-              } ${isHovered ? 'ring-2 ring-white/20' : ''}`}>
+              <div className={`p-2 rounded-2xl transition-all ${
+                isActive ? 'bg-white/10' : 'bg-white/5'
+              } ${isHovered ? 'ring-1 ring-white/30' : ''}`}>
                 <Icon {...app.iconProps} className={`${
                   app.isFolder ? 'text-blue-600' : 'text-white'
-                }`} />
+                } drop-shadow-md`} />
               </div>
 
               {/* Active indicator */}
               {isActive && (
                 <motion.div 
                   layoutId="dock-active-indicator"
-                  className="absolute bottom-1 w-1 h-1 bg-white rounded-full"
+                  className="absolute bottom-1 w-1 h-1 bg-white/80 rounded-full"
                 />
               )}
             </motion.button>
@@ -63,7 +66,7 @@ export default function Dock({
                   initial={{ opacity: 0, y: 4 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 4 }}
-                  className="absolute top-full left-1/2 transform -translate-x-1/2 mt-3 text-xs text-white bg-gray-700/80 px-2 py-1 rounded shadow pointer-events-none whitespace-nowrap"
+                  className="absolute top-full left-1/2 transform -translate-x-1/2 mt-3 text-xs text-white bg-gray-800/90 backdrop-blur-md px-3 py-1.5 rounded-lg shadow-lg pointer-events-none whitespace-nowrap border border-white/10"
                 >
                   {app.title}
                 </motion.div>

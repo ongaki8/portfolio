@@ -778,14 +778,16 @@ Integrated key Shopify apps to enhance functionality and crafted a custom UI to 
 
           {/* Floating indicator */}
           <motion.div
-            className="mt-6 text-xs text-[#b3938f] dark:text-[#c4a39f] flex justify-center"
+            className="mt-6 text-xs text-[#b3938f] dark:text-[#c4a39f] flex justify-center cursor-pointer"
             animate={{
               y: [0, 5, 0],
               transition: { repeat: Infinity, duration: 2 }
             }}
           >
-            <ChevronsDown size={16} className="mr-1" />
-            <span>project link</span>
+            <a href="https://trendsetterbabe.com" className="flex items-center">
+              <ChevronsDown size={16} className="mr-1" />
+              <span>project link</span>
+            </a>
           </motion.div>
         </div>
       </div>
