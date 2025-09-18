@@ -5,6 +5,7 @@ import {
   Server, Terminal, GalleryVerticalEnd, Trash2
 } from 'lucide-react';
 import { AppConfig } from './types';
+import AIAssistantIcon from "../components/icons/AIAssistantIcon";
 
 export const APPS: AppConfig[] = [
   // ============ MAIN APPLICATIONS ============
@@ -62,6 +63,13 @@ export const APPS: AppConfig[] = [
     title: 'Trash', 
     iconComponent: Trash2,
     component: 'Trash',
+    iconProps: { size: 20 }
+  },
+  { 
+    id: 'ai-assistant', 
+    title: 'AI Assistant', 
+    iconComponent: AIAssistantIcon,
+    component: 'DesktopAIAssistant',
     iconProps: { size: 20 }
   },
 

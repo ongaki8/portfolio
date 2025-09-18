@@ -7,6 +7,7 @@ import Dock from './Dock';
 import MenuBar from './MenuBar';
 import Window from './Window';
 import { APPS, ALL_APPS } from '@/app/utils/constants';
+import DesktopAIAssistant from './DesktopAIAssistant';
 import DesktopEducation from '../shared/DesktopEducation';
 import DesktopContact from '../shared/DesktopContact';
 import DesktopExperience from '../shared/DesktopExperience'; 
@@ -151,6 +152,8 @@ export default function DesktopView({ apps, onAppClick, onLock, onRestart, onShu
         return <DesktopTrash />;
       case 'projects-folder':
         return <ProjectsFolder />;
+      case 'ai-assistant':
+        return <DesktopAIAssistant />;
       case 'portfolio-project':
       case 'web-project':
       case 'mobile-project':

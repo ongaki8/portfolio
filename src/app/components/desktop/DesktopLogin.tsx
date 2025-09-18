@@ -1,6 +1,6 @@
 // src/app/components/desktop/DesktopLogin.tsx
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Lock, User, Power, RotateCw, Loader2, LogIn } from 'lucide-react';
 import Image from 'next/image';
@@ -71,22 +71,39 @@ export default function DesktopLogin({ onUnlock, onRestart, onShutdown }: Deskto
     setTimeout(() => setWaveActive(false), 1000);
   };
 
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.3;
+    }
+  }, []);
+
   return (
     <div className="absolute inset-0 overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0 bg-cover bg-center"
-        style={{
-          backgroundImage: `url('/login.jpg'), url('/login-light.jpg')`,
-          backgroundBlendMode: 'normal',
-        }}>
+      <div className="absolute inset-0 z-0 overflow-hidden">
+      {/* Light mode background image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center dark:hidden"
+          style={{ backgroundImage: "url('/login-light.jpg')" }}
+        />
+
+        {/* Dark mode background video */}
+        <video
+          ref={videoRef}
+          className="absolute inset-0 w-full h-full object-cover hidden dark:block"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src="/dark_mode.mp4" type="video/mp4" />
+          <img src="/login.jpg" alt="Dark mode background" />
+        </video>
+
+        {/* Overlay */}
         <div className="absolute inset-0 bg-black/20 dark:bg-black/30 backdrop-blur-xs dark:backdrop-blur-sm" />
-        <style jsx>{`
-          @media (prefers-color-scheme: light) {
-            div[style*="/login.jpg"] {
-              background-image: url('/login-light.jpg') !important;
-            }
-          }
-        `}</style>
       </div>
 
       {/* Loading Overlay */}
